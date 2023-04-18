@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.calculator{
+    padding: 20px 0;
+}
+
+.calculator, .nutrient-profile, .recipe-data{
+    padding: 40px 0;
+}
+
+.calculator h3{
+    margin-bottom: 6px;
+}
+
+.calculator select, .calculator input{
+    font-family: 'Montserrat',sans-serif;
+    box-shadow: 0 3px 3px -2px rgb(39 44 51 / 10%), 0 3px 4px 0 rgb(39 44 51 / 4%), 0 1px 8px 0 rgb(39 44 51 / 2%);
+    background-color: #dddddd4d;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    /*font-size: 16px;*/
+}
+
+.calculator select:focus, .calculator input:focus{
+    outline: none;
+}
+.calculator .select-ingredient .select-section{
+
+}
+
+.button{
+    font-family: 'Montserrat',sans-serif;
+    padding: 8px 12px;
+    border: none;
+    background-color: #2eb035;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    margin: 6px 0;
+    cursor: pointer;
+}
+
+.table {
+    overflow-x: scroll;
+}
+
+.calculator table{
+    width: 100%;
+}
+
+.calculator table th{
+    text-align: left;
+}
+
+.calculator table td, .calculator table th{
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px 10px 0;
+    min-width: 80px;
+}
+
+.calculator table td{
+    padding-right: 30px;
+}
+
+.calculator .calculations > div{
+    max-width: 300px;
+}
+
+.calculator .calculations > div input{
+    margin-bottom: 6px;
+}
+
+.yield-factor{
+    font-weight: 600;
+}
+
+.home{
+    background-position: center;
+    background-size: cover;
+    background-color: #f1f6f9;
+    background-repeat: no-repeat;
+}
+
+.search-widget{
+
+}
+
+.hero-text .search-widget{
+    /*max-width: 400px;*/
+    margin: auto;
+    box-shadow: 0 3px 3px -2px rgb(39 44 51 / 10%), 0 3px 4px 0 rgb(39 44 51 / 4%), 0 1px 8px 0 rgb(39 44 51 / 2%);
+}
+
+.search-widget button{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: var(--white);
+    background-color: var(--primary-color);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.search-widget button:hover {
+    color: var(--white);
+    background-color: var(--secondary-color);
+}
+
+.hero-text input{
+    font-size: 16px;
+    /*font-weight: 700;*/
+    line-height: 1.3;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+    /*color: white;*/
+    /*background-color: var(--primary-color);*/
+    padding: 16px 36px;
+    /*border-radius: 35px;*/
+    position: relative;
+    z-index: 1;
+    /*border: 1px solid transparent;*/
+}
+
+@media (min-width: 768px) {
+    .hero-text input {
+        padding: 36px;
+    }
+}
+
+
+.hero-text input:focus{
+    /*color: white;*/
+}
+
+
+.navbar-inner img{
+    max-height:60px;
+    padding: 5px 0;
+}
+@media (min-width: 1200px) {
+    .navbar-inner img{
+        max-height:80px;
+        padding: 10px 0;
+    }
+}
+
+.secondary-text{
+    font-size: 20px;
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
+.min-w-75{
+    min-width: 75px;
+}
+
+/* Video Post on Home Page */
+.video-post .post-thumbnail {
+    position: relative;
+    z-index: 2;
+}
+
+.video-post .post-thumbnail::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: var(--secondary-color);
+    opacity: 0.55;
+}
+
+.video-post .video-popup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    background-color: var(--white);
+    border-radius: 50%;
+    z-index: 4;
+}
+
+.video-post .video-popup::before,
+.video-post .video-popup::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: var(--white);
+    opacity: 0.1;
+    height: 100px;
+    width: 100px;
+    overflow-x: -1;
+    border-radius: 50%;
+}
+
+.video-post .video-popup::before {
+    width: 130px;
+    height: 130px;
+}
+
+.about-section{
+    background-color: #001d23;
+    color: white;
+}
+
+.about-section h2.title{
+    color: white;
+}
+
+.post-thumb{
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
