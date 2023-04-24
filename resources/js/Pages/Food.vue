@@ -1,73 +1,39 @@
 <template>
     <app-layout>
-        <!--====== Page Title Start ======-->
-<!--        <section class="page-header image-placeholder"
-                 :style="{backgroundImage:`url(${fileUrl(food.data.group.image)})`}"
-        >
-            <div class="">
-                <div class="">
-                    <div class="title">
-
-&lt;!&ndash;                        <span>{{food.data.item}}</span>&ndash;&gt;
-&lt;!&ndash;                        <span>Code: {{food.data.code}}</span>&ndash;&gt;
+        <div class="page-top style2 blackish opc7">
+            <div class="fixed-bg2" :style="{ backgroundImage:`url(${fileUrl(food.data.group.image)})` }"></div>
+            <div class="container">
+                <div class="page-title">
+                    <div class="pg-tl">
+                        <h1 itemprop="headline">{{food.data.item}}</h1>
                     </div>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a :href="route('home')">Home</a></li>
+                        <li class="breadcrumb-item"><a :href="route('composition.table')">Composition Table</a></li>
+                        <li class="breadcrumb-item active">Food Details</li>
+                    </ol>
                 </div>
             </div>
-        </section>-->
-        <!--====== Page Title Start ======-->
+        </div><!-- Page Top -->
 
-        <!--====== Page Title End ======-->
 
         <!--====== Search Details Area Start ======-->
-        <section class="container">
-            <div class="food-item">
-<!--                <div class="image-placeholder"
-                     :style="{backgroundImage:`url(${fileUrl(food.data.group.image)})`}"
-                ></div>-->
-                <img :src="fileUrl(food.data.group.image)" alt="">
-                <div class="heading">
-                    <div class="title">{{food.data.item}}</div>
-                    <span class="group">{{food.data.group.name}}</span>
-                </div>
-            </div>
-
-            <div class="">
+        <section class="block">
+            <div class="container">
                 <div class="">
-<!--                    <div class="">
-                        <div class="blog-sidebar">
-                            <div class="widget search-widget">
-                                <h4 class="widget-title">Search Here</h4>
-                                <form :action="route('search')" method="get">
-                                    <input name="query" type="text" placeholder="Search for food" :value="query">
-                                    <button type="submit"><i class="fas fa-search"></i></button>
-                                </form>
-                            </div>
-&lt;!&ndash;                            <div class="widget category-widget">
-                                <h4 class="widget-title">Food Groups</h4>
-                                <ul>
-                                    <li v-for="(group,index) in groups.data"
-                                    :key="index">
-                                        <a href="#">{{ group.name }} <i class="far fa-angle-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>&ndash;&gt;
-                        </div>
-                    </div>-->
                     <div class="">
                         <div class="bg-white">
 
-
-
-<!--
-                            <h3 class="title">{{food.data.item}}</h3>
-                            <div>{{food.data.group.name}} </div>
--->
-
                             <div class="">
-                                <table  class="w-full">
-                                    <tr class="border-b">
+                                <table  class="food-details w-full">
+<!--                                    <tr class="border-b">
                                         <th class="text-left p-2">Item</th>
                                         <th class="text-left p-2">Value</th>
+                                    </tr>-->
+
+                                    <tr class="border-b border-t">
+                                        <td>Group</td>
+                                        <td class="text-left px-2">{{ food.data.group.name }}</td>
                                     </tr>
 
                                     <tr class="border-b">
@@ -388,7 +354,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    name: "Search",
+    name: "Food",
     props:['query','food','groups'],
     components: {AppLayout}
 

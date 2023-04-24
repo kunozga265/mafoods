@@ -12,33 +12,17 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Leckerli+One&display=swap" rel="stylesheet">
 
-{{--    <link href="{{ asset('/css/main.css') }}" rel="stylesheet"></link>--}}
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet"></link>
     <script src="{{ mix('/js/app.js') }}" defer></script>
-    <script src="{{ asset('/js/uikit.js') }}" defer></script>
 
-    <!--====== Favicon Icon ======-->
-{{--    <link rel="shortcut icon" href="assets/img/favicon.ico" type="img/png" />--}}
-    <!--====== Animate Css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/animate.min.css')}}">
-    <!--====== Bootstrap css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}"></link>
-    <!--====== Fontawesome css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}"></link>
-    <!--====== Flaticon css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}"></link>
-    <!--====== Slick Css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/slick.min.css')}}"></link>
-    <!--====== Lity Css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/lity.min.css')}}"></link>
-    <!--====== Main css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}"></link>
-    <!--====== Responsive css ======-->
-    <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}"></link>
 
-    <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/material-icons.css') }}">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets_r/css/bootstrap.min.css')}}"></link><!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets_r/css/icons.css')}}"></link><!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets_r/css/style.css')}}"></link><!-- Style -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets_r/css/main.css')}}"></link><!-- Style -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets_r/css/responsive.css')}}"></link><!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets_r/css/color.css')}}"></link><!-- Color -->
 
     @inertiaHead
     @routes
@@ -48,22 +32,16 @@
 
 @inertia
 
-
-<!--====== jquery js ======-->
-<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="{{asset('assets/js/jquery.min.js')}}"></script>
-<!--====== Bootstrap js ======-->
-<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<!--====== Inview js ======-->
-<script src="{{asset('assets/js/jquery.inview.min.js')}}"></script>
-<!--====== Slick js ======-->
-<script src="{{asset('assets/js/slick.min.js')}}"></script>
-<!--====== Lity js ======-->
-<script src="{{asset('assets/js/lity.min.js')}}"></script>
-<!--====== Wow js ======-->
-<script src="{{asset('assets/js/wow.min.js')}}"></script>
-<!--====== Main js ======-->
-<script src="{{asset('assets/js/main.js')}}"></script>
+<!-- Scripts -->
+<script src="{{asset('assets_r/js/jquery.min.js')}}" type="text/javascript"></script><!-- jQuery -->
+<script src="{{asset('assets_r/js/bootstrap.min.js')}}" type="text/javascript"></script><!-- Bootstrap -->
+<script src="{{asset('assets_r/js/owl.carousel.min.js')}}" type="text/javascript"></script><!-- Owl Carousel -->
+<script src="{{asset('assets_r/js/select2.full.min.js')}}" type="text/javascript"></script><!-- Select2 -->
+<script src="{{asset('assets_r/js/slim-scrollbar.min.js')}}" type="text/javascript"></script><!-- Scroll Bar -->
+<script src="{{asset('assets_r/js/jquery.downCount.js')}}" type="text/javascript"></script><!-- Down Count -->
+<script src="{{asset('assets_r/js/isotope.min.js')}}" type="text/javascript"></script><!-- Isotope -->
+<script src="{{asset('assets_r/js/isotope-int.js')}}" type="text/javascript"></script><!-- Isotope -->
+<script src="{{asset('assets_r/js/script.js')}}" type="text/javascript"></script><!-- Custom -->
 
 </body>
 </html>

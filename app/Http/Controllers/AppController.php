@@ -30,6 +30,17 @@ class AppController extends Controller
         ]);
     }
 
+    public function recipeCalculator()
+    {
+        $groups=Group::all();
+        $foods=Food::orderBy('group_id','asc')->get();
+        return Inertia::render('RecipeCalculator',[
+            'groups'    => GroupResource::collection($groups),
+            'foods'    => FoodResource::collection($foods),
+
+        ]);
+    }
+
     public function search(Request $request)
     {
         $query = $request->query('query');
@@ -50,5 +61,20 @@ class AppController extends Controller
             'foods'     => FoodResource::collection($foods),
             'query'     => ucfirst($query)
         ]);
+    }
+
+    public function projectOverview()
+    {
+        return Inertia::render("ProjectOverview");
+    }
+
+    public function faqs()
+    {
+        return Inertia::render("FAQS");
+    }
+
+    public function contactUs()
+    {
+        return Inertia::render("ContactUs");
     }
 }

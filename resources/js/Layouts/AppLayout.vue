@@ -1,135 +1,219 @@
 <template>
     <div>
+<!--        <div class="pageloader">-->
+<!--            <div class="loader">-->
+<!--                <div class="loader-inner ball-scale-multiple">-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>&lt;!&ndash; Pageloader &ndash;&gt;-->
 
-        <!-- Page Content -->
-        <main class="relative">
-            <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-            <![endif]-->
-
-            <!--====== Header Start ======-->
-            <header class="site-header sticky-header transparent-header topbar-transparent">
-                <div class="navbar-wrapper">
-                    <div class="">
-                        <div class="navbar-inner justify-content-between">
-
-                            <div class="flex" >
-                                <div class="navbar-extra d-flex align-items-center">
-                                    <!--                                <a href="events.html" class="main-btn nav-btn d-none d-sm-inline-block">
-                                                                        Donate Now <i class="far fa-arrow-right"></i>
-                                                                    </a>-->
-
-                                </div>
-                                <div><a :href="route('home')"><img :src="fileUrl('images/usaid-logo.png')" alt="USAID"></a></div>
-                                <div><a :href="route('home')"><img :src="fileUrl('images/luanar-logo.png')" alt="LUANAR"></a></div>
-
-<!--                                <div class="d-flex align-items-center">
-                                    <div><a :href="route('home')"><img :src="fileUrl('images/luanar-logo.png')" alt="LUANAR"></a></div>
-                                    <div class="dot">.</div>
-                                    <div class="title">Ma Foods</div>
-                                </div>-->
-                            </div>
-                            <div class="nav-menu">
-                                <ul>
-                                    <li class="current">
-                                        <a :href="route('home')">Home</a>
-                                    </li>
-                                    <li>
-                                        <a :href="route('home')">Composition Table</a>
-                                    </li>
-                                    <li>
-                                        <a :href="route('home')">Recipe Calculator</a>
-                                    </li>
-                                    <li>
-                                        <a :href="route('home')">About Us</a>
-                                        <ul class="submenu">
-                                            <li><a href="#">Project Details</a></li>
-                                            <li><a href="#">Frequently Asked Questions</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a :href="route('home')">Contact</a>
-                                    </li>
+        <main>
+            <div class="web-lyut">
+                <header class="stick style2">
+                    <div class="topbar1 style2">
+                        <div class="container">
+                            <ul class="tb-br-cnt1">
+                                <li><i class="fa fa-envelope-square"></i> <a href="#" title="" itemprop="url">mafoods@luanar.ac.mw</a></li>
+                                <li><i class="fa fa-phone"></i> <span>Call Us At:</span> +265 882 85 60 52</li>
+                            </ul>
+<!--                            <a class="btn2 dnt-pp" href="#" title="" itemprop="url">Action Button</a>-->
+                            <div class="tb-br-scl2">
+                                <strong>Follow Us At:</strong>
+                                <ul class="scl-shr1">
+                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a></li>
+<!--                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-flickr"></i></a></li>-->
+<!--                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-skype"></i></a></li>-->
+<!--                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>-->
                                 </ul>
                             </div>
-                            <a href="#" class="nav-toggler">
-                                <span></span>
-                            </a>
+                        </div>
+                    </div><!-- Topbar 1 -->
+                    <div class="menu-sec1">
+                        <div class="container">
+                            <div class="logo">
+                                <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods.svg')" alt="" itemprop="image" /></a></h1>
+                            </div><!-- Logo -->
+                            <nav>
+                                <div>
+                                    <ul>
+                                        <li><a :href="route('home')" title="" itemprop="url">Home</a></li>
+                                        <li><a :href="route('composition.table')" title="" itemprop="url">Composition Table</a></li>
+                                        <li><a :href="route('recipe.calculator')" title="" itemprop="url">Recipe Calculator</a></li>
+                                        <li><a :href="route('news')" title="" itemprop="url">News</a></li>
+                                        <li class="menu-item-has-children"><a href="#" title="" itemprop="url">About Us</a>
+                                            <ul>
+                                                <li><a :href="route('project-overview')" title="" itemprop="url">Project Overview</a></li>
+<!--                                                <li><a :href="route('home')" title="" itemprop="url">Project Overview</a></li>-->
+                                                <li><a :href="route('faqs')" title="" itemprop="url">Frequently Asked Questions</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </nav><!-- Nav -->
+                        </div>
+                    </div><!-- Menu Sec1 -->
+                </header><!-- Header -->
 
+                <div class="rsp-hdr">
+                    <div class="rs-lg-br">
+                        <div class="logo">
+                            <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods.svg')" alt="" itemprop="image" /></a></h1>
+                        </div>
+                        <span class="rs-mu-btn"><i class="fa fa-list"></i></span>
+                    </div>
+                    <div class="rs-mnu">
+                        <span class="rs-mnu-cls-btn"><i class="fa fa-close"></i></span>
+                        <ul>
+                            <li><a :href="route('home')" title="" itemprop="url">Home</a></li>
+                            <li><a :href="route('composition.table')" title="" itemprop="url">Composition Table</a></li>
+                            <li><a :href="route('recipe.calculator')" title="" itemprop="url">Recipe Calculator</a></li>
+                            <li><a :href="route('news')" title="" itemprop="url">News</a></li>
+                            <li class="menu-item-has-children"><a href="#" title="" itemprop="url">About Us</a>
+                                <ul>
+                                    <li><a :href="route('project-overview')" title="" itemprop="url">Project Overview</a></li>
+                                    <li><a :href="route('faqs')" title="" itemprop="url">Frequently Asked Questions</a></li>
+                                </ul>
+                            </li>
+                            <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
+                        </ul>
+                    </div><!-- Responsive Menu -->
+                </div><!-- Responsive Header -->
+
+                <slot></slot>
+
+                <section>
+                    <div class="block less-spacing">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <div class="sponsors">
+                                        <div class="sponsor-box">
+                                            <a href="#" title="" itemprop="url"><img :src="fileUrl('images/usaid-logo.png')" alt="" itemprop="image" /></a>
+                                        </div>
+                                        <div class="sponsor-box">
+                                            <a href="#" title="" itemprop="url"><img :src="fileUrl('images/luanar-logo.png')" alt="" itemprop="image" /></a>
+                                        </div>
+                                    </div><!-- Sponsor -->
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="mobile-menu-panel">
-                    <div class="panel-logo">
-<!--                        <a :href="route('home')">Ma Foods</a>-->
+                </section>
+
+                <footer>
+                    <div class="block dark">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <div class="footer-data remove-ext65">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-lg-5">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="widget">
+                                                            <h4 itemprop="headline" class="widget-title1">About <i>MAFOODS</i></h4>
+                                                            <div class="widget-data">
+                                                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>
+                                                            </div>
+                                                        </div><!-- Widget -->
+                                                    </div>
+<!--                                                    <div class="col-md-6 col-sm-6 col-lg-5">
+                                                        <div class="widget">
+                                                            <h4 itemprop="headline" class="widget-title1">Recent Blog</h4>
+                                                            <div class="widget-data">
+                                                                <div class="rcnt-pst">
+                                                                    <a href="blog-detail.html" title="" itemprop="url"><img src="images/resource/rcnt-img1.jpg" alt="" itemprop="image" /></a>
+                                                                    <div class="rcnt-pst-inf">
+                                                                        <h2 itemprop="headline"><a href="blog-detail.html" title="" itemprop="url">New Life For The Abandoned</a></h2>
+                                                                        <span class="date"><i class="fa fa-calendar-check-o"></i> November 25,2016</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rcnt-pst">
+                                                                    <a href="blog-detail.html" title="" itemprop="url"><img src="images/resource/rcnt-img2.jpg" alt="" itemprop="image" /></a>
+                                                                    <div class="rcnt-pst-inf">
+                                                                        <h2 itemprop="headline"><a href="blog-detail.html" title="" itemprop="url">Love poor People. Share Fund</a></h2>
+                                                                        <span class="date"><i class="fa fa-calendar-check-o"></i> November 25,2016</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>&lt;!&ndash; Widget &ndash;&gt;
+                                                    </div>-->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 col-lg-7">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="widget">
+                                                            <h4 itemprop="headline" class="widget-title1">Useful Links</h4>
+                                                            <div class="widget-data">
+                                                                <ul>
+                                                                    <li><a :href="route('home')" title="" itemprop="url">Home</a></li>
+                                                                    <li><a :href="route('composition.table')" title="" itemprop="url">Composition Table</a></li>
+                                                                    <li><a :href="route('home')" title="" itemprop="url">Recipe Calculator</a></li>
+                                                                    <li><a :href="route('news')" title="" itemprop="url">News</a></li>
+                                                                    <li><a :href="route('project-overview')" title="" itemprop="url">Project Overview</a></li>
+                                                                    <li><a :href="route('faqs')" title="" itemprop="url">FAQs</a></li>
+                                                                    <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div><!-- Widget -->
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-lg-6">
+                                                        <div class="widget">
+                                                            <h4 itemprop="headline" class="widget-title1">Contact Us</h4>
+                                                            <div class="widget-data">
+                                                                <ul class="cnt-lst">
+                                                                    <li class="addr">
+                                                                        <i class="fa fa-home"></i>
+                                                                        <strong>Address:</strong>
+                                                                        <span>123 Luanar Bunda Campus</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>Call:</strong>
+                                                                        <span>+265 882 85 60 52</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <strong>Email:</strong>
+                                                                        <a href="#" title="" itemprop="url">mafoods@luanar.ac.mw</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div><!-- Widget -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- Footer Data -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="panel-menu">
-                        <li class="current">
-                            <a :href="route('home')">Home</a>
-                        </li>
-                        <li>
-                            <a :href="route('home')">Composition Table</a>
-                        </li>
-                        <li>
-                            <a :href="route('home')">Recipe Calculator</a>
-                        </li>
-                        <li>
-                            <a :href="route('home')">About Us</a>
-                            <ul class="submenu">
-                                <li><a href="#">Project Details</a></li>
-                                <li><a href="#">Frequently Asked Questions</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a :href="route('home')">Contact</a>
-                        </li>
-                    </ul>
-                    <a href="#" class="panel-close">
-                        <i class="fal fa-times"></i>
-                    </a>
-                </div>
-            </header>
-            <!--====== Header End ======-->
+                </footer><!-- Footer -->
 
-            <slot></slot>
-
-            <!--====== Footer Start ======-->
-            <footer class="site-footer">
-                <div class="footer-content-area">
+                <div class="bottom-bar">
                     <div class="container">
-                        <div class="copyright-area">
-                            <p class="copyright-text">© 2023 <a href="#">Mafoods</a>. All Rights Reserved</p>
+                        <div class="copyright">
+                            <p itemprop="description">Copyright &copy; 2023 - <a href="#" title="" itemprop="url">MAFOODS.</a> All Rights Reserved</p>
                         </div>
                     </div>
-                </div>
-            </footer>
-            <!--====== Footer End ======-->
+                </div><!-- Bottom Bar -->
+
+                <div class="hdr-srch">
+                    <span class="srch-cls"><i class="fa fa-close"></i></span>
+                    <form>
+                        <input type="text" placeholder="Search Here..." />
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div><!-- Header Search -->
+
+            </div>
         </main>
 
-<!--        <nav class="bg-white ">
-            <div class=" ">
-                <div class="uk-position-z-index" data-uk-navbar>
-                    <div class="uk-navbar-left">
-                        <a class="uk-navbar-item uk-logo" href="#">
-                            <img :src="fileUrl('images/weblog.png')" alt="">
-                        </a>
-                        &lt;!&ndash;                        <ul class="uk-navbar-nav uk-visible@m uk-margin-large-left">
-                                                    <li class="uk-active"><a href="#">Home</a></li>
-                                                </ul>&ndash;&gt;
-                    </div>
-&lt;!&ndash;                    <div class="uk-navbar-right">&ndash;&gt;
-&lt;!&ndash;                        <div>&ndash;&gt;
-&lt;!&ndash;                            <a class="uk-navbar-toggle" data-uk-search-icon href="#"></a>&ndash;&gt;
-&lt;!&ndash;                            <div class="uk-drop uk-background-default" data-uk-drop="mode: click; pos: left-center; offset: 0">&ndash;&gt;
-&lt;!&ndash;                                <form class="uk-search uk-search-navbar uk-width-1-1">&ndash;&gt;
-&lt;!&ndash;                                    <input class="uk-search-input uk-text-demi-bold" type="search" placeholder="Search..." autofocus>&ndash;&gt;
-&lt;!&ndash;                                </form>&ndash;&gt;
-&lt;!&ndash;                            </div>&ndash;&gt;
-&lt;!&ndash;                        </div>&ndash;&gt;
-&lt;!&ndash;                    </div>&ndash;&gt;
-                </div>
-            </div>
-        </nav>-->
     </div>
 </template>
 

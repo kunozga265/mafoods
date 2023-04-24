@@ -2095,42 +2095,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Calculator.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Calculator.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Home",
-  components: {
-    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {
-    return {
-      selectedIngredient: 'Carrot',
-      ingredients: []
-    };
-  },
-  methods: {
-    addIngredient: function addIngredient() {
-      this.ingredients.push(this.selectedIngredient);
-    },
-    removeIngredient: function removeIngredient(index) {
-      this.ingredients.splice(index, 1);
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/CompositionTable.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/CompositionTable.vue?vue&type=script&lang=js& ***!
@@ -2152,7 +2116,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      search: ""
+      search: "",
+      selectedGroup: 0,
+      showMore: false
     };
   },
   computed: {
@@ -2160,6 +2126,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var foods = this.foods.data;
+
+      if (this.selectedGroup !== 0) {
+        foods = foods.filter(function (food) {
+          return food.group.id === _this.selectedGroup;
+        });
+      }
 
       if (this.search.length !== 0) {
         foods = foods.filter(function (food) {
@@ -2169,7 +2141,129 @@ __webpack_require__.r(__webpack_exports__);
 
       return foods;
     }
+  },
+  methods: {
+    slug: function slug(str) {
+      return str.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+    },
+    foodCount: function foodCount(id) {
+      var foods = this.foods.data;
+
+      if (id != null) {
+        foods = foods.filter(function (food) {
+          return food.group.id === id;
+        });
+      }
+
+      return foods.length;
+    },
+    getRandomImage: function getRandomImage() {
+      var group = this.groups.data[Math.floor(Math.random() * this.groups.data.length)];
+      return this.fileUrl(group.image);
+    }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ContactUs.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ContactUs.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ContactUs",
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/FAQS.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/FAQS.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "FAQS",
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      selectedFaq: 0,
+      faqs: [{
+        question: "Where can l find Nutrient Composition of Commonly Consumed Malawian Foods?",
+        answer: "<p>Nutrient composition of Malawian Foods is available from the Malawian Food Database (MAFOOD). The data can be accessed in an electronic PDF format in the following websites Lilongwe University of Agriculture and Natural Resources, Tufts and Department of Nutrition, HIV and AIDS. The International Langual TM Food Composition Database System AFRO-FOODS page</p>" + "<ul>" + "<li>Lilongwe University of Agriculture and Natural Resources, Tufts and Department of Nutrition, HIV and AIDS</li>" + "<li>The International Langual TM Food Composition Database System</li>" + "<li>AFRO-FOODS page</li></ul>"
+      }, {
+        question: "Where can l get the information on the reference source for a specific nutrient and food item used in the database?",
+        answer: "<p>The reference source for each food item and nutrient of the Malawian Food Database are recorded in the reference database.</p>"
+      }, {
+        question: "Are the values in the MAFOOD of Malawian Origin?",
+        answer: "<p>NO, not all foods values are from Malawi. 63% Malawi, 30% South Africa,4% West Africa, 2% United States of America, 1% Mozambique and 23% Recipes.</p>"
+      }, {
+        question: "How is energy value of the food items in the MAFOOD calculated?",
+        answer: "<p>The energy values were calculated using the following formulas: Calculated as:</p><p>Energy (kCal)= [Protein (g) × 4kcal] + [Fat (g) × 9kcal] + [Total Carbohydrate (g) × 4kcal]\n</p>"
+      }, {
+        question: "What is the difference between total carbohydrate and available carbohydrate?",
+        answer: "<p>Total Carbohydrate is the sum of all available carbohydrates plus dietary fibre whereas available carbohydrates includes sugars that are glycogenic and polysaccharides hydrolysed in the digestive tract of humans (Greenfield and Southgate, 2003).</p>"
+      }, {
+        question: "Do foods in the Malawian Food Database have salt added when calculating recipes?",
+        answer: "<p>The recipe foods (calculated) do not include salt as an ingredient except the processed foods where sodium and chloride are added during processing. </p>"
+      }, {
+        question: "What should I do if I don’t find a food item I am looking for in the Malawian Food Database?",
+        answer: "<p>If you have challenges finding the food item you want try to enter the food item in a different way, for example if you cannot find cassava flour try flour, cassava. There are a lot of foods available in the Malawian markets which you cannot find in the Malawian Food Database. As such if you feel that the food is commonly consumed by Malawians you are working with feel free to register that food by sending an email to ffhs@luanar.ac.mw and secretary@dnha.gov.mw </p>"
+      }, {
+        question: "What does ‘zero’ or ‘trace’ value mean?",
+        answer: "<p>The use of ‘zero’ means that any amount present is below the detection or quantification limits of the method of measurement used. " + "\nThe term trace value (“tr”) means that the nutrient is present in that food, but at such low levels that it cannot be adequately measured. A trace value can also be regarded as nutritionally insignificant as it is too small to be expressed in the unit of measurement used in the specific food database (Greenfield and Southgate, 2003)</p>"
+      }, {
+        question: "How many food groups are in the Malawian Food Database?",
+        answer: "<p>Eight (8) food groups are aligned according to Malawi food groups. Food items in the database are grouped into the following categories:\n" + "MW01_Staples\n" + "MW02_Legumes\n" + "MW03_Animal Foods\n" + "MW04_Vegetables\n" + "MW05_Fruits\n" + "MW06_Fats and Oils\n" + "MW07_Baby Foods\n" + "MW08_Miscellaneous\n</p>"
+      }, {
+        question: "How are food items described in the Malawian Food Database?",
+        answer: "<p>Food items are described using the following naming system: \n<strong>Food item, process state, English name, Scientific name, (local Malawi name) </strong>" + "\nFor deep fried food with fat absorption between 8 to 25 percent, a 10 percent uptake of fat was assumed (Dunford, n/d).</p>"
+      }, {
+        question: "How can I read the tables in the Database? ",
+        answer: "<p>There are three main Columns in the Nutrient Tables:\n" + "Column 1: The following information, presented as follows:</p>" + "<ul>" + "<li>The food group code (alphanumeric), separated by an underscore, followed by a four-digit food code number, appears in first row. e.g. MW01 represents the staples group; while 0003 represents the food item code\</li>" + "<li>The second row of first column, lists the food group name: e.g. Staples</li>" + "<li>The third row of first column, refers to the main reference source number for the nutrient composition of the food item: e.g. R44 refers to, Recipe 44; or number 2 refers to article number 2</li></ul>" + "<p>Column 2: The food item name is presented as a description of the food item, its process state, English name, scientific name, and (local Malawian name). E.g. Bread, wheat, brown, homemade \n</p>" + "<p>Column 3: lists nutrient values for 42 components. The full reference is listed in the References section. Values are presented per 100g edible portion.\n</p>" + "<p>Black font means the value is from original Malawian food product analytical data.\n</p>" + "<p>Blue font means the value was factored from a similar food item in another food composition database or scientific literature.\n</p>" + "<p>Component values in italics reports on crude values.\n</p>" + "<p>Square brackets [ ] mean compilers are not confident with value reported. \n</p>" + "<p>Round brackets ( ) indicate that the value reported is based on an assumption. \n</p>" + "<p>Curly brackets { } with an asterisk* means that the quality checks of Ash and some of the proximate did not add up, which is explainable due to the borrowing of data from matched sources. \n</p>" + "<p> Blank values equate to missing data, i.e. reliable information not found, or the information.\n</p>"
+      }, {
+        question: "What are limitations of food composition data?",
+        answer: "<ol><li>Limited coverage of foods" + "\nA database probably won't ever be finished. This is because there are so many foods available and new goods are always being introduced to the market. Information about nutrients in foods is not always readily available due to the high expense of analysis. According to the dietary habits of the local population, foods to be include in the national database should be prioritized for inclusion. Data from scientific literature, national food dietary surveys and publications on dietary intake and patters in Malawi formed a great part of data contribution to the priority food list. The Malawi Food Database is composed of food commonly used by Malawian.</li>" + "<li>Limited coverage of nutrients" + "The low number of nutrients (42) contained in a database is due in part to the expensive expense of food analysis as well as the high level of instrumentation and analytical expertise required. Even when nutrient values are taken from the databases of other nations, it is typical to find that certain nutrients are not covered entirely. The nutrients included also consider changes in dietary preferences throughout time. According to the needs stated by users and nutrients of public health significance, priority was given to recording certain nutrients in the Malawian Food Database </li></ol>"
+      }, {
+        question: "How do I estimate nutrient value of a food item based on recipe if the food item is not available in the database?",
+        answer: "<p>Guidelines on how to use a recipe calculation to estimate the nutrient content of a food item is given in the Recipe Calculations section of the electronic PDF FCT page 16.</p>"
+      }, {
+        question: "How do missing values affect interpretation of analysed dietary intake data?",
+        answer: "<p>You must be aware of any missing values in the food composition database as a user of data on food composition. Values that are missing should not be interpreted as zero. If a value is absent, it signifies that the nutrient is still unknown. Missing values should be noted or the results should be interpreted with the knowledge that missing values result in an underestimating of a person's or a population's nutritional intake.</p>" + "<p>It is customary to estimate values using other reference sources or extrapolating the values from comparable foods in order to decrease the amount of missing values in a food composition database. Estimated values that have been created by carefully interpreting data on related foods are permitted in nutritional studies as long as their usage is made explicit.</p>  "
+      }, {
+        question: "Can I use the Malawian food database in another format?",
+        answer: "<p>Before any copy of the Malawian food database is reproduced, a written request must be submitted to DNHA who will give permission to use the database. Even though the database may be used for educational purposes or research a request should be sent in writing forwarded to secretary@dnha.gov.mw</p>  "
+      }]
+    };
+  },
+  computed: {},
+  methods: {}
 });
 
 /***/ }),
@@ -2188,7 +2282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Search",
+  name: "Food",
   props: ['query', 'food', 'groups'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -2232,6 +2326,122 @@ __webpack_require__.r(__webpack_exports__);
     search: function search() {
       console.log("CLicked!");
       this.route('composition.table');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/News.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/News.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "News",
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/NewsDetails.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/NewsDetails.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "NewsDetails",
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  methods: {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ProjectOverview.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ProjectOverview.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ProjectOverview",
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/RecipeCalculator.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/RecipeCalculator.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "Home",
+  props: ['foods'],
+  components: {
+    AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      selectedIngredient: "-1",
+      ingredients: []
+    };
+  },
+  methods: {
+    addIngredient: function addIngredient() {
+      this.ingredients.push(this.selectedIngredient);
+    },
+    removeIngredient: function removeIngredient(index) {
+      this.ingredients.splice(index, 1);
     }
   }
 });
@@ -2310,376 +2520,423 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("main", {
-    staticClass: "relative"
+  return _c("div", [_c("main", [_c("div", {
+    staticClass: "web-lyut"
   }, [_c("header", {
-    staticClass: "site-header sticky-header transparent-header topbar-transparent"
+    staticClass: "stick style2"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "menu-sec1"
   }, [_c("div", {
-    staticClass: "navbar-wrapper"
-  }, [_c("div", {}, [_c("div", {
-    staticClass: "navbar-inner justify-content-between"
+    staticClass: "container"
   }, [_c("div", {
-    staticClass: "flex"
-  }, [_c("div", {
-    staticClass: "navbar-extra d-flex align-items-center"
-  }), _vm._v(" "), _c("div", [_c("a", {
+    staticClass: "logo"
+  }, [_c("h1", {
     attrs: {
-      href: _vm.route("home")
+      itemprop: "headline"
+    }
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/mafoods.svg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })])])]), _vm._v(" "), _c("nav", [_c("div", [_c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("home"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("composition.table"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Composition Table")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("recipe.calculator"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Recipe Calculator")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("news"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("News")])]), _vm._v(" "), _c("li", {
+    staticClass: "menu-item-has-children"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("About Us")]), _vm._v(" "), _c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("project-overview"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Project Overview")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("faqs"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Frequently Asked Questions")])])])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("contact-us"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Contact")])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "rsp-hdr"
+  }, [_c("div", {
+    staticClass: "rs-lg-br"
+  }, [_c("div", {
+    staticClass: "logo"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/mafoods.svg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })])])]), _vm._v(" "), _vm._m(1)]), _vm._v(" "), _c("div", {
+    staticClass: "rs-mnu"
+  }, [_vm._m(2), _vm._v(" "), _c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("home"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("composition.table"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Composition Table")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("recipe.calculator"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Recipe Calculator")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("news"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("News")])]), _vm._v(" "), _c("li", {
+    staticClass: "menu-item-has-children"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("About Us")]), _vm._v(" "), _c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("project-overview"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Project Overview")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("faqs"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Frequently Asked Questions")])])])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("contact-us"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Contact")])])])])]), _vm._v(" "), _vm._t("default"), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block less-spacing"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "sponsors"
+  }, [_c("div", {
+    staticClass: "sponsor-box"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
     }
   }, [_c("img", {
     attrs: {
       src: _vm.fileUrl("images/usaid-logo.png"),
-      alt: "USAID"
+      alt: "",
+      itemprop: "image"
     }
-  })])]), _vm._v(" "), _c("div", [_c("a", {
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "sponsor-box"
+  }, [_c("a", {
     attrs: {
-      href: _vm.route("home")
+      href: "#",
+      title: "",
+      itemprop: "url"
     }
   }, [_c("img", {
     attrs: {
       src: _vm.fileUrl("images/luanar-logo.png"),
-      alt: "LUANAR"
+      alt: "",
+      itemprop: "image"
     }
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "nav-menu"
-  }, [_c("ul", [_c("li", {
-    staticClass: "current"
-  }, [_c("a", {
-    attrs: {
-      href: _vm.route("home")
-    }
-  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: _vm.route("home")
-    }
-  }, [_vm._v("Composition Table")])]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: _vm.route("home")
-    }
-  }, [_vm._v("Recipe Calculator")])]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: _vm.route("home")
-    }
-  }, [_vm._v("About Us")]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: _vm.route("home")
-    }
-  }, [_vm._v("Contact")])])])]), _vm._v(" "), _vm._m(1)])])]), _vm._v(" "), _c("div", {
-    staticClass: "mobile-menu-panel"
+  })])])])])])])])]), _vm._v(" "), _c("footer", [_c("div", {
+    staticClass: "block dark"
   }, [_c("div", {
-    staticClass: "panel-logo"
-  }), _vm._v(" "), _c("ul", {
-    staticClass: "panel-menu"
-  }, [_c("li", {
-    staticClass: "current"
-  }, [_c("a", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "footer-data remove-ext65"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-7"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-6"
+  }, [_c("div", {
+    staticClass: "widget"
+  }, [_c("h4", {
+    staticClass: "widget-title1",
     attrs: {
-      href: _vm.route("home")
+      itemprop: "headline"
+    }
+  }, [_vm._v("Useful Links")]), _vm._v(" "), _c("div", {
+    staticClass: "widget-data"
+  }, [_c("ul", [_c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("home"),
+      title: "",
+      itemprop: "url"
     }
   }, [_vm._v("Home")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
-      href: _vm.route("home")
+      href: _vm.route("composition.table"),
+      title: "",
+      itemprop: "url"
     }
   }, [_vm._v("Composition Table")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
-      href: _vm.route("home")
+      href: _vm.route("home"),
+      title: "",
+      itemprop: "url"
     }
   }, [_vm._v("Recipe Calculator")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
-      href: _vm.route("home")
+      href: _vm.route("news"),
+      title: "",
+      itemprop: "url"
     }
-  }, [_vm._v("About Us")]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("li", [_c("a", {
+  }, [_vm._v("News")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
-      href: _vm.route("home")
+      href: _vm.route("project-overview"),
+      title: "",
+      itemprop: "url"
     }
-  }, [_vm._v("Contact")])])]), _vm._v(" "), _vm._m(3)])]), _vm._v(" "), _vm._t("default"), _vm._v(" "), _vm._m(4)], 2)]);
+  }, [_vm._v("Project Overview")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("faqs"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("FAQs")])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: _vm.route("contact-us"),
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Contact")])])])])])]), _vm._v(" "), _vm._m(4)])])])])])])])])]), _vm._v(" "), _vm._m(5), _vm._v(" "), _vm._m(6)], 2)])]);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("ul", {
-    staticClass: "submenu"
+  return _c("div", {
+    staticClass: "topbar1 style2"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("ul", {
+    staticClass: "tb-br-cnt1"
+  }, [_c("li", [_c("i", {
+    staticClass: "fa fa-envelope-square"
+  }), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("mafoods@luanar.ac.mw")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-phone"
+  }), _vm._v(" "), _c("span", [_vm._v("Call Us At:")]), _vm._v(" +265 882 85 60 52")])]), _vm._v(" "), _c("div", {
+    staticClass: "tb-br-scl2"
+  }, [_c("strong", [_vm._v("Follow Us At:")]), _vm._v(" "), _c("ul", {
+    staticClass: "scl-shr1"
   }, [_c("li", [_c("a", {
     attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Project Details")])]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Frequently Asked Questions")])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("a", {
-    staticClass: "nav-toggler",
-    attrs: {
-      href: "#"
-    }
-  }, [_c("span")]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("ul", {
-    staticClass: "submenu"
-  }, [_c("li", [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Project Details")])]), _vm._v(" "), _c("li", [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Frequently Asked Questions")])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("a", {
-    staticClass: "panel-close",
-    attrs: {
-      href: "#"
+      href: "#",
+      title: "",
+      itemprop: "url",
+      target: "_blank"
     }
   }, [_c("i", {
-    staticClass: "fal fa-times"
+    staticClass: "fa fa-facebook"
+  })])]), _vm._v(" "), _c("li", [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url",
+      target: "_blank"
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-twitter"
+  })])])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("span", {
+    staticClass: "rs-mu-btn"
+  }, [_c("i", {
+    staticClass: "fa fa-list"
   })]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("footer", {
-    staticClass: "site-footer"
-  }, [_c("div", {
-    staticClass: "footer-content-area"
-  }, [_c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "copyright-area"
-  }, [_c("p", {
-    staticClass: "copyright-text"
-  }, [_vm._v("© 2023 "), _c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Mafoods")]), _vm._v(". All Rights Reserved")])])])])]);
-}];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Calculator.vue?vue&type=template&id=0a9d206b&scoped=true&":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Calculator.vue?vue&type=template&id=0a9d206b&scoped=true& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
+  return _c("span", {
+    staticClass: "rs-mnu-cls-btn"
+  }, [_c("i", {
+    staticClass: "fa fa-close"
+  })]);
+}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("app-layout", [_c("div", {
-    staticClass: "uk-container"
+  return _c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-5"
   }, [_c("div", {
-    staticClass: "uk-border-rounded-large uk-background-top-center uk-background-cover uk-background-norepeat uk-light uk-inline uk-overflow-hidden uk-width-1-1",
-    style: {
-      backgroundImage: "url(".concat(_vm.fileUrl("images/header.jpg"), ")")
-    }
+    staticClass: "row"
   }, [_c("div", {
-    staticClass: "uk-position-cover uk-header-overlay"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "uk-position-relative",
-    attrs: {
-      "data-uk-grid": ""
-    }
+    staticClass: "col-sm-12"
   }, [_c("div", {
-    staticClass: "uk-width-1-2@m uk-flex uk-flex-middle"
-  }, [_c("div", {
-    staticClass: "uk-padding-large uk-padding-remove-right"
-  }, [_c("h1", {
-    staticClass: "uk-heading-small uk-margin-remove-top"
-  }, [_vm._v("Recipe Nutrition Calculator")])])]), _vm._v(" "), _c("div", {
-    staticClass: "uk-width-expand@m"
-  })])])]), _vm._v(" "), _c("section", {
-    staticClass: "uk-container"
-  }, [_c("div", {
-    staticClass: "calculator"
-  }, [_c("div", {
-    staticClass: "select-ingredient"
-  }, [_c("h3", [_vm._v("Select Ingredient")]), _vm._v(" "), _c("div", {
-    staticClass: "select-section"
-  }, [_c("div", [_c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.selectedIngredient,
-      expression: "selectedIngredient"
-    }],
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.selectedIngredient = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
-      }
-    }
-  }, [_c("option", {
+    staticClass: "widget"
+  }, [_c("h4", {
+    staticClass: "widget-title1",
     attrs: {
-      value: "Carrot"
+      itemprop: "headline"
     }
-  }, [_vm._v("Carrot")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("About "), _c("i", [_vm._v("MAFOODS")])]), _vm._v(" "), _c("div", {
+    staticClass: "widget-data"
+  }, [_c("p", {
     attrs: {
-      value: "Beans"
+      itemprop: "description"
     }
-  }, [_vm._v("Beans")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "Potatoes"
-    }
-  }, [_vm._v("Potatoes")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "Tomatoes"
-    }
-  }, [_vm._v("Tomatoes")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "Rice"
-    }
-  }, [_vm._v("Rice")])])]), _vm._v(" "), _c("div", [_c("button", {
-    staticClass: "button",
-    on: {
-      click: _vm.addIngredient
-    }
-  }, [_vm._v("Select")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "nutrient-profile"
-  }, [_c("h3", [_vm._v("Nutrient Profile")]), _vm._v(" "), _c("div", {
-    staticClass: "table"
-  }, [_c("div", {}, [_c("table", {}, [_c("thead", {}, [_c("tr", [_c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        Ingredient\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        Cooking Method\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        Weight (before)\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        Weight (after)\n                                    ")])])]), _vm._v(" "), _c("tbody", _vm._l(_vm.ingredients, function (ingredient, index) {
-    return _c("tr", {
-      key: index
-    }, [_c("td", [_c("i", {
-      staticClass: "mdi mdi-close-circle cursor",
-      on: {
-        click: function click($event) {
-          return _vm.removeIngredient(index);
-        }
-      }
-    })]), _vm._v(" "), _c("td", [_vm._v("\n                                        " + _vm._s(ingredient) + "\n                                    ")]), _vm._v(" "), _c("td", [_c("select", {}, [_c("option", {
-      attrs: {
-        value: "Raw"
-      }
-    }, [_vm._v("Raw")]), _vm._v(" "), _c("option", {
-      attrs: {
-        value: "Boiled"
-      }
-    }, [_vm._v("Boiled")]), _vm._v(" "), _c("option", {
-      attrs: {
-        value: "Dry Heat"
-      }
-    }, [_vm._v("Dry Heat")]), _vm._v(" "), _c("option", {
-      attrs: {
-        value: "Toasted"
-      }
-    }, [_vm._v("Toasted")]), _vm._v(" "), _c("option", {
-      attrs: {
-        value: "Baked"
-      }
-    }, [_vm._v("Baked")])])]), _vm._v(" "), _c("td", [_c("input", {
-      attrs: {
-        type: "text",
-        placeholder: "E.g. 120"
-      }
-    })]), _vm._v(" "), _c("td", [_c("input", {
-      attrs: {
-        type: "text",
-        placeholder: "E.g. 140"
-      }
-    })])]);
-  }), 0)])])])]), _vm._v(" "), _c("div", {
-    staticClass: "recipe-data"
-  }, [_c("h3", [_vm._v("Recipe Data")]), _vm._v(" "), _c("div", {
-    staticClass: "table"
-  }, [_c("div", {}, [_c("table", {}, [_c("thead", {}, [_c("tr", [_c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        Ingredient\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        PROTCNT(g)\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        FAT(g)\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        FATCE(g)\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        FASAT(g)\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        CHOAVLDF(g)\n                                    ")]), _vm._v(" "), _c("th", {
-    attrs: {
-      scope: "col"
-    }
-  }, [_vm._v("\n                                        SUGAR(g)\n                                    ")])])]), _vm._v(" "), _c("tbody", _vm._l(_vm.ingredients, function (ingredient, index) {
-    return _c("tr", {
-      key: index
-    }, [_c("td", [_vm._v("\n                                        " + _vm._s(ingredient) + "\n                                    ")]), _vm._v(" "), _c("td", [_c("div", [_vm._v("12")]), _vm._v(" "), _c("div", [_vm._v("RF: 0.98")])]), _vm._v(" "), _c("td", [_c("div", [_vm._v("6")]), _vm._v(" "), _c("div", [_vm._v("RF: 0.98")])]), _vm._v(" "), _c("td", [_c("div", [_vm._v("42")]), _vm._v(" "), _c("div", [_vm._v("RF: 1")])]), _vm._v(" "), _c("td", [_c("div", [_vm._v("12")]), _vm._v(" "), _c("div", [_vm._v("RF: 0.98")])]), _vm._v(" "), _c("td", [_c("div", [_vm._v("6")]), _vm._v(" "), _c("div", [_vm._v("RF: 0.98")])]), _vm._v(" "), _c("td", [_c("div", [_vm._v("42")]), _vm._v(" "), _c("div", [_vm._v("RF: 1")])])]);
-  }), 0)])])])]), _vm._v(" "), _c("div", {
-    staticClass: "calculations"
-  }, [_c("h3", [_vm._v("Calculations")]), _vm._v(" "), _c("div", [_c("input", {
-    attrs: {
-      type: "text",
-      placeholder: "Weight of Raw Materials"
-    }
-  }), _vm._v(" "), _c("input", {
-    attrs: {
-      type: "text",
-      placeholder: "Final Cooked Weight"
-    }
-  }), _vm._v(" "), _c("p", {
-    staticClass: "yield-factor"
-  }, [_vm._v("Yield Factor: 0.98")])])])])])]);
-};
+  }, [_vm._v("Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.")])])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
 
-var staticRenderFns = [];
+  return _c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-6"
+  }, [_c("div", {
+    staticClass: "widget"
+  }, [_c("h4", {
+    staticClass: "widget-title1",
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Contact Us")]), _vm._v(" "), _c("div", {
+    staticClass: "widget-data"
+  }, [_c("ul", {
+    staticClass: "cnt-lst"
+  }, [_c("li", {
+    staticClass: "addr"
+  }, [_c("i", {
+    staticClass: "fa fa-home"
+  }), _vm._v(" "), _c("strong", [_vm._v("Address:")]), _vm._v(" "), _c("span", [_vm._v("123 Luanar Bunda Campus")])]), _vm._v(" "), _c("li", [_c("strong", [_vm._v("Call:")]), _vm._v(" "), _c("span", [_vm._v("+265 882 85 60 52")])]), _vm._v(" "), _c("li", [_c("strong", [_vm._v("Email:")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("mafoods@luanar.ac.mw")])])])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "bottom-bar"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "copyright"
+  }, [_c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Copyright © 2023 - "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("MAFOODS.")]), _vm._v(" All Rights Reserved")])])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "hdr-srch"
+  }, [_c("span", {
+    staticClass: "srch-cls"
+  }, [_c("i", {
+    staticClass: "fa fa-close"
+  })]), _vm._v(" "), _c("form", [_c("input", {
+    attrs: {
+      type: "text",
+      placeholder: "Search Here..."
+    }
+  }), _vm._v(" "), _c("button", {
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-search"
+  })])])]);
+}];
 render._withStripped = true;
 
 
@@ -2702,43 +2959,160 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("app-layout", [_c("div", {
-    staticClass: "max-w-7xl mx-auto"
-  }, [_c("nav", {
-    staticClass: "bg-white"
-  }, [_c("div", {}, [_c("div", {
-    staticClass: "uk-position-z-index",
-    attrs: {
-      "data-uk-navbar": ""
-    }
+    staticClass: "page-top style2 blackish opc7"
   }, [_c("div", {
-    staticClass: "uk-navbar-left bg-white"
-  }, [_c("a", {
-    staticClass: "uk-navbar-item uk-logo",
-    attrs: {
-      href: "/"
+    staticClass: "fixed-bg2",
+    staticStyle: {
+      background: "url(images/page-top.jpg)"
     }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Composition Table")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("Composition Table")])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block pb-35"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {}, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-12 col-lg-4"
+  }, [_c("div", {
+    staticClass: "prd-thm"
   }, [_c("img", {
     attrs: {
-      src: _vm.fileUrl("images/weblog.png"),
-      alt: ""
+      src: _vm.fileUrl("images/composition-table.jpg"),
+      alt: "",
+      itemprop: "image"
     }
-  })])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "text-center text-3xl font-semibold mb-4"
-  }, [_vm._v("\n            Malawi Food Composition Table 2019\n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "relative mb-4"
-  }, [_c("i", {
-    staticClass: "text-gray-400 text-3xl px-4 py-2 sm:py-4 mt-1 absolute mdi mdi-magnify"
-  }), _vm._v(" "), _c("input", {
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-12 col-lg-8"
+  }, [_c("div", {
+    staticClass: "product-detail-innr"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Malawi Food Composition Table 2019")]), _vm._v(" "), _c("span", {
+    staticClass: "prd-cate"
+  }, [_vm._v("316 Food Items")]), _vm._v(" "), _c("span", [_vm._v("| 42 Nutrients")]), _vm._v(" "), _c("div", {
+    staticClass: "description"
+  }, [_c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Data reference sources- 63% Malawi, 30% South Africa, 4% West Africa, 2% United states of America, 1% Mozambique, 23% Recipes\n                                                    All foods are biological materials and exhibit natural variations in composition.\n                                                    This variability is increased by factors such as:\n                                                ")]), _vm._v(" "), _c("ul", {
+    staticClass: "listing"
+  }, [_c("li", [_vm._v("different methods of plant and animal husbandry")]), _vm._v(" "), _c("li", [_vm._v("storage methods")]), _vm._v(" "), _c("li", [_vm._v("transportation")]), _vm._v(" "), _c("li", [_vm._v("different marketing strategies")]), _vm._v(" "), _c("li", [_vm._v("agriculture practices")]), _vm._v(" "), _c("li", [_vm._v("processing methods")])]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.showMore,
+      expression: "showMore"
+    }]
+  }, [_c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Users of the data should become familiar with the variables that affect how food composition data are produced and compiled as a precondition for making good use of the data.")]), _vm._v(" "), _c("p", [_vm._v("MAFOODS. 2019. Malawian Food Composition Table. 1st Edition. Averalda van Graan, Joelaine Chetty, Malory Jumat, Sitilitha Masangwi, Agnes Mwangwela, Felix Pensulo Phiri, Lynne M. Ausman, Shibani Ghosh, Elizabeth Marino-Costello (Eds). Lilongwe, Malawi.)")]), _vm._v(" "), _c("p", [_vm._v("In the Frequently Asked Questions (FAQ) section of this website, provides answers for a better understanding of the compilation process and understanding the tables.")]), _vm._v(" "), _c("p", [_vm._v("Searching the Malawian Food Composition Tables, a total of 316 food items are presented in the publication. For each food item, energy and approximate composition data are reported and some minerals and vitamins are presented for 42 components, i.e. moisture, energy, macronutrients, minerals and vitamins, as well as phytate values for select items. The nutrient information in MAFOODS 2019 represents mean values and cannot always be considered as an exact reflection of the nutrient content. As was previously indicated, various factors influence the nutrient content of food. Nutrient information is presented per 100g edible food.")])])]), _vm._v(" "), _c("div", {
+    staticClass: "prd-qunt"
+  }, [_vm.showMore === true ? _c("span", {
+    staticClass: "btn1-drk",
+    on: {
+      click: function click($event) {
+        _vm.showMore = !_vm.showMore;
+      }
+    }
+  }, [_vm._v("Show Less")]) : _c("span", {
+    staticClass: "btn1-drk",
+    on: {
+      click: function click($event) {
+        _vm.showMore = !_vm.showMore;
+      }
+    }
+  }, [_vm._v("Show More")]), _vm._v(" "), _c("a", {
+    staticClass: "btn1",
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Download PDF")])])])])])])])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block gray pt-0"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "fltrs style2 paddlr30 center-align"
+  }, [_c("ul", {
+    staticClass: "fltrs-lst"
+  }, [_c("li", {
+    staticClass: "selected"
+  }, [_c("span", {
+    "class": {
+      selected: _vm.selectedGroup === 0
+    },
+    on: {
+      click: function click($event) {
+        _vm.selectedGroup = 0;
+      }
+    }
+  }, [_vm._v("All Items (" + _vm._s(_vm.foodCount(null)) + ")")])]), _vm._v(" "), _vm._l(_vm.groups.data, function (group, index) {
+    return _c("li", {
+      key: index
+    }, [_c("span", {
+      "class": {
+        selected: _vm.selectedGroup === group.id
+      },
+      on: {
+        click: function click($event) {
+          _vm.selectedGroup = group.id;
+        }
+      }
+    }, [_vm._v(_vm._s(group.name) + " (" + _vm._s(_vm.foodCount(group.id)) + ")")])]);
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "srch-fund"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: ""
+  }, [_c("div", {
+    staticClass: "srch-fund-inr"
+  }, [_c("form", {
+    staticClass: "pg-srch-frm"
+  }, [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.search,
       expression: "search"
     }],
-    staticClass: "border-0 shadow rounded-2xl pl-16 py-4 sm:py-6 w-full focus:ring-0 focus:shadow-lg transition duration-500 ease-in-out",
     attrs: {
       type: "text",
-      placeholder: "Search food"
+      placeholder: "Search for food"
     },
     domProps: {
       value: _vm.search
@@ -2749,126 +3123,293 @@ var render = function render() {
         _vm.search = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _c("div", {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: _vm.search.length > 0,
-      expression: "search.length > 0"
-    }]
+  }), _vm._v(" "), _c("button", {
+    attrs: {
+      type: "submit"
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-search"
+  })])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "remove-ext"
   }, [_c("div", {
-    staticClass: "my-2 text-lg"
-  }, [_vm._v("Search Results:")]), _vm._v(" "), _c("table", {
-    staticClass: "table-fixed overflow-x-scroll border"
-  }, [_c("tr", {
-    staticClass: "border-b"
-  }, [_c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Code")]), _vm._v(" "), _c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Ref. No")]), _vm._v(" "), _c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Food Item")]), _vm._v(" "), _c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Food Group")]), _vm._v(" "), _c("th", {
-    staticClass: "p-2"
-  }, [_vm._v("Moisture (g)")]), _vm._v(" "), _c("th", {
-    staticClass: "p-2"
-  }, [_vm._v("Energy Calculated (kCal)")]), _vm._v(" "), _c("th", {
-    staticClass: "p-2"
-  }, [_vm._v("Energy Calculated (kJ)")]), _vm._v(" "), _c("th", {
-    staticClass: "p-2"
-  }, [_vm._v("Nitrogen (g)")]), _vm._v(" "), _c("th", {
-    staticClass: "p-2"
-  }, [_vm._v("Total protein (g)")]), _vm._v(" "), _c("th", {
-    staticClass: "p-2"
-  }, [_vm._v("Total Fats (g)")])]), _vm._v(" "), _vm._l(_vm.filteredFoods, function (food, f_index) {
-    return _c("tr", {
-      key: f_index
-    }, [_c("td", {
-      staticClass: "px-2"
-    }, [_vm._v(_vm._s(food.code))]), _vm._v(" "), _c("td", {
-      staticClass: "px-2"
-    }, [_vm._v(_vm._s(food.ref_no))]), _vm._v(" "), _c("td", {
-      staticClass: "px-2"
-    }, [_vm._v(_vm._s(food.item))]), _vm._v(" "), _c("td", {
-      staticClass: "px-2"
-    }, [_vm._v(_vm._s(food.group.name))]), _vm._v(" "), _c("td", {
-      staticClass: "text-center px-2"
-    }, [food.moisture ? _c("span", [_vm._v(_vm._s(food.moisture.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-      staticClass: "text-center px-2"
-    }, [food.energy_kcal ? _c("span", [_vm._v(_vm._s(food.energy_kcal.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-      staticClass: "text-center px-2"
-    }, [food.energy_kj ? _c("span", [_vm._v(_vm._s(food.energy_kj.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-      staticClass: "text-center px-2"
-    }, [food.nitrogen ? _c("span", [_vm._v(_vm._s(food.nitrogen.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-      staticClass: "text-center px-2"
-    }, [food.protein ? _c("span", [_vm._v(_vm._s(food.protein.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-      staticClass: "text-center px-2"
-    }, [food.fats ? _c("span", [_vm._v(_vm._s(food.fats.toFixed(1)))]) : _vm._e()])]);
-  })], 2)]), _vm._v(" "), _vm._l(_vm.groups.data, function (group, g_index) {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "row"
+  }, _vm._l(_vm.filteredFoods, function (food, index) {
     return _c("div", {
-      directives: [{
-        name: "show",
-        rawName: "v-show",
-        value: _vm.search.length === 0,
-        expression: "search.length === 0"
-      }],
-      key: g_index,
-      staticClass: "mb-8"
-    }, [_c("table", {
-      staticClass: "table-fixed overflow-x-scroll border"
-    }, [_c("tr", {
-      staticClass: "border-b"
-    }, [_c("th", {
-      staticClass: "text-lg font-bold p-4",
+      key: index,
+      staticClass: "col-sm-12"
+    }, [_c("div", {
+      staticClass: "cause-box1 style2"
+    }, [_c("inertia-link", {
       attrs: {
-        colspan: "3"
+        href: _vm.route("foods.show", food.code)
       }
-    }, [_vm._v("Group " + _vm._s(g_index + 1) + ": " + _vm._s(group.name))])]), _vm._v(" "), _c("tr", {
-      staticClass: "border-b"
-    }, [_c("th", {
-      staticClass: "text-left p-2"
-    }, [_vm._v("Code")]), _vm._v(" "), _c("th", {
-      staticClass: "text-left p-2"
-    }, [_vm._v("Ref. No")]), _vm._v(" "), _c("th", {
-      staticClass: "text-left p-2"
-    }, [_vm._v("Food Item")]), _vm._v(" "), _c("th", {
-      staticClass: "p-2"
-    }, [_vm._v("Moisture (g)")]), _vm._v(" "), _c("th", {
-      staticClass: "p-2"
-    }, [_vm._v("Energy Calculated (kCal)")]), _vm._v(" "), _c("th", {
-      staticClass: "p-2"
-    }, [_vm._v("Energy Calculated (kJ)")]), _vm._v(" "), _c("th", {
-      staticClass: "p-2"
-    }, [_vm._v("Nitrogen (g)")]), _vm._v(" "), _c("th", {
-      staticClass: "p-2"
-    }, [_vm._v("Total protein (g)")]), _vm._v(" "), _c("th", {
-      staticClass: "p-2"
-    }, [_vm._v("Total Fats (g)")])]), _vm._v(" "), _vm._l(group.foods, function (food, f_index) {
-      return _c("tr", {
-        key: f_index
-      }, [_c("td", {
-        staticClass: "px-2"
-      }, [_vm._v(_vm._s(food.code))]), _vm._v(" "), _c("td", {
-        staticClass: "px-2"
-      }, [_vm._v(_vm._s(food.ref_no))]), _vm._v(" "), _c("td", {
-        staticClass: "px-2"
-      }, [_vm._v(_vm._s(food.item))]), _vm._v(" "), _c("td", {
-        staticClass: "text-center px-2"
-      }, [food.moisture ? _c("span", [_vm._v(_vm._s(food.moisture.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-        staticClass: "text-center px-2"
-      }, [food.energy_kcal ? _c("span", [_vm._v(_vm._s(food.energy_kcal.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-        staticClass: "text-center px-2"
-      }, [food.energy_kj ? _c("span", [_vm._v(_vm._s(food.energy_kj.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-        staticClass: "text-center px-2"
-      }, [food.nitrogen ? _c("span", [_vm._v(_vm._s(food.nitrogen.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-        staticClass: "text-center px-2"
-      }, [food.protein ? _c("span", [_vm._v(_vm._s(food.protein.toFixed(1)))]) : _vm._e()]), _vm._v(" "), _c("td", {
-        staticClass: "text-center px-2"
-      }, [food.fats ? _c("span", [_vm._v(_vm._s(food.fats.toFixed(1)))]) : _vm._e()])]);
-    })], 2)]);
-  })], 2)]);
+    }, [_c("div", {
+      staticClass: "cause-info"
+    }, [_c("div", [_c("span", {
+      staticClass: "cate"
+    }, [_c("span", [_vm._v(_vm._s(food.group.name))])]), _vm._v(" "), _c("h2", {
+      attrs: {
+        itemprop: "headline"
+      }
+    }, [_c("a", {
+      attrs: {
+        href: "#",
+        title: "",
+        itemprop: "url"
+      }
+    }, [_vm._v(_vm._s(food.item))])])]), _vm._v(" "), _c("span", {
+      staticClass: "dnt-gl"
+    }, [_vm._v("Code: "), _c("span", {
+      staticClass: "price"
+    }, [_vm._v(_vm._s(food.code))])])])])], 1)]);
+  }), 0)])])])])])])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ContactUs.vue?vue&type=template&id=5b442885&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ContactUs.vue?vue&type=template&id=5b442885&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
+  }, [_c("div", {
+    staticClass: "fixed-bg2",
+    style: {
+      backgroundImage: "url(".concat(_vm.fileUrl("images/page-top.jpg"), ")")
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Contact Us")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("Contact Us")])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "title-style2 center-align"
+  }, [_c("h4", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("i", [_vm._v("Get")]), _vm._v(" In Touch")]), _vm._v(" "), _c("span", [_vm._v("Feel free to reach out to us")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-4"
+  }, [_c("div", {
+    staticClass: "contact news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Dr Agnes Mwangwela")]), _vm._v(" "), _c("p", [_vm._v("Senior Scientist "), _c("br"), _vm._v("MAFOODS")]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  }, [_c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("p", {
+    staticClass: "address"
+  }, [_vm._v("Lilongwe University of Agriculture and Natural Resources "), _c("br"), _vm._v("\n                                            P. O. Box 219 "), _c("br"), _vm._v("\n                                            Lilongwe.\n                                        ")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-envelope"
+  }), _vm._v(" amwangwela@luanar.ac.mw")]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-phone"
+  }), _vm._v(" +265 888 878 777")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-4"
+  }, [_c("div", {
+    staticClass: "contact news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Ms. Dalitso Chimwala")]), _vm._v(" "), _c("p", [_vm._v("Food Composition Data Compiler "), _c("br"), _vm._v("MAFOODS")]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  }, [_c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("p", {
+    staticClass: "address"
+  }, [_vm._v("Lilongwe University of Agriculture and Natural Resources "), _c("br"), _vm._v("\n                                            P. O. Box 219 "), _c("br"), _vm._v("\n                                            Lilongwe.\n                                        ")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-envelope"
+  }), _vm._v(" dchimwala@luanar.ac.mw")]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-phone"
+  }), _vm._v(" +265 882 856 052 / +265 997 255 086")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-4"
+  }, [_c("div", {
+    staticClass: "contact news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Dr Felix Pensulo Phiri")]), _vm._v(" "), _c("p", [_vm._v("Director of Nutrition Department of Nutrition, HIV and AIDS")]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  }, [_c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("p", {
+    staticClass: "address"
+  }, [_vm._v("Department of Nutrition, HIV and AIDS "), _c("br"), _vm._v("\n                                            Ministry of Health "), _c("br"), _vm._v("\n                                            Private Bag B401 "), _c("br"), _vm._v("\n                                            Lilongwe.\n\n                                        ")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-envelope"
+  }), _vm._v(" felixphiri8@gmail.com")]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-phone"
+  }), _vm._v(" +265 888 959 900 / +265 999 953 747")])])])])])])])])]), _vm._v(" "), _c("section", [_c("div", {}, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12"
+  }, [_c("div", {
+    staticClass: "cnt-frm"
+  }, [_c("h4", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Do You Have Any Question?")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Send us a message on any enquiry you may have")]), _vm._v(" "), _c("form", [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-12"
+  }, [_c("input", {
+    attrs: {
+      type: "text",
+      placeholder: "Full Name"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-12"
+  }, [_c("input", {
+    attrs: {
+      type: "email",
+      placeholder: "Email"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-sm-12"
+  }, [_c("textarea", {
+    attrs: {
+      placeholder: "Your Message"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12"
+  }, [_c("button", {
+    staticClass: "btn1",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Send Message")])])])])])])])])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
+  }, [_c("div", {
+    staticClass: "fixed-bg2",
+    style: {
+      backgroundImage: "url(".concat(_vm.fileUrl("images/page-top.jpg"), ")")
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Frequently Asked Questions")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("About Us")])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, _vm._l(_vm.faqs, function (faq, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "col-sm-12"
+    }, [_c("div", {
+      staticClass: "faq"
+    }, [_c("div", {
+      staticClass: "number"
+    }, [_vm._v("\n                                        " + _vm._s(index + 1) + "\n                                    ")]), _vm._v(" "), _c("div", {
+      staticClass: "question"
+    }, [_c("div", [_c("div", {
+      staticClass: "heading"
+    }, [_vm._v("\n                                                " + _vm._s(faq.question) + "\n                                            ")]), _vm._v(" "), _c("div", {
+      staticClass: "answer",
+      domProps: {
+        innerHTML: _vm._s(faq.answer)
+      }
+    })])])])]);
+  }), 0)])])])]);
 };
 
 var staticRenderFns = [];
@@ -2893,32 +3434,52 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("app-layout", [_c("section", {
-    staticClass: "container"
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
   }, [_c("div", {
-    staticClass: "food-item"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl(_vm.food.data.group.image),
-      alt: ""
+    staticClass: "fixed-bg2",
+    style: {
+      backgroundImage: "url(".concat(_vm.fileUrl(_vm.food.data.group.image), ")")
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "heading"
+    staticClass: "container"
   }, [_c("div", {
-    staticClass: "title"
-  }, [_vm._v(_vm._s(_vm.food.data.item))]), _vm._v(" "), _c("span", {
-    staticClass: "group"
-  }, [_vm._v(_vm._s(_vm.food.data.group.name))])])]), _vm._v(" "), _c("div", {}, [_c("div", {}, [_c("div", {}, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v(_vm._s(_vm.food.data.item))])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("composition.table")
+    }
+  }, [_vm._v("Composition Table")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("Food Details")])])])])]), _vm._v(" "), _c("section", {
+    staticClass: "block"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {}, [_c("div", {}, [_c("div", {
     staticClass: "bg-white"
   }, [_c("div", {}, [_c("table", {
-    staticClass: "w-full"
+    staticClass: "food-details w-full"
   }, [_c("tr", {
-    staticClass: "border-b"
-  }, [_c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Item")]), _vm._v(" "), _c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Value")])]), _vm._v(" "), _c("tr", {
+    staticClass: "border-b border-t"
+  }, [_c("td", [_vm._v("Group")]), _vm._v(" "), _c("td", {
+    staticClass: "text-left px-2"
+  }, [_vm._v(_vm._s(_vm.food.data.group.name))])]), _vm._v(" "), _c("tr", {
     staticClass: "border-b"
   }, [_c("td", [_vm._v("Code")]), _vm._v(" "), _c("td", {
     staticClass: "text-left px-2"
@@ -3115,288 +3676,1112 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("app-layout", [_c("div", [_c("section", {
-    staticClass: "hero-area-one"
+  return _c("app-layout", [_c("div", {
+    staticClass: "pageloader"
   }, [_c("div", {
-    staticClass: "hero-text",
-    staticStyle: {
-      "background-image": "url('images/hero.jpg')"
-    }
+    staticClass: "loader"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "loader-inner ball-scale-multiple"
+  }, [_c("div"), _vm._v(" "), _c("div"), _vm._v(" "), _c("div")])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block no-padding"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
+    staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-xl-10"
-  }, [_c("span", {
-    staticClass: "tagline wow fadeInUp",
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "feat-img"
+  }, [_c("div", {
+    staticClass: "feat-cap"
+  }, [_c("span", [_vm._v("A USAID funded Project")]), _vm._v(" "), _c("h4", {
     attrs: {
-      "data-wow-delay": "0.3s"
+      itemprop: "headline"
     }
-  }, [_vm._v("USAID funded Project conducted at LUANAR")]), _vm._v(" "), _c("h1", {
-    staticClass: "title wow fadeInUp",
+  }, [_vm._v("Malawi Food Data System")]), _vm._v(" "), _c("div", [_c("form", {
+    staticClass: "newsletter-frm"
+  }, [_c("input", {
     attrs: {
-      "data-wow-delay": "0.4s"
+      type: "email",
+      placeholder: "Search"
     }
-  }, [_vm._v("Malawi Food Data System")]), _vm._v(" "), _c("div", {
-    staticClass: "search-widget wow fadeInUp",
+  }), _vm._v(" "), _c("button", {
     attrs: {
-      "data-wow-delay": "0.5s"
-    }
-  }, [_c("form", {
-    staticClass: "relative",
-    attrs: {
-      action: _vm.route("search"),
-      method: "get"
-    }
-  }, [_c("button", {
-    staticClass: "absolute right-4 z-10",
-    on: {
-      click: _vm.search
+      type: "submit"
     }
   }, [_c("i", {
-    staticClass: "fas fa-search"
-  })]), _vm._v(" "), _c("input", {
-    staticClass: "relative",
-    attrs: {
-      name: "query",
-      placeholder: "Search for food"
-    }
-  })])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "hero-shapes"
+    staticClass: "fa fa-search"
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "feat-img-car"
   }, [_c("div", {
-    staticClass: "hero-line-one"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "hero-line-two"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "dot-one"
-  }), _vm._v(" "), _c("div", {
-    staticClass: "dot-two"
-  })])])]), _vm._v(" "), _c("section", {
-    staticClass: "popular-categories section-gap"
-  }, [_c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "categories-header"
-  }, [_c("div", {
-    staticClass: "row align-items-center justify-content-between"
-  }, [_c("div", {
-    staticClass: "col-auto"
-  }, [_c("div", {
-    staticClass: "common-heading"
-  }, [_c("span", {
-    staticClass: "tagline"
-  }, [_c("i", {
-    staticClass: "fas fa-plus"
-  }), _vm._v(" What to expect\n        ")]), _vm._v(" "), _c("h2", {
-    staticClass: "title"
-  }, [_vm._v("Features")])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "row justify-content-center fancy-icon-boxes"
-  }, [_c("div", {
-    staticClass: "col-md-6 col-sm-10 wow fadeInUp mb-10",
-    attrs: {
-      "data-wow-delay": "0s"
-    }
-  }, [_c("div", {
-    staticClass: "fancy-box-item"
-  }, [_c("div", {
-    staticClass: "icon"
-  }, [_c("i", {
-    staticClass: "flaticon-salad"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "content"
-  }, [_c("h4", {
-    staticClass: "title"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Food Composition Table")])]), _vm._v(" "), _c("p", [_vm._v("Explore our database with 42 nutrients freely available ")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-10 wow fadeInUp mb-10",
-    attrs: {
-      "data-wow-delay": "0.2s"
-    }
-  }, [_c("div", {
-    staticClass: "fancy-box-item"
-  }, [_c("div", {
-    staticClass: "icon"
-  }, [_c("i", {
-    staticClass: "flaticon-salad"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "content"
-  }, [_c("h4", {
-    staticClass: "title"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Recipe Calculator")])]), _vm._v(" "), _c("p", [_vm._v("Develop recipes and calculate nutrient content of mixed dishes")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-10 wow fadeInUp mb-10",
-    attrs: {
-      "data-wow-delay": "0.3s"
-    }
-  }, [_c("div", {
-    staticClass: "fancy-box-item"
-  }, [_c("div", {
-    staticClass: "icon"
-  }, [_c("i", {
-    staticClass: "flaticon-salad"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "content"
-  }, [_c("h4", {
-    staticClass: "title"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("ePublications")])]), _vm._v(" "), _c("p", [_vm._v("Download the food composition table v2019")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-10 wow fadeInUp mb-10",
-    attrs: {
-      "data-wow-delay": "0.5s"
-    }
-  }, [_c("div", {
-    staticClass: "fancy-box-item"
-  }, [_c("div", {
-    staticClass: "icon"
-  }, [_c("i", {
-    staticClass: "flaticon-salad"
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "content"
-  }, [_c("h4", {
-    staticClass: "title"
-  }, [_c("a", {
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Advisory group")])]), _vm._v(" "), _c("p", [_vm._v("Provide overall guidance and support implementation and management of the Malawi Food Composition Data Program")])])])])])])]), _vm._v(" "), _c("section", {
-    staticClass: "about-section section-gap"
-  }, [_c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row align-items-center justify-content-lg-start justify-content-center"
-  }, [_c("div", {
-    staticClass: "col-xl-6 col-lg-7 col-md-9"
-  }, [_c("div", {
-    staticClass: "video-post"
-  }, [_c("div", {
-    staticClass: "post-thumbnail"
+    staticClass: "fea-img"
   }, [_c("img", {
     attrs: {
-      src: _vm.fileUrl("images/video-post.jpg"),
-      alt: "Thumbnail"
+      src: _vm.fileUrl("images/hero-3.jpg"),
+      alt: "",
+      itemprop: "image"
     }
-  }), _vm._v(" "), _c("a", {
-    staticClass: "video-popup",
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "fea-img"
+  }, [_c("img", {
     attrs: {
-      href: "https://www.youtube.com/watch?v=P_tQOAkZAf0",
-      "data-lity": ""
+      src: _vm.fileUrl("images/hero-2.jpg"),
+      alt: "",
+      itemprop: "image"
     }
-  }, [_c("i", {
-    staticClass: "fas fa-play"
-  })])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-xl-4 col-lg-5 col-md-10 offset-xl-1"
-  }, [_c("div", {
-    staticClass: "about-text mt-md-70 mb-md-50"
-  }, [_c("div", {
-    staticClass: "common-heading mb-30"
-  }, [_c("span", {
-    staticClass: "tagline"
-  }, [_c("i", {
-    staticClass: "fas fa-plus"
-  }), _vm._v(" who we are\n                                    ")]), _vm._v(" "), _c("h2", {
-    staticClass: "title"
-  }, [_vm._v("About Project")])]), _vm._v(" "), _c("div", {
-    staticClass: "mb-30"
-  }, [_vm._v("\n                                    Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.\n                                ")]), _vm._v(" "), _c("div", [_c("a", {
-    staticClass: "main-btn mb-30",
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "fea-img"
+  }, [_c("img", {
     attrs: {
-      href: "project-1.html"
+      src: _vm.fileUrl("images/hero-4.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "fea-img"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-5.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "fea-img"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-6.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "fea-img"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-7.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })])])])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block whitish hgh-opc"
+  }, [_c("div", {
+    staticClass: "fixed-bg",
+    staticStyle: {
+      background: "url(images/resource/parallax2.jpg)"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "title-style2 center-align"
+  }, [_c("h4", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Features")]), _vm._v(" "), _c("span", [_vm._v("What we are offering you!")])]), _vm._v(" "), _c("div", {
+    staticClass: "services"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_c("div", {
+    staticClass: "service-box"
+  }, [_c("i", [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/table-icon.svg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Food Composition Table")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Explore our database with 42 nutrients freely available ")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
     }
   }, [_vm._v("Learn More "), _c("i", {
-    staticClass: "far fa-angle-right"
-  })])])])])])])]), _vm._v(" "), _c("section", {
-    staticClass: "latest-blog-section section-gap"
+    staticClass: "fa fa-caret-right"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_c("div", {
+    staticClass: "service-box"
+  }, [_c("i", [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/calculator-icon.svg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Recipe Calculator")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Develop recipes and calculate nutrient content of mixed dishes")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Learn More "), _c("i", {
+    staticClass: "fa fa-caret-right"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_c("div", {
+    staticClass: "service-box"
+  }, [_c("i", [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/epubs-icon.svg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("ePublications")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Download the food composition table v2019")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Learn More "), _c("i", {
+    staticClass: "fa fa-caret-right"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6"
+  }, [_c("div", {
+    staticClass: "service-box"
+  }, [_c("i", [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/advisory-icon.svg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Advisory Group")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Provide overall guidance and support implementation and management of the Malawi Food Composition Data Program")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Learn More "), _c("i", {
+    staticClass: "fa fa-caret-right"
+  })])])])])])])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block blackish opc7"
+  }, [_c("div", {
+    staticClass: "fixed-bg",
+    style: {
+      backgroundImage: "url(".concat(_vm.fileUrl("images/hero-1.jpg"), ")")
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "title-style5 center-align"
+  }, [_c("h4", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Project Overview ")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.")])]), _vm._v(" "), _c("div", {
+    staticClass: "fun-facts center-align paddlr170"
+  }, [_c("a", {
+    staticClass: "btn1 dnt-pp",
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Learn More")])])])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block gray news"
   }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "common-heading text-center mb-30"
-  }, [_c("span", {
-    staticClass: "tagline"
-  }, [_c("i", {
-    staticClass: "fas fa-plus"
-  }), _vm._v(" Latest News and Updates\n\t\t\t\t")]), _vm._v(" "), _c("h2", {
-    staticClass: "title"
-  }, [_vm._v("Get Every Single Update")])]), _vm._v(" "), _c("div", {
-    staticClass: "row justify-content-center latest-blog-posts style-one"
+    staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp",
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "title-style2 center-align"
+  }, [_c("h4", {
     attrs: {
-      "data-wow-delay": "0.1s"
+      itemprop: "headline"
     }
+  }, [_vm._v("Latest "), _c("i", [_vm._v("News")])]), _vm._v(" "), _c("span", [_vm._v("Get every single update")])]), _vm._v(" "), _c("div", {
+    staticClass: "remove-ext paddlr100"
   }, [_c("div", {
-    staticClass: "latest-post-box mt-30"
+    staticClass: "row"
   }, [_c("div", {
-    staticClass: "post-thumb",
+    staticClass: "col-md-6 col-sm-6 col-lg-6"
+  }, [_c("div", {
+    staticClass: "news-box style2"
+  }, [_c("div", {
+    staticClass: "news-thumb"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-3.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("i", {
+    staticClass: "fa fa-user"
+  }), _vm._v(" Posted By:"), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-6"
+  }, [_c("div", {
+    staticClass: "news-box style2"
+  }, [_c("div", {
+    staticClass: "news-thumb"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-6.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("i", {
+    staticClass: "fa fa-user"
+  }), _vm._v(" Posted By:"), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "center-align"
+  }, [_c("a", {
+    staticClass: "btn1-drk",
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("View all")])])])])])])])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/News.vue?vue&type=template&id=4afb3f08&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/News.vue?vue&type=template&id=4afb3f08&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
+  }, [_c("div", {
+    staticClass: "fixed-bg2",
     staticStyle: {
-      "background-image": "url('images/hero-img-1.jpg')"
+      background: "url(images/page-top.jpg)"
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "post-content"
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("News & Updates")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
   }, [_c("a", {
-    staticClass: "post-date",
     attrs: {
-      href: "#"
+      href: _vm.route("home")
     }
-  }, [_c("i", {
-    staticClass: "far fa-calendar-alt"
-  }), _vm._v(" 25 February 2023")]), _vm._v(" "), _c("h6", {
-    staticClass: "title"
-  }, [_c("a", {
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("News")])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block pb-35"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-4"
+  }, [_c("div", {
+    staticClass: "news-box style2"
+  }, [_c("inertia-link", {
     attrs: {
-      href: "#"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("a", {
-    staticClass: "post-link",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Read More "), _c("i", {
-    staticClass: "far fa-arrow-right"
-  })])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-4 col-md-6 col-sm-9 col-11 wow fadeInUp",
-    attrs: {
-      "data-wow-delay": "0.2s"
+      href: _vm.route("news.show", {
+        slug: "article"
+      })
     }
   }, [_c("div", {
-    staticClass: "latest-post-box mt-30"
-  }, [_c("div", {
-    staticClass: "post-thumb",
-    staticStyle: {
-      "background-image": "url('images/hero-img-3.jpg')"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "post-content"
-  }, [_c("a", {
-    staticClass: "post-date",
+    staticClass: "news-thumb"
+  }, [_c("img", {
     attrs: {
-      href: "#"
+      src: _vm.fileUrl("images/hero-3.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")]), _vm._v(" "), _c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("i", {
+    staticClass: "fa fa-user"
+  }), _vm._v(" Posted By:"), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  })])])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-4"
+  }, [_c("div", {
+    staticClass: "news-box style2"
+  }, [_c("inertia-link", {
+    attrs: {
+      href: _vm.route("news.show", {
+        slug: "article"
+      })
+    }
+  }, [_c("div", {
+    staticClass: "news-thumb"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-6.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")]), _vm._v(" "), _c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("i", {
+    staticClass: "fa fa-user"
+  }), _vm._v(" Posted By:"), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  })])])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 col-sm-6 col-lg-4"
+  }, [_c("div", {
+    staticClass: "news-box style2"
+  }, [_c("inertia-link", {
+    attrs: {
+      href: _vm.route("news.show", {
+        slug: "article"
+      })
+    }
+  }, [_c("div", {
+    staticClass: "news-thumb"
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-2.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "news-detail"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")]), _vm._v(" "), _c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("i", {
+    staticClass: "fa fa-user"
+  }), _vm._v(" Posted By:"), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
+    staticClass: "news-meta"
+  })])])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "pagination"
+  }, [_c("ul", [_c("li", {
+    staticClass: "prev-pg"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
     }
   }, [_c("i", {
-    staticClass: "far fa-calendar-alt"
-  }), _vm._v(" 25 February 2021")]), _vm._v(" "), _c("h6", {
-    staticClass: "title"
+    staticClass: "fa fa-angle-double-left"
+  })])]), _vm._v(" "), _c("li", {
+    staticClass: "next-pg"
   }, [_c("a", {
     attrs: {
-      href: "#"
+      href: "#",
+      title: "",
+      itemprop: "url"
     }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("a", {
-    staticClass: "post-link",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Read More "), _c("i", {
-    staticClass: "far fa-arrow-right"
+  }, [_c("i", {
+    staticClass: "fa fa-angle-double-right"
   })])])])])])])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/NewsDetails.vue?vue&type=template&id=41460556&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/NewsDetails.vue?vue&type=template&id=41460556&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
+  }, [_c("div", {
+    staticClass: "fixed-bg2",
+    style: {
+      backgroundImage: "url(".concat(_vm.fileUrl("images/page-top.jpg"), ")")
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("news")
+    }
+  }, [_vm._v("News")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("News Details")])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block remove-bottom"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-9"
+  }, [_c("div", {
+    staticClass: "blg-dtl style2"
+  }, [_c("div", {
+    staticClass: "blg-mta"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }), _vm._v(" "), _c("ul", {
+    staticClass: "pst-meta"
+  }, [_c("li", [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fa fa-user"
+  }), _vm._v(" Posted By: "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Dalitso Chimwala")])])])]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Delightful remarkably mr on announcing themselves entreaties favourable. About to in terms is found seems of. The particular friendship one sufficient terminated frequently themselves if loud case. Delay music in lived noise an. Beyond genius really enough passed is up.")]), _vm._v(" "), _c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-3.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  }), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His ssed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well ur. Assistance mpression set insipidity now connection off you solcitude. Under as seems we tening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much spoil along. Incommode he depending do frankness remainder to. Edward day almost active People as period twenty my extent as. Set was better abroad ham plenty secure had horses ly excellence say everything inhabiting acceptance. ")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Behaviour we improving at something to. Evil true high lady roof men had open. To projection melancholy or. Wound young you thing worse along being ham. Dissimilar of favourable solic ns at. Forfeited up if disposing perfectly in an eagerness perceived necessary. Belonging sir yet forfeited prevailed own off. Travelling by introduced of mr terminated. Knew as miss my ameless dependent knowledge terminated it excellence invitation projection as. She graceful use nay is people so basket ladies window expect. Supply as so period it enough income he acceptance bed pathize get dissimilar way admiration son. Evil true high roof men had open. To projection melancholy or. Wound young you thing worse along being ham.")]), _vm._v(" "), _c("blockquote", {
+    staticClass: "style2"
+  }, [_c("i", {
+    staticClass: "flaticon-quotes"
+  }), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Duis convallis turpis in tortor vo are risus euismod varius feugiat ultrices Sed "), _c("span", [_vm._v("condimentum est")]), _vm._v(" libero, aliqculis")])]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Behaviour we improving at something to. Evil true high lady roof men had open. To projection melancholy or. Wound young you thing worse along being ham. Dissimilar of favourable solic ns at. Forfeited up if disposing perfectly in an eagerness perceived necessary. Belonging sir yet forfeited prevailed own off. Travelling by introduced of mr terminated. Knew as miss my ameless dependent knowledge terminated it excellence invitation projection as. She graceful use nay is people so basket ladies window expect. Supply as so period it enough income he acceptance bed pathize get dissimilar way admiration son.")])]), _vm._v(" "), _c("div", {
+    staticClass: "shar-tag2"
+  }, [_c("div", {
+    staticClass: "tagclouds"
+  }, [_c("span", [_vm._v("Tags:")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Welfair Project")]), _vm._v(",\n                                        "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Charity")]), _vm._v(",\n                                        "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Nature")]), _vm._v(",\n                                        "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Kids")]), _vm._v(",\n                                        "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("Nonprofit")])]), _vm._v(" "), _c("div", {
+    staticClass: "share"
+  }, [_c("span", [_vm._v("Share It:")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url",
+      target: "_blank"
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-facebook"
+  })]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url",
+      target: "_blank"
+    }
+  }, [_c("i", {
+    staticClass: "fa fa-twitter"
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-3"
+  }, [_c("div", {
+    staticClass: "sidebar"
+  }, [_c("div", {
+    staticClass: "widget"
+  }, [_c("h4", {
+    staticClass: "widget-title2",
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Popular Post")]), _vm._v(" "), _c("div", {
+    staticClass: "widget-data"
+  }, [_c("div", {
+    staticClass: "rcnt-pst"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-4.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "rcnt-pst-inf"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
+    staticClass: "rcnt-pst"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-6.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "rcnt-pst-inf"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
+    staticClass: "rcnt-pst"
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_c("img", {
+    attrs: {
+      src: _vm.fileUrl("images/hero-2.jpg"),
+      alt: "",
+      itemprop: "image"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "rcnt-pst-inf"
+  }, [_c("h2", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("a", {
+    attrs: {
+      href: "#",
+      title: "",
+      itemprop: "url"
+    }
+  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("span", {
+    staticClass: "date"
+  }, [_c("i", {
+    staticClass: "fa fa-calendar-check-o"
+  }), _vm._v(" November 25,2016")])])])])])])])])])])])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
+  }, [_c("div", {
+    staticClass: "fixed-bg2",
+    style: {
+      backgroundImage: "url(".concat(_vm.fileUrl("images/page-top.jpg"), ")")
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Project Overview")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("About Us")])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block whitish hgh-opc"
+  }, [_c("div", {
+    staticClass: "fixed-bg",
+    staticStyle: {
+      background: "url(images/resource/parallax2.jpg)"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "title-style2 center-align"
+  }, [_c("h4", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_c("i", [_vm._v("About")]), _vm._v(" MAFOODS")]), _vm._v(" "), _c("span", [_vm._v("Project Overview")]), _vm._v(" "), _c("p", {
+    attrs: {
+      itemprop: "description"
+    }
+  }, [_vm._v("Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.")])]), _vm._v(" "), _c("div", {
+    staticClass: "p"
+  }, [_c("p", [_vm._v("The Government of Malawi (GoM) has developed the first edition of the Malawian Food Composition Table (MFCT) which describes the content of commonly-consumed Malawian food items in terms of their nutrients and energy. Food composition data form the basis of all practices in human nutrition and health. It is therefore essential to have a reliable country-specific food composition database.")]), _vm._v(" "), _c("p", [_vm._v("For many years, Malawi has relied on food composition data from other countries. However, the use of data from other sources is challenging as well as inaccurate due to the potential for significant variability in nutrition content as a function of different processing methods, variations in recipe preparations of composite dishes as well as geographical differences in food cultivation. In light of this, it was critical for Malawi to develop a local food composition database to address its country-specific nutrition concerns and meet current demand due to technological advances. International tools, guidelines and standards were used in developing the food composition table to ensure an accurate, reliable and trustworthy scientific tool. This food composition table will be used in various ways by nutritionists, dietitians, physicians, food technologists, epidemiologists, food manufacturers, public health scientists, economists and research institutions.")]), _vm._v(" "), _c("p", [_vm._v("The GoM, through the Department of Nutrition and HIV/AIDS (DNHA), is the custodian of the Malawian Food Composition Database and Table. The Malawi food composition program which will be responsible for maintaining and updating of the food composition database and tables will be referred to as “The Malawian Food Data System” (MAFOODS). The DNHA will provide overall management and oversee MAFOODS. The DNHA will also provide operational support to the Malawian food data unit within its jurisdiction to ensure that the data are safe and continuously updated.")]), _vm._v(" "), _c("p", [_vm._v("To ensure continuous and up-to-date information in the database, the GoM, in collaboration with Malawian research institutions, will update the food composition database on a regular basis with the Lilongwe University of Agriculture & Natural Resources (LUANAR) taking a lead role due to its comparative advantage of access to active research activities in generating food composition data in collaboration with other academic institutions. In addition to obtaining data, information generated through routine mandated roles and functions within established institutions such as research stations, will also be a valuable source of food composition data for compilation.")]), _vm._v(" "), _c("p", [_vm._v("The Policy Advisory Team (PAT) which provides policy guidance on nutrition in Malawi, will provide overall guidance and support implementation and management of the Malawi Food composition data Program. The committee will act as an advisory body that will promote the science of food composition data in Malawi. The DNHA will work hand in hand with PAT to devise an updating plan and identify opportunities and partnerships that will lead to further research and the establishment of a comprehensive Malawian food composition database. In addition to the PAT, the Nutrition Research and Surveillance Technical Working Group which is under the National Nutrition Committee will actively support implementation of food composition data activities.")]), _vm._v(" "), _c("p", [_vm._v("The technical working group will focus on identifying key activities and supporting them in order to ensure that the goals and objectives of the food composition program are met.")])])])])])])])]);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
+  }, [_c("div", {
+    staticClass: "fixed-bg2",
+    style: {
+      backgroundImage: "url(".concat(_vm.fileUrl("images/page-top.jpg"), ")")
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Recipe Calculator")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v("Recipe Calculator")])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block calculator"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "steps"
+  }, [_c("div", [_vm._v("Step 1")]), _vm._v(" "), _c("h4", [_vm._v("Enter Recipe Name")])]), _vm._v(" "), _c("div", {
+    staticClass: "steps-content"
+  }, [_c("input", {
+    attrs: {
+      type: "text",
+      placeholder: "e.g. Carrot Cake"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "steps"
+  }, [_c("div", [_vm._v("Step 2")]), _vm._v(" "), _c("h4", [_vm._v("Add ingredients and amounts")])]), _vm._v(" "), _c("div", {
+    staticClass: "steps-content ingredients"
+  }, [_c("button", {
+    staticClass: "add",
+    attrs: {
+      type: "button",
+      "data-toggle": "modal",
+      "data-target": "#exampleModalCenter"
+    }
+  }, [_vm._v("Add")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selectedIngredient,
+      expression: "selectedIngredient"
+    }],
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.selectedIngredient = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "-1"
+    }
+  }, [_vm._v("Pick an ingredient")]), _vm._v(" "), _vm._l(_vm.foods.data, function (food, index) {
+    return _c("option", {
+      key: index,
+      domProps: {
+        value: food.id
+      }
+    }, [_vm._v("\n                                " + _vm._s(food.item) + "\n                            ")]);
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "exampleModalCenter",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalCenterTitle",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-dialog-centered",
+    attrs: {
+      role: "document"
+    }
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("form", {
+    staticClass: "form-wrap material",
+    attrs: {
+      id: "",
+      method: "post",
+      action: "#"
+    }
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("button", {
+    staticClass: "close",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  }, [_c("span", {
+    attrs: {
+      "aria-hidden": "true"
+    }
+  }, [_vm._v("×")])]), _vm._v(" "), _c("h5", {
+    staticClass: "modal-title",
+    attrs: {
+      id: "exampleModalLongTitle"
+    }
+  }, [_vm._v("Select Preparation Method")])]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selectedIngredient,
+      expression: "selectedIngredient"
+    }],
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.selectedIngredient = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: "-1"
+    }
+  }, [_vm._v("Select Food Item")]), _vm._v(" "), _vm._l(_vm.foods.data, function (food, index) {
+    return _c("option", {
+      key: index,
+      domProps: {
+        value: food.id
+      }
+    }, [_vm._v("\n                                                    " + _vm._s(food.item) + "\n                                                ")]);
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "secondary-btn",
+    attrs: {
+      type: "button",
+      "data-dismiss": "modal"
+    }
+  }, [_vm._v("Close")]), _vm._v(" "), _c("button", {
+    staticClass: "default-btn",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Upload")])])])])])])])])])])]);
 };
 
 var staticRenderFns = [];
@@ -25781,45 +27166,6 @@ component.options.__file = "resources/js/Layouts/AppLayout.vue"
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Calculator.vue":
-/*!*******************************************!*\
-  !*** ./resources/js/Pages/Calculator.vue ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Calculator_vue_vue_type_template_id_0a9d206b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Calculator.vue?vue&type=template&id=0a9d206b&scoped=true& */ "./resources/js/Pages/Calculator.vue?vue&type=template&id=0a9d206b&scoped=true&");
-/* harmony import */ var _Calculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Calculator.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Calculator.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Calculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Calculator_vue_vue_type_template_id_0a9d206b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Calculator_vue_vue_type_template_id_0a9d206b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "0a9d206b",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/Pages/Calculator.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/Pages/CompositionTable.vue":
 /*!*************************************************!*\
   !*** ./resources/js/Pages/CompositionTable.vue ***!
@@ -25855,6 +27201,84 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/Pages/CompositionTable.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ContactUs.vue":
+/*!******************************************!*\
+  !*** ./resources/js/Pages/ContactUs.vue ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ContactUs_vue_vue_type_template_id_5b442885_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactUs.vue?vue&type=template&id=5b442885&scoped=true& */ "./resources/js/Pages/ContactUs.vue?vue&type=template&id=5b442885&scoped=true&");
+/* harmony import */ var _ContactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ContactUs.vue?vue&type=script&lang=js& */ "./resources/js/Pages/ContactUs.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ContactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ContactUs_vue_vue_type_template_id_5b442885_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ContactUs_vue_vue_type_template_id_5b442885_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "5b442885",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/ContactUs.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/FAQS.vue":
+/*!*************************************!*\
+  !*** ./resources/js/Pages/FAQS.vue ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _FAQS_vue_vue_type_template_id_2f04e6b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true& */ "./resources/js/Pages/FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true&");
+/* harmony import */ var _FAQS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FAQS.vue?vue&type=script&lang=js& */ "./resources/js/Pages/FAQS.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FAQS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FAQS_vue_vue_type_template_id_2f04e6b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _FAQS_vue_vue_type_template_id_2f04e6b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "2f04e6b4",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/FAQS.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -25937,6 +27361,162 @@ component.options.__file = "resources/js/Pages/Home.vue"
 
 /***/ }),
 
+/***/ "./resources/js/Pages/News.vue":
+/*!*************************************!*\
+  !*** ./resources/js/Pages/News.vue ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _News_vue_vue_type_template_id_4afb3f08_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./News.vue?vue&type=template&id=4afb3f08&scoped=true& */ "./resources/js/Pages/News.vue?vue&type=template&id=4afb3f08&scoped=true&");
+/* harmony import */ var _News_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./News.vue?vue&type=script&lang=js& */ "./resources/js/Pages/News.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _News_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _News_vue_vue_type_template_id_4afb3f08_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _News_vue_vue_type_template_id_4afb3f08_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "4afb3f08",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/News.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/NewsDetails.vue":
+/*!********************************************!*\
+  !*** ./resources/js/Pages/NewsDetails.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _NewsDetails_vue_vue_type_template_id_41460556_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NewsDetails.vue?vue&type=template&id=41460556&scoped=true& */ "./resources/js/Pages/NewsDetails.vue?vue&type=template&id=41460556&scoped=true&");
+/* harmony import */ var _NewsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NewsDetails.vue?vue&type=script&lang=js& */ "./resources/js/Pages/NewsDetails.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NewsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NewsDetails_vue_vue_type_template_id_41460556_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _NewsDetails_vue_vue_type_template_id_41460556_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "41460556",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/NewsDetails.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ProjectOverview.vue":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/ProjectOverview.vue ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ProjectOverview_vue_vue_type_template_id_c2d537ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true& */ "./resources/js/Pages/ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true&");
+/* harmony import */ var _ProjectOverview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProjectOverview.vue?vue&type=script&lang=js& */ "./resources/js/Pages/ProjectOverview.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ProjectOverview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProjectOverview_vue_vue_type_template_id_c2d537ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ProjectOverview_vue_vue_type_template_id_c2d537ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "c2d537ce",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/ProjectOverview.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/RecipeCalculator.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/Pages/RecipeCalculator.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RecipeCalculator_vue_vue_type_template_id_64d290d9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true& */ "./resources/js/Pages/RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true&");
+/* harmony import */ var _RecipeCalculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecipeCalculator.vue?vue&type=script&lang=js& */ "./resources/js/Pages/RecipeCalculator.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _RecipeCalculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RecipeCalculator_vue_vue_type_template_id_64d290d9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RecipeCalculator_vue_vue_type_template_id_64d290d9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "64d290d9",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/Pages/RecipeCalculator.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Search.vue":
 /*!***************************************!*\
   !*** ./resources/js/Pages/Search.vue ***!
@@ -25992,22 +27572,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Calculator.vue?vue&type=script&lang=js&":
-/*!********************************************************************!*\
-  !*** ./resources/js/Pages/Calculator.vue?vue&type=script&lang=js& ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Calculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Calculator.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Calculator.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Calculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/Pages/CompositionTable.vue?vue&type=script&lang=js&":
 /*!**************************************************************************!*\
   !*** ./resources/js/Pages/CompositionTable.vue?vue&type=script&lang=js& ***!
@@ -26021,6 +27585,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CompositionTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CompositionTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/CompositionTable.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CompositionTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ContactUs.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/Pages/ContactUs.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactUs.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ContactUs.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/FAQS.vue?vue&type=script&lang=js&":
+/*!**************************************************************!*\
+  !*** ./resources/js/Pages/FAQS.vue?vue&type=script&lang=js& ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FAQS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FAQS.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/FAQS.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FAQS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -26053,6 +27649,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Home.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/News.vue?vue&type=script&lang=js&":
+/*!**************************************************************!*\
+  !*** ./resources/js/Pages/News.vue?vue&type=script&lang=js& ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_News_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./News.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/News.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_News_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/NewsDetails.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/Pages/NewsDetails.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NewsDetails.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/NewsDetails.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsDetails_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ProjectOverview.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/Pages/ProjectOverview.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectOverview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProjectOverview.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ProjectOverview.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectOverview_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/RecipeCalculator.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/Pages/RecipeCalculator.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeCalculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RecipeCalculator.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/RecipeCalculator.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeCalculator_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -26089,23 +27749,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Calculator.vue?vue&type=template&id=0a9d206b&scoped=true&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/Pages/Calculator.vue?vue&type=template&id=0a9d206b&scoped=true& ***!
-  \**************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Calculator_vue_vue_type_template_id_0a9d206b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Calculator_vue_vue_type_template_id_0a9d206b_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Calculator_vue_vue_type_template_id_0a9d206b_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Calculator.vue?vue&type=template&id=0a9d206b&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Calculator.vue?vue&type=template&id=0a9d206b&scoped=true&");
-
-
-/***/ }),
-
 /***/ "./resources/js/Pages/CompositionTable.vue?vue&type=template&id=dcc9c026&scoped=true&":
 /*!********************************************************************************************!*\
   !*** ./resources/js/Pages/CompositionTable.vue?vue&type=template&id=dcc9c026&scoped=true& ***!
@@ -26119,6 +27762,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CompositionTable_vue_vue_type_template_id_dcc9c026_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CompositionTable_vue_vue_type_template_id_dcc9c026_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CompositionTable.vue?vue&type=template&id=dcc9c026&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/CompositionTable.vue?vue&type=template&id=dcc9c026&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ContactUs.vue?vue&type=template&id=5b442885&scoped=true&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Pages/ContactUs.vue?vue&type=template&id=5b442885&scoped=true& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_5b442885_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_5b442885_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_5b442885_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ContactUs.vue?vue&type=template&id=5b442885&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ContactUs.vue?vue&type=template&id=5b442885&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Pages/FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FAQS_vue_vue_type_template_id_2f04e6b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FAQS_vue_vue_type_template_id_2f04e6b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_FAQS_vue_vue_type_template_id_2f04e6b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/FAQS.vue?vue&type=template&id=2f04e6b4&scoped=true&");
 
 
 /***/ }),
@@ -26153,6 +27830,74 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_6a63e488_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_template_id_6a63e488_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Home.vue?vue&type=template&id=6a63e488&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/Home.vue?vue&type=template&id=6a63e488&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/News.vue?vue&type=template&id=4afb3f08&scoped=true&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/Pages/News.vue?vue&type=template&id=4afb3f08&scoped=true& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_News_vue_vue_type_template_id_4afb3f08_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_News_vue_vue_type_template_id_4afb3f08_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_News_vue_vue_type_template_id_4afb3f08_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./News.vue?vue&type=template&id=4afb3f08&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/News.vue?vue&type=template&id=4afb3f08&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/NewsDetails.vue?vue&type=template&id=41460556&scoped=true&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Pages/NewsDetails.vue?vue&type=template&id=41460556&scoped=true& ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsDetails_vue_vue_type_template_id_41460556_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsDetails_vue_vue_type_template_id_41460556_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_NewsDetails_vue_vue_type_template_id_41460556_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./NewsDetails.vue?vue&type=template&id=41460556&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/NewsDetails.vue?vue&type=template&id=41460556&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/Pages/ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectOverview_vue_vue_type_template_id_c2d537ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectOverview_vue_vue_type_template_id_c2d537ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectOverview_vue_vue_type_template_id_c2d537ce_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/ProjectOverview.vue?vue&type=template&id=c2d537ce&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/Pages/RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeCalculator_vue_vue_type_template_id_64d290d9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeCalculator_vue_vue_type_template_id_64d290d9_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_RecipeCalculator_vue_vue_type_template_id_64d290d9_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/Pages/RecipeCalculator.vue?vue&type=template&id=64d290d9&scoped=true&");
 
 
 /***/ }),
@@ -38187,14 +39932,24 @@ Vue.compile = compileToFunctions;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
-	"./Calculator": "./resources/js/Pages/Calculator.vue",
-	"./Calculator.vue": "./resources/js/Pages/Calculator.vue",
 	"./CompositionTable": "./resources/js/Pages/CompositionTable.vue",
 	"./CompositionTable.vue": "./resources/js/Pages/CompositionTable.vue",
+	"./ContactUs": "./resources/js/Pages/ContactUs.vue",
+	"./ContactUs.vue": "./resources/js/Pages/ContactUs.vue",
+	"./FAQS": "./resources/js/Pages/FAQS.vue",
+	"./FAQS.vue": "./resources/js/Pages/FAQS.vue",
 	"./Food": "./resources/js/Pages/Food.vue",
 	"./Food.vue": "./resources/js/Pages/Food.vue",
 	"./Home": "./resources/js/Pages/Home.vue",
 	"./Home.vue": "./resources/js/Pages/Home.vue",
+	"./News": "./resources/js/Pages/News.vue",
+	"./News.vue": "./resources/js/Pages/News.vue",
+	"./NewsDetails": "./resources/js/Pages/NewsDetails.vue",
+	"./NewsDetails.vue": "./resources/js/Pages/NewsDetails.vue",
+	"./ProjectOverview": "./resources/js/Pages/ProjectOverview.vue",
+	"./ProjectOverview.vue": "./resources/js/Pages/ProjectOverview.vue",
+	"./RecipeCalculator": "./resources/js/Pages/RecipeCalculator.vue",
+	"./RecipeCalculator.vue": "./resources/js/Pages/RecipeCalculator.vue",
 	"./Search": "./resources/js/Pages/Search.vue",
 	"./Search.vue": "./resources/js/Pages/Search.vue"
 };
