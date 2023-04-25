@@ -21,8 +21,8 @@
                                 <h4 itemprop="headline">Malawi Food Data System</h4>
                                 <!--                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>-->
                                 <div>
-                                    <form class="newsletter-frm">
-                                        <input type="email" placeholder="Search" />
+                                    <form class="newsletter-frm" :action="route('search')" method="get">
+                                        <input name="query" type="text" placeholder="Search" />
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>

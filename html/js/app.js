@@ -2469,7 +2469,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      filter: null
+      filter: null,
+      selectedGroup: 0
     };
   },
   computed: {
@@ -2478,9 +2479,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var foods = this.foods.data;
 
-      if (this.filter != null) {
+      if (this.selectedGroup !== 0) {
         foods = foods.filter(function (food) {
-          return food.group.id === _this.filter;
+          return food.group.id === _this.selectedGroup;
         });
       }
 
@@ -2488,7 +2489,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    searchCount: function searchCount(id) {
+    foodCount: function foodCount(id) {
       var foods = this.foods.data;
 
       if (id != null) {
@@ -3697,10 +3698,15 @@ var render = function render() {
       itemprop: "headline"
     }
   }, [_vm._v("Malawi Food Data System")]), _vm._v(" "), _c("div", [_c("form", {
-    staticClass: "newsletter-frm"
+    staticClass: "newsletter-frm",
+    attrs: {
+      action: _vm.route("search"),
+      method: "get"
+    }
   }, [_c("input", {
     attrs: {
-      type: "email",
+      name: "query",
+      type: "text",
       placeholder: "Search"
     }
   }), _vm._v(" "), _c("button", {
@@ -4806,20 +4812,53 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("app-layout", [_c("section", {
-    staticClass: "page-header image-placeholder",
-    staticStyle: {
-      "background-image": "url('images/header-1.jpg')"
-    }
-  }, [_c("div", {}, [_c("div", {}, [_c("div", {
-    staticClass: "title"
-  }, [_c("span", [_vm._v("Search Results")])])])])]), _vm._v(" "), _c("section", {}, [_c("div", {}, [_c("div", {
-    staticClass: "main-section"
-  }, [_c("div", {}, [_c("div", {
-    staticClass: "blog-sidebar"
+  return _c("app-layout", [_c("div", {
+    staticClass: "page-top style2 blackish opc7"
   }, [_c("div", {
-    staticClass: "widget search-widget"
+    staticClass: "fixed-bg2",
+    staticStyle: {
+      background: "url(images/page-top.jpg)"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "page-title"
+  }, [_c("div", {
+    staticClass: "pg-tl"
+  }, [_c("h1", {
+    attrs: {
+      itemprop: "headline"
+    }
+  }, [_vm._v("Search Results")])]), _vm._v(" "), _c("ol", {
+    staticClass: "breadcrumb"
+  }, [_c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("home")
+    }
+  }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item"
+  }, [_c("a", {
+    attrs: {
+      href: _vm.route("search")
+    }
+  }, [_vm._v("Search")])]), _vm._v(" "), _c("li", {
+    staticClass: "breadcrumb-item active"
+  }, [_vm._v(_vm._s(_vm.query))])])])])]), _vm._v(" "), _c("section", [_c("div", {
+    staticClass: "block gray"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "srch-fund"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: ""
+  }, [_c("div", {
+    staticClass: "srch-fund-inr"
   }, [_c("form", {
+    staticClass: "pg-srch-frm",
     attrs: {
       action: _vm.route("search"),
       method: "get"
@@ -4828,7 +4867,7 @@ var render = function render() {
     attrs: {
       name: "query",
       type: "text",
-      placeholder: "Search for food"
+      placeholder: "Search"
     },
     domProps: {
       value: _vm.query
@@ -4838,65 +4877,75 @@ var render = function render() {
       type: "submit"
     }
   }, [_c("i", {
-    staticClass: "fas fa-search"
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "widget category-widget"
-  }, [_c("h5", {
-    staticClass: "widget-title"
-  }, [_vm._v("Filter by group")]), _vm._v(" "), _c("ul", [_c("li", {
+    staticClass: "fa fa-search"
+  })])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12 col-sm-12 col-lg-12"
+  }, [_c("div", {
+    staticClass: "fltrs style2 paddlr30 center-align"
+  }, [_c("ul", {
+    staticClass: "fltrs-lst"
+  }, [_c("li", {
+    staticClass: "selected"
+  }, [_c("span", {
     "class": {
-      active: _vm.filter === null
+      selected: _vm.selectedGroup === 0
     },
     on: {
       click: function click($event) {
-        _vm.filter = null;
+        _vm.selectedGroup = 0;
       }
     }
-  }, [_vm._v("\n                                        All (" + _vm._s(_vm.searchCount(null)) + ") "), _c("i", {
-    staticClass: "far fa-angle-right"
-  })]), _vm._v(" "), _vm._l(_vm.groups.data, function (group, index) {
+  }, [_vm._v("All Items (" + _vm._s(_vm.foodCount(null)) + ")")])]), _vm._v(" "), _vm._l(_vm.groups.data, function (group, index) {
     return _c("li", {
-      key: index,
+      key: index
+    }, [_c("span", {
       "class": {
-        active: _vm.filter === group.id
+        selected: _vm.selectedGroup === group.id
       },
       on: {
         click: function click($event) {
-          _vm.filter = group.id;
+          _vm.selectedGroup = group.id;
         }
       }
-    }, [_vm._v("\n                                       " + _vm._s(group.name) + " (" + _vm._s(_vm.searchCount(group.id)) + ") "), _c("i", {
-      staticClass: "far fa-angle-right"
-    })]);
-  })], 2)])])]), _vm._v(" "), _c("div", {
-    staticClass: "main-body"
+    }, [_vm._v(_vm._s(group.name) + " (" + _vm._s(_vm.foodCount(group.id)) + ")")])]);
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "remove-ext"
   }, [_c("div", {
-    staticClass: "search-results bg-white"
-  }, [_vm.filteredFoods.length > 0 ? _c("div", [_c("table", {
-    staticClass: "w-full transition duration-1000 ease-in-out"
-  }, [_c("tr", {
-    staticClass: "border-b"
-  }, [_c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Code")]), _vm._v(" "), _c("th", {
-    staticClass: "text-left p-2 min-w-75"
-  }, [_vm._v("Ref. No")]), _vm._v(" "), _c("th", {
-    staticClass: "text-left p-2"
-  }, [_vm._v("Food Item")])]), _vm._v(" "), _vm._l(_vm.filteredFoods, function (food, index) {
-    return _c("tr", {
-      key: index
-    }, [_c("td", {
-      staticClass: "px-2"
-    }, [_vm._v(_vm._s(food.code))]), _vm._v(" "), _c("td", {
-      staticClass: "px-2"
-    }, [_vm._v(_vm._s(food.ref_no))]), _vm._v(" "), _c("td", {
-      staticClass: "px-2"
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "row"
+  }, _vm._l(_vm.filteredFoods, function (food, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "col-sm-12"
+    }, [_c("div", {
+      staticClass: "cause-box1 style2"
     }, [_c("inertia-link", {
       attrs: {
         href: _vm.route("foods.show", food.code)
       }
-    }, [_vm._v("\n                                            " + _vm._s(food.item) + "\n                                            ")])], 1)]);
-  })], 2)]) : _c("div", [_vm._v("\n                                No results found\n                            ")])])])])])])]);
+    }, [_c("div", {
+      staticClass: "cause-info"
+    }, [_c("div", [_c("span", {
+      staticClass: "cate"
+    }, [_c("span", [_vm._v(_vm._s(food.group.name))])]), _vm._v(" "), _c("h2", {
+      attrs: {
+        itemprop: "headline"
+      }
+    }, [_c("a", {
+      attrs: {
+        href: "#",
+        title: "",
+        itemprop: "url"
+      }
+    }, [_vm._v(_vm._s(food.item))])])]), _vm._v(" "), _c("span", {
+      staticClass: "dnt-gl"
+    }, [_vm._v("Code: "), _c("span", {
+      staticClass: "price"
+    }, [_vm._v(_vm._s(food.code))])])])])], 1)]);
+  }), 0)])])])])])])])])]);
 };
 
 var staticRenderFns = [];
