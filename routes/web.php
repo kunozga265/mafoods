@@ -104,6 +104,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
         PageController::class,'pageContent'
     ])->name('admin.page-content');
 
+    Route::post('/page-content', [
+        PageController::class,'updatePageContent'
+    ])->name('admin.page-content.update');
+
     Route::get('/composition-table', [
         CompositionTableController::class,'index'
     ])->name('admin.composition-table');

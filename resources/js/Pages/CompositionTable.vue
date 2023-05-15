@@ -42,30 +42,19 @@
                                                 and health. It is therefore essential to have a reliable
                                                 country-specific food composition database.</p>-->
                                             <div class="description">
-                                                <p itemprop="description">Data reference sources- 63% Malawi, 30% South Africa, 4% West Africa, 2% United states of America, 1% Mozambique, 23% Recipes
-                                                    All foods are biological materials and exhibit natural variations in composition.
-                                                    This variability is increased by factors such as:
-                                                </p>
-                                                <ul class="listing">
-                                                    <li>different methods of plant and animal husbandry</li>
-                                                    <li>storage methods</li>
-                                                    <li>transportation</li>
-                                                    <li>different marketing strategies</li>
-                                                    <li>agriculture practices</li>
-                                                    <li>processing methods</li>
-                                                </ul>
-                                                <div v-show="showMore">
+                                                <div v-html="page.data.contents.composition_table_description"></div>
+<!--                                                <div v-show="showMore">
                                                     <p itemprop="description">Users of the data should become familiar with the variables that affect how food composition data are produced and compiled as a precondition for making good use of the data.</p>
                                                     <p>MAFOODS. 2019. Malawian Food Composition Table. 1st Edition. Averalda van Graan, Joelaine Chetty, Malory Jumat, Sitilitha Masangwi, Agnes Mwangwela, Felix Pensulo Phiri, Lynne M. Ausman, Shibani Ghosh, Elizabeth Marino-Costello (Eds). Lilongwe, Malawi.)</p>
                                                     <p>In the Frequently Asked Questions (FAQ) section of this website, provides answers for a better understanding of the compilation process and understanding the tables.</p>
                                                     <p>Searching the Malawian Food Composition Tables, a total of 316 food items are presented in the publication. For each food item, energy and approximate composition data are reported and some minerals and vitamins are presented for 42 components, i.e. moisture, energy, macronutrients, minerals and vitamins, as well as phytate values for select items. The nutrient information in MAFOODS 2019 represents mean values and cannot always be considered as an exact reflection of the nutrient content. As was previously indicated, various factors influence the nutrient content of food. Nutrient information is presented per 100g edible food.</p>
 
-                                                </div>
+                                                </div>-->
                                             </div>
 
                                             <div class="prd-qunt">
-                                                <span v-if="showMore === true" class="btn1-drk" @click="showMore=!showMore">Show Less</span>
-                                                <span v-else class="btn1-drk" @click="showMore=!showMore">Show More</span>
+<!--                                                <span v-if="showMore === true" class="btn1-drk" @click="showMore=!showMore">Show Less</span>-->
+<!--                                                <span v-else class="btn1-drk" @click="showMore=!showMore">Show More</span>-->
                                                 <a href="#" title="" class="btn1" itemprop="url">Download PDF</a>
                                             </div>
                                         </div>
@@ -155,7 +144,7 @@ import AppLayout from "@/Layouts/AppLayout";
 
 export default {
     name: "CompositionTable",
-    props:['groups','foods'],
+    props:['groups','foods','page'],
     components: {AppLayout},
     data(){
         return{

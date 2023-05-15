@@ -23,61 +23,23 @@
                             <div class="title-style2 center-align">
                                 <h4 itemprop="headline"><i>Get</i> In Touch</h4>
                                 <span>Feel free to reach out to us</span>
-                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>
+                                <p itemprop="description" v-text="page.data.contents.contacts_description"></p>
                             </div>
                         </div>
-                        <div class="col-md-6 col-sm-6 col-lg-4">
+                        <div class="col-md-6 col-sm-6 col-lg-4"
+                             v-for="(contact,index) in page.data.contents.contacts"
+                             :key="index"
+                        >
                             <div class="contact news-detail">
-                                <h2 itemprop="headline">Dr Agnes Mwangwela</h2>
-                                <p>Senior Scientist <br>MAFOODS</p>
+                                <h2 itemprop="headline" v-text="contact.name"></h2>
+                                <p v-text="contact.designation"></p>
                                 <div class="news-meta">
                                     <ul class="pst-meta">
                                         <li>
-                                            <p class="address">Lilongwe University of Agriculture and Natural Resources <br>
-                                                P. O. Box 219 <br>
-                                                Lilongwe.
-                                            </p>
+                                            <p class="address" v-text="contact.address"></p>
                                         </li>
-                                        <li><i class="fa fa-envelope"></i> amwangwela@luanar.ac.mw</li>
-                                        <li><i class="fa fa-phone"></i> +265 888 878 777</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-4">
-                            <div class="contact news-detail">
-                                <h2 itemprop="headline">Ms. Dalitso Chimwala</h2>
-                                <p>Food Composition Data Compiler <br>MAFOODS</p>
-                                <div class="news-meta">
-                                    <ul class="pst-meta">
-                                        <li>
-                                            <p class="address">Lilongwe University of Agriculture and Natural Resources <br>
-                                                P. O. Box 219 <br>
-                                                Lilongwe.
-                                            </p>
-                                        </li>
-                                        <li><i class="fa fa-envelope"></i> dchimwala@luanar.ac.mw</li>
-                                        <li><i class="fa fa-phone"></i> +265 882 856 052 / +265 997 255 086</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-lg-4">
-                            <div class="contact news-detail">
-                                <h2 itemprop="headline">Dr Felix Pensulo Phiri</h2>
-                                <p>Director of Nutrition Department of Nutrition, HIV and AIDS</p>
-                                <div class="news-meta">
-                                    <ul class="pst-meta">
-                                        <li>
-                                            <p class="address">Department of Nutrition, HIV and AIDS <br>
-                                                Ministry of Health <br>
-                                                Private Bag B401 <br>
-                                                Lilongwe.
-
-                                            </p>
-                                        </li>
-                                        <li><i class="fa fa-envelope"></i> felixphiri8@gmail.com</li>
-                                        <li><i class="fa fa-phone"></i> +265 888 959 900 / +265 999 953 747</li>
+                                        <li><i class="fa fa-envelope"></i> <span v-text="contact.email"></span></li>
+                                        <li><i class="fa fa-phone"></i> <span v-text="contact.phoneNumber1"></span> <span v-if="contact.phoneNumber2">/ {{contact.phoneNumber2}}</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -127,6 +89,7 @@ import AppLayout from "@/Layouts/AppLayout";
 
 export default {
     name: "ContactUs",
+    props:['page'],
     components: {AppLayout},
     data(){
         return{

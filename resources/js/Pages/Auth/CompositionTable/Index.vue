@@ -15,8 +15,8 @@
         <section>
             <div class="">
                 <div class="card">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="">
+                        <div class="">
                             <div class="fltrs style2 paddlr30 center-align">
                                 <ul class="fltrs-lst">
                                     <li class="selected"><span @click="selectedGroup=0" :class="{selected:selectedGroup===0}">All Items ({{foodCount(null)}})</span></li>
@@ -36,9 +36,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="remove-ext">
-                                    <div class="row">
-                                        <div class="row">
+                                <div class="">
+                                    <div class="">
+                                        <div class="">
                                             <div
                                                 v-for="(food,index) in filteredFoods"
                                                 :key="index"

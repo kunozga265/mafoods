@@ -3060,17 +3060,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AdminLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AdminLayout */ "./resources/js/Layouts/AdminLayout.vue");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ckeditor/ckeditor5-build-classic */ "./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js");
+/* harmony import */ var _ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Plugins_uploader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Plugins/uploader */ "./resources/js/Plugins/uploader.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Dashboard",
+  name: "PageContent",
+  props: ["home", "composition_table", "project_overview", "faqs", "contacts"],
   components: {
     AdminLayout: _Layouts_AdminLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
-    return {};
+    return {
+      form: this.$inertia.form({
+        //home
+        home_section_1_title: this.home.data.contents.home_section_1_title,
+        home_section_1_subtitle: this.home.data.contents.home_section_1_subtitle,
+        home_section_2_title: this.home.data.contents.home_section_2_title,
+        home_section_2_subtitle: this.home.data.contents.home_section_2_subtitle,
+        //composition table
+        composition_table_description: this.composition_table.data.contents.composition_table_description,
+        //project overview
+        project_overview_description: this.project_overview.data.contents.project_overview_description,
+        project_overview_main_text: this.project_overview.data.contents.project_overview_main_text,
+        faqs: this.faqs.data.contents,
+        contacts: this.contacts.data.contents.contacts,
+        contacts_description: this.contacts.data.contents.contacts_description,
+        page: 'home'
+      }),
+      editor: (_ckeditor_ckeditor5_build_classic__WEBPACK_IMPORTED_MODULE_1___default()),
+      editorConfig: {
+        toolbar: ['bold', 'italic', '|', 'blockquote', 'link', '|', 'bulletedList', 'numberedList', '|', 'undo', 'redo']
+      }
+    };
   },
   computed: {},
-  methods: {}
+  methods: {
+    update: function update() {
+      this.form.transform(function (data) {
+        return _objectSpread({}, data);
+      }).post(this.route('admin.page-content.update'));
+    },
+    addContact: function addContact() {
+      this.form.contacts.push({
+        name: "",
+        designation: "",
+        address: "",
+        email: "",
+        phoneNumber1: "",
+        phoneNumber2: ""
+      });
+    },
+    removeContact: function removeContact(index) {
+      this.form.contacts.splice(index, 1);
+    },
+    addFaq: function addFaq() {
+      this.form.faqs.push({
+        question: "",
+        answer: ""
+      });
+    },
+    removeFaq: function removeFaq(index) {
+      this.form.faqs.splice(index, 1);
+    }
+  }
 });
 
 /***/ }),
@@ -3188,7 +3249,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CompositionTable",
-  props: ['groups', 'foods'],
+  props: ['groups', 'foods', 'page'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -3259,6 +3320,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ContactUs",
+  props: ['page'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -3286,6 +3348,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FAQS",
+  props: ['page'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -3384,7 +3447,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
-  props: ['group'],
+  props: ['page', 'news'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -3425,6 +3488,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "News",
+  props: ['news'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -3452,6 +3516,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "NewsDetails",
+  props: ['news', 'popular_news'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -3479,6 +3544,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ProjectOverview",
+  props: ['page'],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -4583,7 +4649,7 @@ var render = function render() {
     }
   }, [_c("a", {
     attrs: {
-      href: _vm.route("home"),
+      href: _vm.route("admin.dashboard"),
       title: "",
       itemprop: "url"
     }
@@ -6584,11 +6650,7 @@ var render = function render() {
     }])
   }, [_vm._v(" "), _vm._v(" "), _vm._v(" "), _c("section", [_c("div", {}, [_c("div", {
     staticClass: "card"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-12 col-sm-12 col-lg-12"
-  }, [_c("div", {
+  }, [_c("div", {}, [_c("div", {}, [_c("div", {
     staticClass: "fltrs style2 paddlr30 center-align"
   }, [_c("ul", {
     staticClass: "fltrs-lst"
@@ -6652,13 +6714,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "fa fa-search"
-  })])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "remove-ext"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "row"
-  }, _vm._l(_vm.filteredFoods, function (food, index) {
+  })])])])])])]), _vm._v(" "), _c("div", {}, [_c("div", {}, [_c("div", {}, _vm._l(_vm.filteredFoods, function (food, index) {
     return _c("div", {
       key: index
     }, [_c("div", {
@@ -8789,7 +8845,7 @@ var render = function render() {
     scopedSlots: _vm._u([{
       key: "header",
       fn: function fn() {
-        return [_vm._v("\n        Update Page Content\n    ")];
+        return [_vm._v("\n            Update Page Content\n        ")];
       },
       proxy: true
     }, {
@@ -8817,26 +8873,51 @@ var render = function render() {
     attrs: {
       href: "#home",
       "data-toggle": "tab"
+    },
+    on: {
+      click: function click($event) {
+        _vm.form.page = "home";
+      }
     }
   }, [_vm._v("Home")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
-      href: "#composition-table",
+      href: "#composition_table",
       "data-toggle": "tab"
+    },
+    on: {
+      click: function click($event) {
+        _vm.form.page = "composition_table";
+      }
     }
   }, [_vm._v("Composition Table")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
-      href: "#project-overview",
+      href: "#project_overview",
       "data-toggle": "tab"
+    },
+    on: {
+      click: function click($event) {
+        _vm.form.page = "project_overview";
+      }
     }
   }, [_vm._v("Project Overview")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
       href: "#faqs",
       "data-toggle": "tab"
+    },
+    on: {
+      click: function click($event) {
+        _vm.form.page = "faqs";
+      }
     }
   }, [_vm._v("Frequently Asked Questions")])]), _vm._v(" "), _c("li", [_c("a", {
     attrs: {
-      href: "#contact",
+      href: "#contacts",
       "data-toggle": "tab"
+    },
+    on: {
+      click: function click($event) {
+        _vm.form.page = "contacts";
+      }
     }
   }, [_vm._v("Contact")])])]), _vm._v(" "), _c("div", {
     staticClass: "tab-content"
@@ -8845,27 +8926,480 @@ var render = function render() {
     attrs: {
       id: "home"
     }
-  }, [_c("form")]), _vm._v(" "), _c("div", {
+  }, [_c("form", {
+    staticClass: "form"
+  }, [_c("div", {}, [_c("div", [_c("label", {
+    attrs: {
+      "for": "home_section_1_title"
+    }
+  }, [_vm._v("Section #1: Title")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.home_section_1_title,
+      expression: "form.home_section_1_title"
+    }],
+    attrs: {
+      id: "home_section_1_title",
+      type: "text",
+      required: ""
+    },
+    domProps: {
+      value: _vm.form.home_section_1_title
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "home_section_1_title", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    attrs: {
+      "for": "home_section_1_subtitle"
+    }
+  }, [_vm._v("Section #1: Subtitle")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.home_section_1_subtitle,
+      expression: "form.home_section_1_subtitle"
+    }],
+    attrs: {
+      id: "home_section_1_subtitle",
+      type: "text",
+      required: ""
+    },
+    domProps: {
+      value: _vm.form.home_section_1_subtitle
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "home_section_1_subtitle", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    attrs: {
+      "for": "home_section_2_title"
+    }
+  }, [_vm._v("Section #2: Title")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.home_section_2_title,
+      expression: "form.home_section_2_title"
+    }],
+    attrs: {
+      id: "home_section_2_title",
+      type: "text",
+      required: ""
+    },
+    domProps: {
+      value: _vm.form.home_section_2_title
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "home_section_2_title", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    attrs: {
+      "for": "home_section_2_subtitle"
+    }
+  }, [_vm._v("Section #2: Subtitle")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.home_section_2_subtitle,
+      expression: "form.home_section_2_subtitle"
+    }],
+    attrs: {
+      id: "home_section_2_subtitle",
+      type: "text",
+      required: ""
+    },
+    domProps: {
+      value: _vm.form.home_section_2_subtitle
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "home_section_2_subtitle", $event.target.value);
+      }
+    }
+  })])])])]), _vm._v(" "), _c("div", {
     staticClass: "tab-pane fade",
     attrs: {
-      id: "composition-table"
+      id: "composition_table"
     }
-  }, [_vm._v('\n                                  "composition-\n                                ')]), _vm._v(" "), _c("div", {
+  }, [_c("form", {
+    staticClass: "form"
+  }, [_c("label", [_vm._v("Description")]), _vm._v(" "), _c("ckeditor", {
+    attrs: {
+      editor: _vm.editor,
+      config: _vm.editorConfig
+    },
+    model: {
+      value: _vm.form.composition_table_description,
+      callback: function callback($$v) {
+        _vm.$set(_vm.form, "composition_table_description", $$v);
+      },
+      expression: "form.composition_table_description"
+    }
+  })], 1)]), _vm._v(" "), _c("div", {
     staticClass: "tab-pane fade",
     attrs: {
-      id: "project-overview"
+      id: "project_overview"
     }
-  }, [_vm._v('\n                                    "project-\n                                ')]), _vm._v(" "), _c("div", {
+  }, [_c("form", {
+    staticClass: "form"
+  }, [_c("div", [_c("label", {
+    attrs: {
+      "for": "project_overview_description"
+    }
+  }, [_vm._v("Description")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.project_overview_description,
+      expression: "form.project_overview_description"
+    }],
+    attrs: {
+      id: "project_overview_description",
+      type: "text",
+      required: ""
+    },
+    domProps: {
+      value: _vm.form.project_overview_description
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "project_overview_description", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", [_vm._v("Main Text")]), _vm._v(" "), _c("ckeditor", {
+    attrs: {
+      editor: _vm.editor,
+      config: _vm.editorConfig
+    },
+    model: {
+      value: _vm.form.project_overview_main_text,
+      callback: function callback($$v) {
+        _vm.$set(_vm.form, "project_overview_main_text", $$v);
+      },
+      expression: "form.project_overview_main_text"
+    }
+  })], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "tab-pane fade",
     attrs: {
       id: "faqs"
     }
-  }, [_vm._v('\n                                  "faqs"\n                                ')]), _vm._v(" "), _c("div", {
+  }, [_c("form", {
+    staticClass: "form"
+  }, [_vm._l(_vm.form.faqs, function (faq, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "mb-40"
+    }, [_c("div", [_c("button", {
+      staticClass: "remove",
+      attrs: {
+        type: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.removeFaq(index);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fa fa-close"
+    })]), _vm._v(" "), _c("label", {
+      staticClass: "question"
+    }, [_vm._v("Question #" + _vm._s(index + 1))]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: faq.question,
+        expression: "faq.question"
+      }],
+      attrs: {
+        type: "text",
+        required: ""
+      },
+      domProps: {
+        value: faq.question
+      },
+      on: {
+        input: function input($event) {
+          if ($event.target.composing) return;
+
+          _vm.$set(faq, "question", $event.target.value);
+        }
+      }
+    })]), _vm._v(" "), _c("div", [_c("label", [_vm._v("Answer")]), _vm._v(" "), _c("ckeditor", {
+      attrs: {
+        editor: _vm.editor,
+        config: _vm.editorConfig
+      },
+      model: {
+        value: faq.answer,
+        callback: function callback($$v) {
+          _vm.$set(faq, "answer", $$v);
+        },
+        expression: "faq.answer"
+      }
+    })], 1)]);
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn1-drk",
+    attrs: {
+      type: "submit"
+    },
+    on: {
+      click: _vm.addFaq
+    }
+  }, [_vm._v("\n                                                Add\n                                            ")])], 2)]), _vm._v(" "), _c("div", {
     staticClass: "tab-pane fade",
     attrs: {
-      id: "contact"
+      id: "contacts"
     }
-  }, [_vm._v('\n                                  "contact"\n                                ')])])])])])])])])]);
+  }, [_c("form", {
+    staticClass: "form"
+  }, [_c("div", {
+    staticClass: "mb-40"
+  }, [_c("label", {
+    attrs: {
+      "for": "contacts_description"
+    }
+  }, [_vm._v("Description")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.contacts_description,
+      expression: "form.contacts_description"
+    }],
+    attrs: {
+      id: "contacts_description",
+      type: "text",
+      required: ""
+    },
+    domProps: {
+      value: _vm.form.contacts_description
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.form, "contacts_description", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _vm._l(_vm.form.contacts, function (contact, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "row mb-40"
+    }, [_c("div", {
+      staticClass: "col-sm-12"
+    }, [_c("button", {
+      staticClass: "remove",
+      attrs: {
+        type: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.removeContact(index);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fa fa-close"
+    })]), _vm._v(" "), _c("label", {
+      staticClass: "contact-number"
+    }, [_vm._v("Contact #" + _vm._s(index + 1))])]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("label", [_vm._v("Name")]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: contact.name,
+        expression: "contact.name"
+      }],
+      attrs: {
+        type: "text",
+        required: ""
+      },
+      domProps: {
+        value: contact.name
+      },
+      on: {
+        input: function input($event) {
+          if ($event.target.composing) return;
+
+          _vm.$set(contact, "name", $event.target.value);
+        }
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("label", [_vm._v("Designation")]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: contact.designation,
+        expression: "contact.designation"
+      }],
+      attrs: {
+        type: "text",
+        required: ""
+      },
+      domProps: {
+        value: contact.designation
+      },
+      on: {
+        input: function input($event) {
+          if ($event.target.composing) return;
+
+          _vm.$set(contact, "designation", $event.target.value);
+        }
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("label", [_vm._v("Address")]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: contact.address,
+        expression: "contact.address"
+      }],
+      attrs: {
+        type: "text",
+        required: ""
+      },
+      domProps: {
+        value: contact.address
+      },
+      on: {
+        input: function input($event) {
+          if ($event.target.composing) return;
+
+          _vm.$set(contact, "address", $event.target.value);
+        }
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("label", [_vm._v("Email")]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: contact.email,
+        expression: "contact.email"
+      }],
+      attrs: {
+        type: "text",
+        required: ""
+      },
+      domProps: {
+        value: contact.email
+      },
+      on: {
+        input: function input($event) {
+          if ($event.target.composing) return;
+
+          _vm.$set(contact, "email", $event.target.value);
+        }
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("label", [_vm._v("Phone Number - 1")]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: contact.phoneNumber1,
+        expression: "contact.phoneNumber1"
+      }],
+      attrs: {
+        type: "text",
+        required: ""
+      },
+      domProps: {
+        value: contact.phoneNumber1
+      },
+      on: {
+        input: function input($event) {
+          if ($event.target.composing) return;
+
+          _vm.$set(contact, "phoneNumber1", $event.target.value);
+        }
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("label", [_vm._v("Phone Number - 2")]), _vm._v(" "), _c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: contact.phoneNumber2,
+        expression: "contact.phoneNumber2"
+      }],
+      attrs: {
+        type: "text",
+        required: ""
+      },
+      domProps: {
+        value: contact.phoneNumber2
+      },
+      on: {
+        input: function input($event) {
+          if ($event.target.composing) return;
+
+          _vm.$set(contact, "phoneNumber2", $event.target.value);
+        }
+      }
+    })])]);
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn1-drk",
+    attrs: {
+      type: "submit"
+    },
+    on: {
+      click: _vm.addContact
+    }
+  }, [_vm._v("\n                                                Add\n                                            ")])], 2)])]), _vm._v(" "), _c("div", {
+    staticClass: "text-center"
+  }, [_c("button", {
+    staticClass: "btn1",
+    attrs: {
+      type: "submit"
+    },
+    on: {
+      click: _vm.update
+    }
+  }, [_c("svg", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.form.processing,
+      expression: "form.processing"
+    }],
+    staticClass: "inline w-4 h-4 mr-3 text-white animate-spin",
+    attrs: {
+      role: "status",
+      viewBox: "0 0 100 101",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z",
+      fill: "#E5E7EB"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      d: "M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z",
+      fill: "currentColor"
+    }
+  })]), _vm._v("\n                                        Update\n                                    ")])])])])])])])])]);
 };
 
 var staticRenderFns = [];
@@ -9246,40 +9780,13 @@ var render = function render() {
     staticClass: "prd-cate"
   }, [_vm._v("316 Food Items")]), _vm._v(" "), _c("span", [_vm._v("| 42 Nutrients")]), _vm._v(" "), _c("div", {
     staticClass: "description"
-  }, [_c("p", {
-    attrs: {
-      itemprop: "description"
+  }, [_c("div", {
+    domProps: {
+      innerHTML: _vm._s(_vm.page.data.contents.composition_table_description)
     }
-  }, [_vm._v("Data reference sources- 63% Malawi, 30% South Africa, 4% West Africa, 2% United states of America, 1% Mozambique, 23% Recipes\n                                                    All foods are biological materials and exhibit natural variations in composition.\n                                                    This variability is increased by factors such as:\n                                                ")]), _vm._v(" "), _c("ul", {
-    staticClass: "listing"
-  }, [_c("li", [_vm._v("different methods of plant and animal husbandry")]), _vm._v(" "), _c("li", [_vm._v("storage methods")]), _vm._v(" "), _c("li", [_vm._v("transportation")]), _vm._v(" "), _c("li", [_vm._v("different marketing strategies")]), _vm._v(" "), _c("li", [_vm._v("agriculture practices")]), _vm._v(" "), _c("li", [_vm._v("processing methods")])]), _vm._v(" "), _c("div", {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: _vm.showMore,
-      expression: "showMore"
-    }]
-  }, [_c("p", {
-    attrs: {
-      itemprop: "description"
-    }
-  }, [_vm._v("Users of the data should become familiar with the variables that affect how food composition data are produced and compiled as a precondition for making good use of the data.")]), _vm._v(" "), _c("p", [_vm._v("MAFOODS. 2019. Malawian Food Composition Table. 1st Edition. Averalda van Graan, Joelaine Chetty, Malory Jumat, Sitilitha Masangwi, Agnes Mwangwela, Felix Pensulo Phiri, Lynne M. Ausman, Shibani Ghosh, Elizabeth Marino-Costello (Eds). Lilongwe, Malawi.)")]), _vm._v(" "), _c("p", [_vm._v("In the Frequently Asked Questions (FAQ) section of this website, provides answers for a better understanding of the compilation process and understanding the tables.")]), _vm._v(" "), _c("p", [_vm._v("Searching the Malawian Food Composition Tables, a total of 316 food items are presented in the publication. For each food item, energy and approximate composition data are reported and some minerals and vitamins are presented for 42 components, i.e. moisture, energy, macronutrients, minerals and vitamins, as well as phytate values for select items. The nutrient information in MAFOODS 2019 represents mean values and cannot always be considered as an exact reflection of the nutrient content. As was previously indicated, various factors influence the nutrient content of food. Nutrient information is presented per 100g edible food.")])])]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "prd-qunt"
-  }, [_vm.showMore === true ? _c("span", {
-    staticClass: "btn1-drk",
-    on: {
-      click: function click($event) {
-        _vm.showMore = !_vm.showMore;
-      }
-    }
-  }, [_vm._v("Show Less")]) : _c("span", {
-    staticClass: "btn1-drk",
-    on: {
-      click: function click($event) {
-        _vm.showMore = !_vm.showMore;
-      }
-    }
-  }, [_vm._v("Show More")]), _vm._v(" "), _c("a", {
+  }, [_c("a", {
     staticClass: "btn1",
     attrs: {
       href: "#",
@@ -9461,62 +9968,50 @@ var render = function render() {
   }, [_c("i", [_vm._v("Get")]), _vm._v(" In Touch")]), _vm._v(" "), _c("span", [_vm._v("Feel free to reach out to us")]), _vm._v(" "), _c("p", {
     attrs: {
       itemprop: "description"
+    },
+    domProps: {
+      textContent: _vm._s(_vm.page.data.contents.contacts_description)
     }
-  }, [_vm._v("Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "contact news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("Dr Agnes Mwangwela")]), _vm._v(" "), _c("p", [_vm._v("Senior Scientist "), _c("br"), _vm._v("MAFOODS")]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  }, [_c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("p", {
-    staticClass: "address"
-  }, [_vm._v("Lilongwe University of Agriculture and Natural Resources "), _c("br"), _vm._v("\n                                            P. O. Box 219 "), _c("br"), _vm._v("\n                                            Lilongwe.\n                                        ")])]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa fa-envelope"
-  }), _vm._v(" amwangwela@luanar.ac.mw")]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa fa-phone"
-  }), _vm._v(" +265 888 878 777")])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "contact news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("Ms. Dalitso Chimwala")]), _vm._v(" "), _c("p", [_vm._v("Food Composition Data Compiler "), _c("br"), _vm._v("MAFOODS")]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  }, [_c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("p", {
-    staticClass: "address"
-  }, [_vm._v("Lilongwe University of Agriculture and Natural Resources "), _c("br"), _vm._v("\n                                            P. O. Box 219 "), _c("br"), _vm._v("\n                                            Lilongwe.\n                                        ")])]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa fa-envelope"
-  }), _vm._v(" dchimwala@luanar.ac.mw")]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa fa-phone"
-  }), _vm._v(" +265 882 856 052 / +265 997 255 086")])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "contact news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("Dr Felix Pensulo Phiri")]), _vm._v(" "), _c("p", [_vm._v("Director of Nutrition Department of Nutrition, HIV and AIDS")]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  }, [_c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("p", {
-    staticClass: "address"
-  }, [_vm._v("Department of Nutrition, HIV and AIDS "), _c("br"), _vm._v("\n                                            Ministry of Health "), _c("br"), _vm._v("\n                                            Private Bag B401 "), _c("br"), _vm._v("\n                                            Lilongwe.\n\n                                        ")])]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa fa-envelope"
-  }), _vm._v(" felixphiri8@gmail.com")]), _vm._v(" "), _c("li", [_c("i", {
-    staticClass: "fa fa-phone"
-  }), _vm._v(" +265 888 959 900 / +265 999 953 747")])])])])])])])])]), _vm._v(" "), _c("section", [_c("div", {}, [_c("div", {
+  })])]), _vm._v(" "), _vm._l(_vm.page.data.contents.contacts, function (contact, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "col-md-6 col-sm-6 col-lg-4"
+    }, [_c("div", {
+      staticClass: "contact news-detail"
+    }, [_c("h2", {
+      attrs: {
+        itemprop: "headline"
+      },
+      domProps: {
+        textContent: _vm._s(contact.name)
+      }
+    }), _vm._v(" "), _c("p", {
+      domProps: {
+        textContent: _vm._s(contact.designation)
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "news-meta"
+    }, [_c("ul", {
+      staticClass: "pst-meta"
+    }, [_c("li", [_c("p", {
+      staticClass: "address",
+      domProps: {
+        textContent: _vm._s(contact.address)
+      }
+    })]), _vm._v(" "), _c("li", [_c("i", {
+      staticClass: "fa fa-envelope"
+    }), _vm._v(" "), _c("span", {
+      domProps: {
+        textContent: _vm._s(contact.email)
+      }
+    })]), _vm._v(" "), _c("li", [_c("i", {
+      staticClass: "fa fa-phone"
+    }), _vm._v(" "), _c("span", {
+      domProps: {
+        textContent: _vm._s(contact.phoneNumber1)
+      }
+    }), _vm._v(" "), contact.phoneNumber2 ? _c("span", [_vm._v("/ " + _vm._s(contact.phoneNumber2))]) : _vm._e()])])])])]);
+  })], 2)])])]), _vm._v(" "), _c("section", [_c("div", {}, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row"
@@ -9619,7 +10114,7 @@ var render = function render() {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row"
-  }, _vm._l(_vm.faqs, function (faq, index) {
+  }, _vm._l(_vm.page.data.contents, function (faq, index) {
     return _c("div", {
       key: index,
       staticClass: "col-sm-12"
@@ -9914,11 +10409,11 @@ var render = function render() {
     staticClass: "feat-img"
   }, [_c("div", {
     staticClass: "feat-cap"
-  }, [_c("span", [_vm._v("A USAID funded Project")]), _vm._v(" "), _c("h4", {
+  }, [_c("span", [_vm._v(_vm._s(_vm.page.data.contents.home_section_1_subtitle))]), _vm._v(" "), _c("h4", {
     attrs: {
       itemprop: "headline"
     }
-  }, [_vm._v("Malawi Food Data System")]), _vm._v(" "), _c("div", [_c("form", {
+  }, [_vm._v(_vm._s(_vm.page.data.contents.home_section_1_title))]), _vm._v(" "), _c("div", [_c("form", {
     staticClass: "newsletter-frm",
     attrs: {
       action: _vm.route("search"),
@@ -10132,11 +10627,11 @@ var render = function render() {
     attrs: {
       itemprop: "headline"
     }
-  }, [_vm._v("Project Overview ")]), _vm._v(" "), _c("p", {
+  }, [_vm._v(_vm._s(_vm.page.data.contents.home_section_2_title))]), _vm._v(" "), _c("p", {
     attrs: {
       itemprop: "description"
     }
-  }, [_vm._v("Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.page.data.contents.home_section_2_subtitle))])]), _vm._v(" "), _c("div", {
     staticClass: "fun-facts center-align paddlr170"
   }, [_c("a", {
     staticClass: "btn1 dnt-pp",
@@ -10163,108 +10658,53 @@ var render = function render() {
     staticClass: "remove-ext paddlr100"
   }, [_c("div", {
     staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-6"
-  }, [_c("div", {
-    staticClass: "news-box style2"
-  }, [_c("div", {
-    staticClass: "news-thumb"
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-3.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("i", {
-    staticClass: "fa fa-user"
-  }), _vm._v(" Posted By:"), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-6"
-  }, [_c("div", {
-    staticClass: "news-box style2"
-  }, [_c("div", {
-    staticClass: "news-thumb"
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-6.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("i", {
-    staticClass: "fa fa-user"
-  }), _vm._v(" Posted By:"), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  })])])]), _vm._v(" "), _c("div", {
+  }, [_vm._l(_vm.news.data, function (news_item, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "col-md-6 col-sm-6 col-lg-6"
+    }, [_c("div", {
+      staticClass: "news-box style2"
+    }, [_c("inertia-link", {
+      attrs: {
+        href: _vm.route("news.show", {
+          slug: news_item.slug
+        })
+      }
+    }, [_c("div", {
+      staticClass: "news-thumb image-placeholder",
+      style: {
+        backgroundImage: "url(".concat(_vm.fileUrl(news_item.photo), ")")
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "news-detail"
+    }, [_c("h2", {
+      attrs: {
+        itemprop: "headline"
+      },
+      domProps: {
+        textContent: _vm._s(news_item.title)
+      }
+    }), _vm._v(" "), _c("ul", {
+      staticClass: "pst-meta"
+    }, [_c("li", [_c("i", {
+      staticClass: "fa fa-user"
+    }), _vm._v(" Posted By: " + _vm._s(news_item.user.name))]), _vm._v(" "), _c("li", [_c("span", {
+      staticClass: "date"
+    }, [_c("i", {
+      staticClass: "fa fa-calendar-check-o"
+    }), _vm._v(" " + _vm._s(_vm.getDate(news_item.date)))])])]), _vm._v(" "), _c("div", {
+      staticClass: "news-meta"
+    })])])], 1)]);
+  }), _vm._v(" "), _c("div", {
     staticClass: "center-align"
   }, [_c("a", {
     staticClass: "btn1-drk",
     attrs: {
-      href: "#",
+      href: _vm.route("news"),
       title: "",
       itemprop: "url"
     }
-  }, [_vm._v("View all")])])])])])])])])])]);
+  }, [_vm._v("View all")])])], 2)])])])])])])]);
 };
 
 var staticRenderFns = [];
@@ -10322,133 +10762,50 @@ var render = function render() {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "news-box style2"
-  }, [_c("inertia-link", {
-    attrs: {
-      href: _vm.route("news.show", {
-        slug: "article"
-      })
-    }
-  }, [_c("div", {
-    staticClass: "news-thumb"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-3.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")]), _vm._v(" "), _c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("i", {
-    staticClass: "fa fa-user"
-  }), _vm._v(" Posted By:"), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  })])])], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "news-box style2"
-  }, [_c("inertia-link", {
-    attrs: {
-      href: _vm.route("news.show", {
-        slug: "article"
-      })
-    }
-  }, [_c("div", {
-    staticClass: "news-thumb"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-6.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")]), _vm._v(" "), _c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("i", {
-    staticClass: "fa fa-user"
-  }), _vm._v(" Posted By:"), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  })])])], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-6 col-lg-4"
-  }, [_c("div", {
-    staticClass: "news-box style2"
-  }, [_c("inertia-link", {
-    attrs: {
-      href: _vm.route("news.show", {
-        slug: "article"
-      })
-    }
-  }, [_c("div", {
-    staticClass: "news-thumb"
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-2.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "news-detail"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")]), _vm._v(" "), _c("ul", {
-    staticClass: "pst-meta"
-  }, [_c("li", [_c("i", {
-    staticClass: "fa fa-user"
-  }), _vm._v(" Posted By:"), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Dalitso Chimwala")])]), _vm._v(" "), _c("li", [_c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
-    staticClass: "news-meta"
-  })])])], 1)]), _vm._v(" "), _c("div", {
+  }, [_vm._l(_vm.news.data, function (news_item, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "col-md-6 col-sm-6 col-lg-4"
+    }, [_c("div", {
+      staticClass: "news-box style2"
+    }, [_c("inertia-link", {
+      attrs: {
+        href: _vm.route("news.show", {
+          slug: news_item.slug
+        })
+      }
+    }, [_c("div", {
+      staticClass: "news-thumb image-placeholder",
+      style: {
+        backgroundImage: "url(".concat(_vm.fileUrl(news_item.photo), ")")
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "news-detail"
+    }, [_c("h2", {
+      attrs: {
+        itemprop: "headline"
+      },
+      domProps: {
+        textContent: _vm._s(news_item.title)
+      }
+    }), _vm._v(" "), _c("ul", {
+      staticClass: "pst-meta"
+    }, [_c("li", [_c("i", {
+      staticClass: "fa fa-user"
+    }), _vm._v(" Posted By: " + _vm._s(news_item.user.name))]), _vm._v(" "), _c("li", [_c("span", {
+      staticClass: "date"
+    }, [_c("i", {
+      staticClass: "fa fa-calendar-check-o"
+    }), _vm._v(" " + _vm._s(_vm.getDate(news_item.date)))])])]), _vm._v(" "), _c("div", {
+      staticClass: "news-meta"
+    })])])], 1)]);
+  }), _vm._v(" "), _c("div", {
     staticClass: "pagination"
   }, [_c("ul", [_c("li", {
     staticClass: "prev-pg"
   }, [_c("a", {
     attrs: {
-      href: "#",
+      href: _vm.news.links.prev,
       title: "",
       itemprop: "url"
     }
@@ -10458,13 +10815,13 @@ var render = function render() {
     staticClass: "next-pg"
   }, [_c("a", {
     attrs: {
-      href: "#",
+      href: _vm.news.links.next,
       title: "",
       itemprop: "url"
     }
   }, [_c("i", {
     staticClass: "fa fa-angle-double-right"
-  })])])])])])])])])]);
+  })])])])])], 2)])])])]);
 };
 
 var staticRenderFns = [];
@@ -10494,7 +10851,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "fixed-bg2",
     style: {
-      backgroundImage: "url(".concat(_vm.fileUrl("images/page-top.jpg"), ")")
+      backgroundImage: "url(".concat(_vm.fileUrl(_vm.news.data.photo), ")")
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "container"
@@ -10505,8 +10862,11 @@ var render = function render() {
   }, [_c("h1", {
     attrs: {
       itemprop: "headline"
+    },
+    domProps: {
+      textContent: _vm._s(_vm.news.data.title)
     }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("ol", {
+  })]), _vm._v(" "), _c("ol", {
     staticClass: "breadcrumb"
   }, [_c("li", {
     staticClass: "breadcrumb-item"
@@ -10546,7 +10906,7 @@ var render = function render() {
     staticClass: "pst-meta"
   }, [_c("li", [_c("i", {
     staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")]), _vm._v(" "), _c("li", [_c("i", {
+  }), _vm._v(" " + _vm._s(_vm.getDate(_vm.news.data.date)))]), _vm._v(" "), _c("li", [_c("i", {
     staticClass: "fa fa-user"
   }), _vm._v(" Posted By: "), _c("a", {
     attrs: {
@@ -10554,91 +10914,12 @@ var render = function render() {
       title: "",
       itemprop: "url"
     }
-  }, [_vm._v("Dalitso Chimwala")])])])]), _vm._v(" "), _c("p", {
-    attrs: {
-      itemprop: "description"
+  }, [_vm._v(_vm._s(_vm.news.data.user.name))])])]), _vm._v(" "), _c("div", {
+    staticClass: "body",
+    domProps: {
+      innerHTML: _vm._s(_vm.news.data.body)
     }
-  }, [_vm._v("Delightful remarkably mr on announcing themselves entreaties favourable. About to in terms is found seems of. The particular friendship one sufficient terminated frequently themselves if loud case. Delay music in lived noise an. Beyond genius really enough passed is up.")]), _vm._v(" "), _c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-3.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  }), _vm._v(" "), _c("p", {
-    attrs: {
-      itemprop: "description"
-    }
-  }, [_vm._v("Months on ye at by esteem desire warmth former. Sure that that way gave any fond now. His ssed affection excellent. Dissimilar compliment cultivated preference eat sufficient may. Well ur. Assistance mpression set insipidity now connection off you solcitude. Under as seems we tening shameless by abilities pronounce oh suspected is affection. Next it draw in draw much spoil along. Incommode he depending do frankness remainder to. Edward day almost active People as period twenty my extent as. Set was better abroad ham plenty secure had horses ly excellence say everything inhabiting acceptance. ")]), _vm._v(" "), _c("p", {
-    attrs: {
-      itemprop: "description"
-    }
-  }, [_vm._v("Behaviour we improving at something to. Evil true high lady roof men had open. To projection melancholy or. Wound young you thing worse along being ham. Dissimilar of favourable solic ns at. Forfeited up if disposing perfectly in an eagerness perceived necessary. Belonging sir yet forfeited prevailed own off. Travelling by introduced of mr terminated. Knew as miss my ameless dependent knowledge terminated it excellence invitation projection as. She graceful use nay is people so basket ladies window expect. Supply as so period it enough income he acceptance bed pathize get dissimilar way admiration son. Evil true high roof men had open. To projection melancholy or. Wound young you thing worse along being ham.")]), _vm._v(" "), _c("blockquote", {
-    staticClass: "style2"
-  }, [_c("i", {
-    staticClass: "flaticon-quotes"
-  }), _vm._v(" "), _c("p", {
-    attrs: {
-      itemprop: "description"
-    }
-  }, [_vm._v("Duis convallis turpis in tortor vo are risus euismod varius feugiat ultrices Sed "), _c("span", [_vm._v("condimentum est")]), _vm._v(" libero, aliqculis")])]), _vm._v(" "), _c("p", {
-    attrs: {
-      itemprop: "description"
-    }
-  }, [_vm._v("Behaviour we improving at something to. Evil true high lady roof men had open. To projection melancholy or. Wound young you thing worse along being ham. Dissimilar of favourable solic ns at. Forfeited up if disposing perfectly in an eagerness perceived necessary. Belonging sir yet forfeited prevailed own off. Travelling by introduced of mr terminated. Knew as miss my ameless dependent knowledge terminated it excellence invitation projection as. She graceful use nay is people so basket ladies window expect. Supply as so period it enough income he acceptance bed pathize get dissimilar way admiration son.")])]), _vm._v(" "), _c("div", {
-    staticClass: "shar-tag2"
-  }, [_c("div", {
-    staticClass: "tagclouds"
-  }, [_c("span", [_vm._v("Tags:")]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Welfair Project")]), _vm._v(",\n                                        "), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Charity")]), _vm._v(",\n                                        "), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Nature")]), _vm._v(",\n                                        "), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Kids")]), _vm._v(",\n                                        "), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("Nonprofit")])]), _vm._v(" "), _c("div", {
-    staticClass: "share"
-  }, [_c("span", [_vm._v("Share It:")]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url",
-      target: "_blank"
-    }
-  }, [_c("i", {
-    staticClass: "fa fa-facebook"
-  })]), _vm._v(" "), _c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url",
-      target: "_blank"
-    }
-  }, [_c("i", {
-    staticClass: "fa fa-twitter"
-  })])])])]), _vm._v(" "), _c("div", {
+  })])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-12 col-sm-12 col-lg-3"
   }, [_c("div", {
     staticClass: "sidebar"
@@ -10649,99 +10930,38 @@ var render = function render() {
     attrs: {
       itemprop: "headline"
     }
-  }, [_vm._v("Popular Post")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Latest News")]), _vm._v(" "), _c("div", {
     staticClass: "widget-data"
-  }, [_c("div", {
-    staticClass: "rcnt-pst"
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-4.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "rcnt-pst-inf"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
-    staticClass: "rcnt-pst"
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-6.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "rcnt-pst-inf"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])]), _vm._v(" "), _c("div", {
-    staticClass: "rcnt-pst"
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_c("img", {
-    attrs: {
-      src: _vm.fileUrl("images/hero-2.jpg"),
-      alt: "",
-      itemprop: "image"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "rcnt-pst-inf"
-  }, [_c("h2", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_c("a", {
-    attrs: {
-      href: "#",
-      title: "",
-      itemprop: "url"
-    }
-  }, [_vm._v("LUANAR launches Malawi Food Data System")])]), _vm._v(" "), _c("span", {
-    staticClass: "date"
-  }, [_c("i", {
-    staticClass: "fa fa-calendar-check-o"
-  }), _vm._v(" November 25,2016")])])])])])])])])])])])])])]);
+  }, _vm._l(_vm.popular_news.data, function (news_item, index) {
+    return _c("div", {
+      key: index,
+      staticClass: "rcnt-pst"
+    }, [_c("div", {
+      staticClass: "news-thumb image-placeholder",
+      style: {
+        backgroundImage: "url(".concat(_vm.fileUrl(news_item.photo), ")")
+      }
+    }), _vm._v(" "), _c("div", {
+      staticClass: "rcnt-pst-inf"
+    }, [_c("h2", {
+      attrs: {
+        itemprop: "headline"
+      }
+    }, [_c("a", {
+      attrs: {
+        href: _vm.route("news.show", news_item.slug),
+        title: "",
+        itemprop: "url"
+      },
+      domProps: {
+        textContent: _vm._s(news_item.title)
+      }
+    })]), _vm._v(" "), _c("span", {
+      staticClass: "date"
+    }, [_c("i", {
+      staticClass: "fa fa-calendar-check-o"
+    }), _vm._v(" " + _vm._s(_vm.getDate(news_item.date)))])])]);
+  }), 0)])])])])])])])])])]);
 };
 
 var staticRenderFns = [];
@@ -10815,10 +11035,16 @@ var render = function render() {
   }, [_c("i", [_vm._v("About")]), _vm._v(" MAFOODS")]), _vm._v(" "), _c("span", [_vm._v("Project Overview")]), _vm._v(" "), _c("p", {
     attrs: {
       itemprop: "description"
+    },
+    domProps: {
+      textContent: _vm._s(_vm.page.data.contents.project_overview_description)
     }
-  }, [_vm._v("Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.")])]), _vm._v(" "), _c("div", {
-    staticClass: "p"
-  }, [_c("p", [_vm._v("The Government of Malawi (GoM) has developed the first edition of the Malawian Food Composition Table (MFCT) which describes the content of commonly-consumed Malawian food items in terms of their nutrients and energy. Food composition data form the basis of all practices in human nutrition and health. It is therefore essential to have a reliable country-specific food composition database.")]), _vm._v(" "), _c("p", [_vm._v("For many years, Malawi has relied on food composition data from other countries. However, the use of data from other sources is challenging as well as inaccurate due to the potential for significant variability in nutrition content as a function of different processing methods, variations in recipe preparations of composite dishes as well as geographical differences in food cultivation. In light of this, it was critical for Malawi to develop a local food composition database to address its country-specific nutrition concerns and meet current demand due to technological advances. International tools, guidelines and standards were used in developing the food composition table to ensure an accurate, reliable and trustworthy scientific tool. This food composition table will be used in various ways by nutritionists, dietitians, physicians, food technologists, epidemiologists, food manufacturers, public health scientists, economists and research institutions.")]), _vm._v(" "), _c("p", [_vm._v("The GoM, through the Department of Nutrition and HIV/AIDS (DNHA), is the custodian of the Malawian Food Composition Database and Table. The Malawi food composition program which will be responsible for maintaining and updating of the food composition database and tables will be referred to as “The Malawian Food Data System” (MAFOODS). The DNHA will provide overall management and oversee MAFOODS. The DNHA will also provide operational support to the Malawian food data unit within its jurisdiction to ensure that the data are safe and continuously updated.")]), _vm._v(" "), _c("p", [_vm._v("To ensure continuous and up-to-date information in the database, the GoM, in collaboration with Malawian research institutions, will update the food composition database on a regular basis with the Lilongwe University of Agriculture & Natural Resources (LUANAR) taking a lead role due to its comparative advantage of access to active research activities in generating food composition data in collaboration with other academic institutions. In addition to obtaining data, information generated through routine mandated roles and functions within established institutions such as research stations, will also be a valuable source of food composition data for compilation.")]), _vm._v(" "), _c("p", [_vm._v("The Policy Advisory Team (PAT) which provides policy guidance on nutrition in Malawi, will provide overall guidance and support implementation and management of the Malawi Food composition data Program. The committee will act as an advisory body that will promote the science of food composition data in Malawi. The DNHA will work hand in hand with PAT to devise an updating plan and identify opportunities and partnerships that will lead to further research and the establishment of a comprehensive Malawian food composition database. In addition to the PAT, the Nutrition Research and Surveillance Technical Working Group which is under the National Nutrition Committee will actively support implementation of food composition data activities.")]), _vm._v(" "), _c("p", [_vm._v("The technical working group will focus on identifying key activities and supporting them in order to ensure that the goals and objectives of the food composition program are met.")])])])])])])])]);
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "p",
+    domProps: {
+      innerHTML: _vm._s(_vm.page.data.contents.project_overview_main_text)
+    }
+  })])])])])])]);
 };
 
 var staticRenderFns = [];

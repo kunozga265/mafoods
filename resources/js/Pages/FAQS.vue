@@ -20,7 +20,7 @@
                 <div class="container">
                     <div class="row">
                         <div
-                            v-for="(faq,index) in faqs"
+                            v-for="(faq,index) in page.data.contents"
                             :key="index"
                             class="col-sm-12">
                             <div class="faq">
@@ -52,6 +52,7 @@ import AppLayout from "@/Layouts/AppLayout";
 
 export default {
     name: "FAQS",
+    props:['page'],
     components: {AppLayout},
     data(){
         return{

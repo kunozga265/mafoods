@@ -90,6 +90,9 @@
 .mr-20{
     margin-left: 20px;
 }
+.mb-40{
+    margin-bottom: 40px;
+}
 
 .cause-info{
     background: #fbfbfb;
@@ -441,6 +444,16 @@ ul.listing{
     margin: 0;
 }
 
+.news-box.style2 .news-thumb {
+    width: 100%;
+    height:200px;
+}
+
+.rcnt-pst .news-thumb {
+    width: 100px;
+    height: 60px;
+}
+
 /* Login Form */
 .auth-card{
     max-width: 500px;
@@ -452,8 +465,17 @@ ul.listing{
     justify-content: center;
     text-align: center;
     margin: 10px 0;
-    display: grid;
+    /*display: grid;*/
     align-items: center;
+}
+
+.admin-layout .rviw-tbs ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+.admin-layout .rviw-tbs ol {
+    list-style: decimal;
+    margin-left: 20px;
 }
 
 form .action{
@@ -464,6 +486,18 @@ form .action{
 
 form .action .btn1{
     display: inline;
+}
+
+.admin-layout #faqs .form label.question, .admin-layout #contacts .form label.contact-number{
+    color:#58bf00;
+}
+
+.admin-layout #faqs button.remove, .admin-layout #contacts button.remove{
+    float: right;
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    margin: 0;
 }
 
 @media (max-width:996px){
@@ -599,6 +633,7 @@ aside.sidebar ul li a div{
     min-height: 100vh;
     background-color: #F3F4F5;
     /*background-color: white;*/
+    padding-bottom: 60px;
 }
 
 .admin-layout .menu-sec1{
@@ -611,6 +646,7 @@ aside.sidebar ul li a div{
 
 .admin-layout header.stick.style2{
     display: block;
+    position: fixed;
 }
 .admin-layout .nav_bar .logo{
     margin-left: 20px;
@@ -648,7 +684,7 @@ aside.sidebar ul li a div{
     background-color: red;
 }
 
-.btn1, .btn1-drk{
+.auth-card .btn1, .auth-card .btn1-drk{
     display: flex;
     align-items: baseline;
 }
@@ -760,6 +796,7 @@ aside.sidebar ul li a div{
 .system-content{
     padding: 10px;
     transition: all 0.7s ease-in-out;
+    margin: 130px 0;
 }
 
 .system-content header{
@@ -797,7 +834,7 @@ aside.sidebar ul li a div{
         left: auto;
     }
     .system-content{
-        padding: 20px 320px 40px 40px;
+        padding: 20px 320px 60px 40px;
     }
     .navbar{
         padding-right: 280px;
@@ -805,6 +842,6 @@ aside.sidebar ul li a div{
 }
 @media only screen and (min-width:1300px) {
     .system-content{
-        padding: 40px 340px 40px 60px;
+        padding: 40px 340px 60px 60px;
     }
 }

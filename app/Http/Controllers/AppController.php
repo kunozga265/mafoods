@@ -14,7 +14,7 @@ use Inertia\Inertia;
 
 class AppController extends Controller
 {
-
+    public $paginate = 20;
 
     public function uploadFile(Request $request)
     {
