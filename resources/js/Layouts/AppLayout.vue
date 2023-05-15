@@ -15,27 +15,34 @@
                 <header class="stick style2">
                     <div class="topbar1 style2">
                         <div class="container">
-                            <ul class="tb-br-cnt1">
-                                <li><i class="fa fa-envelope-square"></i> <a href="#" title="" itemprop="url">mafoods@luanar.ac.mw</a></li>
-                                <li><i class="fa fa-phone"></i> <span>Call Us At:</span> +265 882 85 60 52</li>
-                            </ul>
-<!--                            <a class="btn2 dnt-pp" href="#" title="" itemprop="url">Action Button</a>-->
-                            <div class="tb-br-scl2">
-                                <strong>Follow Us At:</strong>
-                                <ul class="scl-shr1">
-                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a></li>
-<!--                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-flickr"></i></a></li>-->
-<!--                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-skype"></i></a></li>-->
-<!--                                    <li><a href="#" title="" itemprop="url" target="_blank"><i class="fa fa-vimeo-square"></i></a></li>-->
+                            <div v-if="$page.props.auth">
+                                <ul class="tb-br-cnt1 mr-20">
+                                    <li><strong><i class="fa fa-user"></i> Logged in:</strong> <a href="#" title="" itemprop="url">{{$page.props.auth.name}}</a></li>
                                 </ul>
+
+                                <div @click="logout" class="tb-br-scl2 cursor-pointer">
+                                    <strong><i class="fa fa-arrow-circle-left"></i> Logout</strong>
+                                </div>
+                            </div>
+                            <div v-else>
+                                <ul class="tb-br-cnt1">
+                                    <li class="socials"><span class="">FOLLOW US AT:</span> <i class="fa fa-facebook">  </i><i class="fa fa-twitter"></i></li>
+                                    <li><i class="fa fa-envelope-square"></i> <a href="#" title="" itemprop="url">mafoods@luanar.ac.mw</a></li>
+                                    <li><i class="fa fa-phone"></i> <span>Call Us At:</span> +265 882 85 60 52</li>
+                                </ul>
+                                <!--                            <a class="btn2 dnt-pp" href="#" title="" itemprop="url">Action Button</a>-->
+                                <div class="tb-br-scl2">
+                                    <inertia-link :href="route('login')">
+                                        <strong><i class="fa fa-arrow-circle-right"></i> Login</strong>
+                                    </inertia-link>
+                                </div>
                             </div>
                         </div>
                     </div><!-- Topbar 1 -->
                     <div class="menu-sec1">
                         <div class="container">
                             <div class="logo">
-                                <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods.svg')" alt="" itemprop="image" /></a></h1>
+                                <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>
                             </div><!-- Logo -->
                             <nav>
                                 <div>
@@ -62,7 +69,7 @@
                 <div class="rsp-hdr">
                     <div class="rs-lg-br">
                         <div class="logo">
-                            <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods.svg')" alt="" itemprop="image" /></a></h1>
+                            <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>
                         </div>
                         <span class="rs-mu-btn"><i class="fa fa-list"></i></span>
                     </div>
@@ -219,7 +226,12 @@
 
 <script>
 export default {
-    name: "AppLayout"
+    name: "AppLayout",
+    methods: {
+        logout() {
+            this.$inertia.post(route('logout'));
+        },
+    }
 }
 </script>
 

@@ -39,9 +39,11 @@
 <script src="{{asset('assets_r/js/select2.full.min.js')}}" type="text/javascript"></script><!-- Select2 -->
 <script src="{{asset('assets_r/js/slim-scrollbar.min.js')}}" type="text/javascript"></script><!-- Scroll Bar -->
 <script src="{{asset('assets_r/js/jquery.downCount.js')}}" type="text/javascript"></script><!-- Down Count -->
-<script src="{{asset('assets_r/js/isotope.min.js')}}" type="text/javascript"></script><!-- Isotope -->
-<script src="{{asset('assets_r/js/isotope-int.js')}}" type="text/javascript"></script><!-- Isotope -->
+{{--<script src="{{asset('assets_r/js/isotope.min.js')}}" type="text/javascript"></script><!-- Isotope -->--}}
+{{--<script src="{{asset('assets_r/js/isotope-int.js')}}" type="text/javascript"></script><!-- Isotope -->--}}
 <script src="{{asset('assets_r/js/script.js')}}" type="text/javascript"></script><!-- Custom -->
+
+
 
 </body>
 </html>

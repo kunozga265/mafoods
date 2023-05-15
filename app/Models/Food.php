@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Food extends Model
 {
+    protected $table = 'foods';
     use HasFactory;
 
     public function group()
@@ -26,7 +27,7 @@ class Food extends Model
         "protein",
         "fats",
         "saturated_fa",
-        "monounsaturated _fa",
+        "monounsaturated_fa",
         "polyunsaturated_fa",
         "cholesterol",
         "cho_udb",

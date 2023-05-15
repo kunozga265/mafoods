@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('foods/seeder',[\App\Http\Controllers\FoodController::class,'seeder']);
+Route::post('foodtypes/seeder',[\App\Http\Controllers\FoodTypeController::class,'seeder']);
+Route::post('retention-factors/seeder',[\App\Http\Controllers\RetentionFactorController::class,'seeder']);
+Route::post('/image-upload', [AppController::class, 'uploadImage']);
+Route::post('/file-upload', [AppController::class, 'uploadFile']);

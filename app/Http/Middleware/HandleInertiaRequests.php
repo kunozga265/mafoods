@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Controllers\AppController;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -40,6 +43,29 @@ class HandleInertiaRequests extends Middleware
             'publicPath'=> function() use ($request){
                 return env("APP_URL");
             },
+            'auth'=> function() use ($request){
+                if (Auth::check())
+                    return Auth::user();
+                else
+                    return null;
+            },
+            'flash'=>function() use ($request){
+                return[
+                    'info'      =>$request->session()->get('info'),
+                    'success'   =>$request->session()->get('success'),
+                    'error'     =>$request->session()->get('error'),
+                ];
+            },
+            'notificationsCount'=> function() use ($request){
+                //get user
+               /* $user=(new AppController())->getAuthUser($request);
+
+                if ($user){
+                    return $user->userNotifications()->where('read',0)->get()->count();
+                }else*/
+                    return 0;
+            },
         ]);
+
     }
 }
