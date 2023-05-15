@@ -3568,6 +3568,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var v_select2_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! v-select2-component */ "./node_modules/v-select2-component/dist/Select2.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3584,7 +3590,10 @@ __webpack_require__.r(__webpack_exports__);
       selectedFoodType: "-1",
       selectedRetentionFactor: "-1",
       ingredientsList: [],
-      finalWeight: 0
+      finalWeight: 0,
+      form: this.$inertia.form({}),
+      showResults: false,
+      loading: false
     };
   },
   computed: {
@@ -3607,6 +3616,9 @@ __webpack_require__.r(__webpack_exports__);
       var arr = [{
         id: -1,
         text: "Select Food Group"
+      }, {
+        id: 0,
+        text: "None"
       }];
 
       for (var x in this.foodTypes.data) {
@@ -3651,7 +3663,7 @@ __webpack_require__.r(__webpack_exports__);
       return grams;
     },
     weightChange: function weightChange() {
-      if (this.initialWeight !== 0 && this.finalWeight !== null && this.finalWeight.length > 1 && !isNaN(this.finalWeight)) return ((this.finalWeight - this.initialWeight) / this.initialWeight * 100).toFixed(1);else return "";
+      if (this.initialWeight !== 0 && this.finalWeight !== null && this.finalWeight.length > 1 && !isNaN(this.finalWeight)) return ((this.finalWeight - this.initialWeight) / this.initialWeight * 100).toFixed(2);else return "";
     },
     recipeNutrientValues: function recipeNutrientValues() {
       var arr = {
@@ -3701,55 +3713,55 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       for (var x in this.ingredientsList) {
-        arr.moisture += this.ingredientsList[x].moisture * (this.ingredientsList[x].grams / 100);
-        arr.energy_kcal += this.ingredientsList[x].energy_kcal * (this.ingredientsList[x].grams / 100);
-        arr.energy_kj += this.ingredientsList[x].energy_kj * (this.ingredientsList[x].grams / 100);
-        arr.nitrogen += this.ingredientsList[x].nitrogen * (this.ingredientsList[x].grams / 100);
-        arr.protein += this.ingredientsList[x].protein * (this.ingredientsList[x].grams / 100);
-        arr.fats += this.ingredientsList[x].fats * (this.ingredientsList[x].grams / 100);
-        arr.saturated_fa += this.ingredientsList[x].saturated_fa * (this.ingredientsList[x].grams / 100);
-        arr.monounsaturated_fa += this.ingredientsList[x].monounsaturated_fa * (this.ingredientsList[x].grams / 100);
-        arr.polyunsaturated_fa += this.ingredientsList[x].polyunsaturated_fa * (this.ingredientsList[x].grams / 100);
-        arr.cholesterol += this.ingredientsList[x].cholesterol * (this.ingredientsList[x].grams / 100);
-        arr.cho_udb += this.ingredientsList[x].cho_udb * (this.ingredientsList[x].grams / 100);
-        arr.cho_avail += this.ingredientsList[x].cho_avail * (this.ingredientsList[x].grams / 100);
-        arr.sugars += this.ingredientsList[x].sugars * (this.ingredientsList[x].grams / 100);
-        arr.added_sugar += this.ingredientsList[x].added_sugar * (this.ingredientsList[x].grams / 100);
-        arr.fibre += this.ingredientsList[x].fibre * (this.ingredientsList[x].grams / 100);
-        arr.starch += this.ingredientsList[x].starch * (this.ingredientsList[x].grams / 100);
-        arr.ash += this.ingredientsList[x].ash * (this.ingredientsList[x].grams / 100);
-        arr.mn += this.ingredientsList[x].mn * (this.ingredientsList[x].grams / 100);
-        arr.i += this.ingredientsList[x].i * (this.ingredientsList[x].grams / 100);
-        arr.se += this.ingredientsList[x].se * (this.ingredientsList[x].grams / 100);
-        arr.vitamin_a_re += this.ingredientsList[x].vitamin_a_re * (this.ingredientsList[x].grams / 100);
-        arr.phytic_acid += this.ingredientsList[x].phytic_acid * (this.ingredientsList[x].grams / 100);
-        arr.ca += this.ingredientsList[x].ca * (this.ingredientsList[x].grams / 100);
-        arr.fe += this.ingredientsList[x].fe * (this.ingredientsList[x].grams / 100);
-        arr.mg += this.ingredientsList[x].mg * (this.ingredientsList[x].grams / 100);
-        arr.p += this.ingredientsList[x].p * (this.ingredientsList[x].grams / 100);
-        arr.k += this.ingredientsList[x].k * (this.ingredientsList[x].grams / 100);
-        arr.na += this.ingredientsList[x].na * (this.ingredientsList[x].grams / 100);
-        arr.zn += this.ingredientsList[x].zn * (this.ingredientsList[x].grams / 100);
-        arr.cu += this.ingredientsList[x].cu * (this.ingredientsList[x].grams / 100);
-        arr.vitamin_a_rae += this.ingredientsList[x].vitamin_a_rae * (this.ingredientsList[x].grams / 100);
-        arr.thiamin += this.ingredientsList[x].thiamin * (this.ingredientsList[x].grams / 100);
-        arr.riboflavin += this.ingredientsList[x].riboflavin * (this.ingredientsList[x].grams / 100);
-        arr.niacin += this.ingredientsList[x].niacin * (this.ingredientsList[x].grams / 100);
-        arr.vitamin_b6 += this.ingredientsList[x].vitamin_b6 * (this.ingredientsList[x].grams / 100);
-        arr.folic_acid += this.ingredientsList[x].folic_acid * (this.ingredientsList[x].grams / 100);
-        arr.vitamin_b12 += this.ingredientsList[x].vitamin_b12 * (this.ingredientsList[x].grams / 100);
-        arr.pantothenate += this.ingredientsList[x].pantothenate * (this.ingredientsList[x].grams / 100);
-        arr.biotin += this.ingredientsList[x].biotin * (this.ingredientsList[x].grams / 100);
-        arr.vitamin_c += this.ingredientsList[x].vitamin_c * (this.ingredientsList[x].grams / 100);
-        arr.vitamin_d += this.ingredientsList[x].vitamin_d * (this.ingredientsList[x].grams / 100);
-        arr.vitamin_e += this.ingredientsList[x].vitamin_e * (this.ingredientsList[x].grams / 100);
+        arr.moisture += parseFloat(this.ingredientsList[x].moisture) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.energy_kcal += parseFloat(this.ingredientsList[x].energy_kcal) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.energy_kj += parseFloat(this.ingredientsList[x].energy_kj) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.nitrogen += parseFloat(this.ingredientsList[x].nitrogen) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.protein += parseFloat(this.ingredientsList[x].protein) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.fats += parseFloat(this.ingredientsList[x].fats) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.saturated_fa += parseFloat(this.ingredientsList[x].saturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.monounsaturated_fa += parseFloat(this.ingredientsList[x].monounsaturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.polyunsaturated_fa += parseFloat(this.ingredientsList[x].polyunsaturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.cholesterol += parseFloat(this.ingredientsList[x].cholesterol) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.cho_udb += parseFloat(this.ingredientsList[x].cho_udb) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.cho_avail += parseFloat(this.ingredientsList[x].cho_avail) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.sugars += parseFloat(this.ingredientsList[x].sugars) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.added_sugar += parseFloat(this.ingredientsList[x].added_sugar) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.fibre += parseFloat(this.ingredientsList[x].fibre) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.starch += parseFloat(this.ingredientsList[x].starch) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.ash += parseFloat(this.ingredientsList[x].ash) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.mn += parseFloat(this.ingredientsList[x].mn) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.i += parseFloat(this.ingredientsList[x].i) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.se += parseFloat(this.ingredientsList[x].se) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.vitamin_a_re += parseFloat(this.ingredientsList[x].vitamin_a_re) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.phytic_acid += parseFloat(this.ingredientsList[x].phytic_acid) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.ca += parseFloat(this.ingredientsList[x].ca) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.fe += parseFloat(this.ingredientsList[x].fe) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.mg += parseFloat(this.ingredientsList[x].mg) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.p += parseFloat(this.ingredientsList[x].p) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.k += parseFloat(this.ingredientsList[x].k) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.na += parseFloat(this.ingredientsList[x].na) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.zn += parseFloat(this.ingredientsList[x].zn) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.cu += parseFloat(this.ingredientsList[x].cu) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.vitamin_a_rae += parseFloat(this.ingredientsList[x].vitamin_a_rae) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.thiamin += parseFloat(this.ingredientsList[x].thiamin) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.riboflavin += parseFloat(this.ingredientsList[x].riboflavin) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.niacin += parseFloat(this.ingredientsList[x].niacin) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.vitamin_b6 += parseFloat(this.ingredientsList[x].vitamin_b6) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.folic_acid += parseFloat(this.ingredientsList[x].folic_acid) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.vitamin_b12 += parseFloat(this.ingredientsList[x].vitamin_b12) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.pantothenate += parseFloat(this.ingredientsList[x].pantothenate) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.biotin += parseFloat(this.ingredientsList[x].biotin) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.vitamin_c += parseFloat(this.ingredientsList[x].vitamin_c) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.vitamin_d += parseFloat(this.ingredientsList[x].vitamin_d) * (parseFloat(this.ingredientsList[x].grams) / 100);
+        arr.vitamin_e += parseFloat(this.ingredientsList[x].vitamin_e) * (parseFloat(this.ingredientsList[x].grams) / 100);
       }
 
       return arr;
     },
     results: function results() {
       return {
-        "moisture": this.recipeNutrientValues.moisture / this.finalWeight * 100,
+        "moisture": (this.recipeNutrientValues.moisture - (this.initialWeight - this.finalWeight)) / this.finalWeight * 100,
         "energy_kcal": this.recipeNutrientValues.energy_kcal / this.finalWeight * 100,
         "energy_kj": this.recipeNutrientValues.energy_kj / this.finalWeight * 100,
         "nitrogen": this.recipeNutrientValues.nitrogen / this.finalWeight * 100,
@@ -3797,8 +3809,8 @@ __webpack_require__.r(__webpack_exports__);
     yieldFactor: function yieldFactor() {
       return 1 - (this.initialWeight - this.finalWeight) / this.initialWeight;
     },
-    showResults: function showResults() {
-      return !isNaN(this.yieldFactor) && !isNaN(this.finalWeight) && this.finalWeight > 0;
+    validation: function validation() {
+      return !isNaN(this.yieldFactor) && !isNaN(this.finalWeight) && this.finalWeight > 0 && this.recipe.length > 0;
     }
   },
   watch: {
@@ -3807,6 +3819,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     selectedFoodType: function selectedFoodType() {
       this.selectedRetentionFactor = "-1";
+    },
+    results: function results() {
+      this.showResults = false;
     }
   },
   methods: {
@@ -3825,22 +3840,51 @@ __webpack_require__.r(__webpack_exports__);
           _ingredient = this.foods.data[x];
           break;
         }
-      } //get Food Type
-
-
-      for (var y in this.foodTypes.data) {
-        if (parseInt(this.selectedFoodType) === parseInt(this.foodTypes.data[y].id)) {
-          _foodType = this.foodTypes.data[y];
-          break;
-        }
       }
 
-      retentionFactors = _foodType.retention_factors; //get retention factor
+      if (parseInt(this.selectedFoodType) === 0) {
+        _retentionFactor = {
+          "ca": 1,
+          "fe": 1,
+          "mg": 1,
+          "p": 1,
+          "k": 1,
+          "na": 1,
+          "zn": 1,
+          "cu": 1,
+          "vitamin_a_rae": 1,
+          "thiamin": 1,
+          "riboflavin": 1,
+          "niacin": 1,
+          "vitamin_b6": 1,
+          "folic_acid": 1,
+          "vitamin_b12": 1,
+          "pantothenate": 1,
+          "biotin": 1,
+          "vitamin_c": 1,
+          "vitamin_d": 1,
+          "vitamin_e": 1,
+          "cooking_method": "None"
+        };
+        _foodType = {
+          'item': "None"
+        };
+      } else {
+        //get Food Type
+        for (var y in this.foodTypes.data) {
+          if (parseInt(this.selectedFoodType) === parseInt(this.foodTypes.data[y].id)) {
+            _foodType = this.foodTypes.data[y];
+            break;
+          }
+        }
 
-      for (var z in retentionFactors) {
-        if (parseInt(this.selectedRetentionFactor) === parseInt(retentionFactors[z].id)) {
-          _retentionFactor = retentionFactors[z];
-          break;
+        retentionFactors = _foodType.retention_factors; //get retention factor
+
+        for (var z in retentionFactors) {
+          if (parseInt(this.selectedRetentionFactor) === parseInt(retentionFactors[z].id)) {
+            _retentionFactor = retentionFactors[z];
+            break;
+          }
         }
       }
 
@@ -3903,6 +3947,53 @@ __webpack_require__.r(__webpack_exports__);
     },
     removeIngredient: function removeIngredient(index) {
       this.ingredientsList.splice(index, 1);
+    },
+    logResults: function logResults() {
+      var _this = this;
+
+      this.form.transform(function (data) {
+        return _objectSpread(_objectSpread({}, data), {}, {
+          ingredients: _this.ingredients,
+          results: _this.results,
+          initialWeight: _this.initialWeight,
+          finalWeight: _this.finalWeight
+        });
+      }).post(this.route('recipe.calculator.store'), {
+        preserveScroll: true,
+        onSuccess: function onSuccess() {
+          return _this.showResults = true;
+        }
+      });
+    },
+    generatePDF: function generatePDF() {
+      var _this2 = this;
+
+      this.loading = true;
+      axios.post(this.fileUrl("api/recipe/generate"), {
+        recipe: this.recipe,
+        yieldFactor: this.yieldFactor,
+        results: this.results
+      }, {
+        responseType: "blob"
+      }).then(function (res) {
+        var headerContentDisp = res.headers["content-disposition"];
+        var filename = headerContentDisp && headerContentDisp.split("filename=")[1].replace(/["']/g, ""); // TODO improve parcing
+
+        var contentType = res.headers["content-type"];
+        var blob = new Blob([res.data], {
+          contentType: contentType
+        });
+        var href = window.URL.createObjectURL(blob);
+        var el = document.createElement("a");
+        el.setAttribute("href", href);
+        el.setAttribute("download", filename || config && config.filename || "someFile");
+        el.click();
+        _this2.loading = false;
+        window.URL.revokeObjectURL(blob);
+        return res;
+      })["catch"](function (res) {
+        return console.log(res);
+      });
     }
   }
 });
@@ -11268,8 +11359,8 @@ var render = function render() {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: _vm.selectedFoodType != "-1",
-      expression: "selectedFoodType != '-1'"
+      value: _vm.selectedFoodType != "-1" && _vm.selectedFoodType != "0",
+      expression: "selectedFoodType != '-1' && selectedFoodType != '0'"
     }],
     staticClass: "select2 select2-container mt-10",
     attrs: {
@@ -11294,8 +11385,8 @@ var render = function render() {
     directives: [{
       name: "show",
       rawName: "v-show",
-      value: _vm.selectedRetentionFactor != "-1",
-      expression: "selectedRetentionFactor != '-1'"
+      value: _vm.selectedRetentionFactor != "-1" || _vm.selectedFoodType == "0",
+      expression: "selectedRetentionFactor != '-1' || selectedFoodType == '0'"
     }],
     staticClass: "btn1",
     attrs: {
@@ -11402,95 +11493,159 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "nutrition-info"
-  }, [_c("h3", [_vm._v("Nutrition Information")]), _vm._v(" "), _c("div", [_vm._v("Yield Factor: " + _vm._s(_vm.yieldFactor.toFixed(1)) + "%")]), _vm._v(" "), _c("div", [_vm._v("Serving per 100g")])]), _vm._v(" "), _c("div", {
+  }, [_c("h3", [_vm._v("Nutrition Information")]), _vm._v(" "), _c("div", [_vm._v("Yield Factor: " + _vm._s(_vm.yieldFactor.toFixed(2)))]), _vm._v(" "), _c("div", [_vm._v("Serving per 100g")])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
-  }, [_c("table", [_c("tr", {}, [_c("td", [_vm._v("Moisture (g)")]), _vm._v(" "), _c("td", {
+  }, [_c("table", [_c("tr", {}, [_c("td", [_vm._v("Sum of Proximates")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.moisture ? _c("span", [_vm._v(_vm._s(_vm.results.moisture.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Energy Calculated (kCal)")]), _vm._v(" "), _c("td", {
+  }, [_c("span", [_vm._v(_vm._s((_vm.results.moisture + _vm.results.protein + _vm.results.fats + _vm.results.cho_avail + _vm.results.fibre + _vm.results.ash).toFixed(2)))])])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Moisture (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.energy_kcal ? _c("span", [_vm._v(_vm._s(_vm.results.energy_kcal.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Energy Calculated (kJ)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.moisture ? _c("span", [_vm._v(_vm._s(_vm.results.moisture.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Energy Calculated (kCal)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.energy_kj ? _c("span", [_vm._v(_vm._s(_vm.results.energy_kj.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Nitrogen (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.energy_kcal ? _c("span", [_vm._v(_vm._s((_vm.results.protein * 4 + _vm.results.fats * 9 + _vm.results.cho_avail * 4 + _vm.results.fibre * 2).toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Energy Calculated (kJ)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.nitrogen ? _c("span", [_vm._v(_vm._s(_vm.results.nitrogen.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total protein (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.energy_kj ? _c("span", [_vm._v(_vm._s((_vm.results.protein * 17 + _vm.results.fats * 37 + _vm.results.cho_avail * 17 + _vm.results.fibre * 8).toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Nitrogen (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.protein ? _c("span", [_vm._v(_vm._s(_vm.results.protein.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total Fats (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.nitrogen ? _c("span", [_vm._v(_vm._s(_vm.results.nitrogen.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total protein (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.fats ? _c("span", [_vm._v(_vm._s(_vm.results.fats.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Saturated FA (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.protein ? _c("span", [_vm._v(_vm._s(_vm.results.protein.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total Fats (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.saturated_fa ? _c("span", [_vm._v(_vm._s(_vm.results.saturated_fa.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Mono-unsaturated FA (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.fats ? _c("span", [_vm._v(_vm._s(_vm.results.fats.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Saturated FA (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.monounsaturated_fa ? _c("span", [_vm._v(_vm._s(_vm.results.monounsaturated_fa.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Polyunsaturated FA (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.saturated_fa ? _c("span", [_vm._v(_vm._s(_vm.results.saturated_fa.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Mono-unsaturated FA (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.polyunsaturated_fa ? _c("span", [_vm._v(_vm._s(_vm.results.polyunsaturated_fa.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Cholesterol (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.monounsaturated_fa ? _c("span", [_vm._v(_vm._s(_vm.results.monounsaturated_fa.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Polyunsaturated FA (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.cholesterol ? _c("span", [_vm._v(_vm._s(_vm.results.cholesterol.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total CHO for UDB")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.polyunsaturated_fa ? _c("span", [_vm._v(_vm._s(_vm.results.polyunsaturated_fa.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Cholesterol (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.cho_udb ? _c("span", [_vm._v(_vm._s(_vm.results.cho_udb.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Carbohydrate, avail. (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.cholesterol ? _c("span", [_vm._v(_vm._s(_vm.results.cholesterol.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total CHO for UDB")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.cho_avail ? _c("span", [_vm._v(_vm._s(_vm.results.cho_avail.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total sugars (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.cho_udb ? _c("span", [_vm._v(_vm._s(_vm.results.cho_udb.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Carbohydrate, avail. (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.sugars ? _c("span", [_vm._v(_vm._s(_vm.results.sugars.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Added sugar (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.cho_avail ? _c("span", [_vm._v(_vm._s(_vm.results.cho_avail.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total sugars (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.added_sugar ? _c("span", [_vm._v(_vm._s(_vm.results.added_sugar.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total fibre (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.sugars ? _c("span", [_vm._v(_vm._s(_vm.results.sugars.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Added sugar (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.fibre ? _c("span", [_vm._v(_vm._s(_vm.results.fibre.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Starch (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.added_sugar ? _c("span", [_vm._v(_vm._s(_vm.results.added_sugar.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Total fibre (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.starch ? _c("span", [_vm._v(_vm._s(_vm.results.starch.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Ash (g)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.fibre ? _c("span", [_vm._v(_vm._s(_vm.results.fibre.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Starch (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.ash ? _c("span", [_vm._v(_vm._s(_vm.results.ash.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Ca (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.starch ? _c("span", [_vm._v(_vm._s(_vm.results.starch.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Ash (g)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.ca ? _c("span", [_vm._v(_vm._s(_vm.results.ca.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Fe (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.ash ? _c("span", [_vm._v(_vm._s(_vm.results.ash.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Ca (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.fe ? _c("span", [_vm._v(_vm._s(_vm.results.fe.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Mg (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.ca ? _c("span", [_vm._v(_vm._s(_vm.results.ca.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Fe (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.mg ? _c("span", [_vm._v(_vm._s(_vm.results.mg.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("P (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.fe ? _c("span", [_vm._v(_vm._s(_vm.results.fe.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Mg (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.p ? _c("span", [_vm._v(_vm._s(_vm.results.p.toFixed(1)))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
+  }, [_vm.results.mg ? _c("span", [_vm._v(_vm._s(_vm.results.mg.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("P (mg)")]), _vm._v(" "), _c("td", {
+    staticClass: "text-left"
+  }, [_vm.results.p ? _c("span", [_vm._v(_vm._s(_vm.results.p.toFixed(2)))]) : _vm._e()])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("table", [_c("tr", {}, [_c("td", [_vm._v("K (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.k ? _c("span", [_vm._v(_vm._s(_vm.results.k.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Na (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.k ? _c("span", [_vm._v(_vm._s(_vm.results.k.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Na (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.na ? _c("span", [_vm._v(_vm._s(_vm.results.na.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Zn (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.na ? _c("span", [_vm._v(_vm._s(_vm.results.na.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Zn (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.zn ? _c("span", [_vm._v(_vm._s(_vm.results.zn.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Cu (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.zn ? _c("span", [_vm._v(_vm._s(_vm.results.zn.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Cu (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.cu ? _c("span", [_vm._v(_vm._s(_vm.results.cu.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Mn (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.cu ? _c("span", [_vm._v(_vm._s(_vm.results.cu.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Mn (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.mn ? _c("span", [_vm._v(_vm._s(_vm.results.mn.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("I (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.mn ? _c("span", [_vm._v(_vm._s(_vm.results.mn.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("I (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.i ? _c("span", [_vm._v(_vm._s(_vm.results.i.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Se (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.i ? _c("span", [_vm._v(_vm._s(_vm.results.i.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Se (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.se ? _c("span", [_vm._v(_vm._s(_vm.results.se.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin A (RAE) (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.se ? _c("span", [_vm._v(_vm._s(_vm.results.se.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin A (RAE) (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.vitamin_a_rae ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_a_rae.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin A (RE) (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.vitamin_a_rae ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_a_rae.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin A (RE) (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.vitamin_a_re ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_a_re.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Thiamin (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.vitamin_a_re ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_a_re.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Thiamin (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.thiamin ? _c("span", [_vm._v(_vm._s(_vm.results.thiamin.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Riboflavin (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.thiamin ? _c("span", [_vm._v(_vm._s(_vm.results.thiamin.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Riboflavin (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.riboflavin ? _c("span", [_vm._v(_vm._s(_vm.results.riboflavin.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Niacin (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.riboflavin ? _c("span", [_vm._v(_vm._s(_vm.results.riboflavin.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Niacin (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.niacin ? _c("span", [_vm._v(_vm._s(_vm.results.niacin.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin B6 (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.niacin ? _c("span", [_vm._v(_vm._s(_vm.results.niacin.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin B6 (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.vitamin_b6 ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_b6.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Folic acid (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.vitamin_b6 ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_b6.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Folic acid (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.folic_acid ? _c("span", [_vm._v(_vm._s(_vm.results.folic_acid.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin B12 (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.folic_acid ? _c("span", [_vm._v(_vm._s(_vm.results.folic_acid.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin B12 (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.vitamin_b12 ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_b12.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Pantothenate (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.vitamin_b12 ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_b12.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Pantothenate (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.pantothenate ? _c("span", [_vm._v(_vm._s(_vm.results.pantothenate.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Biotin (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.pantothenate ? _c("span", [_vm._v(_vm._s(_vm.results.pantothenate.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Biotin (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.biotin ? _c("span", [_vm._v(_vm._s(_vm.results.biotin.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin C (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.biotin ? _c("span", [_vm._v(_vm._s(_vm.results.biotin.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin C (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.vitamin_c ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_c.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin D (mcg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.vitamin_c ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_c.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin D (mcg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.vitamin_d ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_d.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin E (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.vitamin_d ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_d.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Vitamin E (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.vitamin_e ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_e.toFixed(1)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Phytic Acid (mg)")]), _vm._v(" "), _c("td", {
+  }, [_vm.results.vitamin_e ? _c("span", [_vm._v(_vm._s(_vm.results.vitamin_e.toFixed(2)))]) : _vm._e()])]), _vm._v(" "), _c("tr", {}, [_c("td", [_vm._v("Phytic Acid (mg)")]), _vm._v(" "), _c("td", {
     staticClass: "text-left"
-  }, [_vm.results.phytic_acid ? _c("span", [_vm._v(_vm._s(_vm.results.phytic_acid.toFixed(1)))]) : _vm._e()])])])])])])])])])])]);
+  }, [_vm.results.phytic_acid ? _c("span", [_vm._v(_vm._s(_vm.results.phytic_acid.toFixed(2)))]) : _vm._e()])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "text-center"
+  }, [!_vm.showResults ? _c("button", {
+    staticClass: "btn1",
+    attrs: {
+      type: "submit",
+      disabled: !_vm.validation
+    },
+    on: {
+      click: _vm.logResults
+    }
+  }, [_c("svg", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.form.processing,
+      expression: "form.processing"
+    }],
+    staticClass: "inline w-4 h-4 mr-3 text-white animate-spin",
+    attrs: {
+      viewBox: "0 0 100 101",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z",
+      fill: "#E5E7EB"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      d: "M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z",
+      fill: "currentColor"
+    }
+  })]), _vm._v("\n                            Show results\n                        ")]) : _c("button", {
+    staticClass: "btn1",
+    on: {
+      click: _vm.generatePDF
+    }
+  }, [_c("svg", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.loading,
+      expression: "loading"
+    }],
+    staticClass: "inline w-4 h-4 mr-3 text-white animate-spin",
+    attrs: {
+      viewBox: "0 0 100 101",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg"
+    }
+  }, [_c("path", {
+    attrs: {
+      d: "M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z",
+      fill: "#E5E7EB"
+    }
+  }), _vm._v(" "), _c("path", {
+    attrs: {
+      d: "M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z",
+      fill: "currentColor"
+    }
+  })]), _vm._v("\n                            Generate PDF\n                        ")])])])])])]);
 };
 
 var staticRenderFns = [];

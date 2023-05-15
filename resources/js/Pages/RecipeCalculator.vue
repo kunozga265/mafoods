@@ -89,11 +89,11 @@
                                         </div>
                                         <div class="modal-body">
                                             <select-2 class="select2 select2-container" v-model="selectedFoodType" :options="foodTypesList" />
-                                            <select-2 v-show="selectedFoodType != '-1'" class="select2 select2-container mt-10" v-model="selectedRetentionFactor" :options="retentionFactorsList" />
+                                            <select-2 v-show="selectedFoodType != '-1' && selectedFoodType != '0'" class="select2 select2-container mt-10" v-model="selectedRetentionFactor" :options="retentionFactorsList" />
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="secondary-btn" data-dismiss="modal">Close</button>
-                                            <button v-show="selectedRetentionFactor != '-1'" type="button" class="btn1" data-dismiss="modal" @click="addIngredient">Select</button>
+                                            <button v-show="selectedRetentionFactor != '-1' || selectedFoodType == '0'" type="button" class="btn1" data-dismiss="modal" @click="addIngredient">Select</button>
                                         </div>
                                     </form>
 
@@ -146,155 +146,161 @@
                                 <div class="nutrition-info">
                                     <h3>Nutrition Information</h3>
                                     <!--                                <p>Recipe Name: {{recipe}}</p>-->
-                                    <div>Yield Factor: {{yieldFactor.toFixed(1)}}%</div>
+                                    <div>Yield Factor: {{yieldFactor.toFixed(2)}}</div>
                                     <div>Serving per 100g</div>
                                 </div>
                                 <div class="col-md-6">
                                     <table>
                                         <tr class="">
+                                            <td>Sum of Proximates</td>
+                                            <td class="text-left ">
+                                                <span>{{ (results.moisture + results.protein + results.fats + results.cho_avail + results.fibre + results.ash).toFixed(2) }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="">
                                             <td>Moisture (g)</td>
                                             <td class="text-left ">
-                                                <span v-if="results.moisture">{{ (results.moisture).toFixed(1) }}</span>
+                                                <span v-if="results.moisture">{{ (results.moisture).toFixed(2) }}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Energy Calculated (kCal)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.energy_kcal">{{ (results.energy_kcal).toFixed(1)}}</span>
+                                                <span  v-if="results.energy_kcal">{{ ((results.protein*4) + (results.fats*9) + (results.cho_avail*4) + (results.fibre*2)).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Energy Calculated (kJ)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.energy_kj">{{ (results.energy_kj).toFixed(1)}}</span>
+                                                <span  v-if="results.energy_kj">{{ ((results.protein*17) + (results.fats*37) + (results.cho_avail*17) + (results.fibre*8)).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Nitrogen (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.nitrogen">{{ (results.nitrogen).toFixed(1)}}</span>
+                                                <span  v-if="results.nitrogen">{{ (results.nitrogen).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Total protein (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.protein">{{ (results.protein).toFixed(1)}}</span>
+                                                <span  v-if="results.protein">{{ (results.protein).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Total Fats (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.fats">{{ (results.fats).toFixed(1)}}</span>
+                                                <span  v-if="results.fats">{{ (results.fats).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Saturated FA (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.saturated_fa ">{{ (results.saturated_fa ).toFixed(1)}}</span>
+                                                <span  v-if="results.saturated_fa ">{{ (results.saturated_fa ).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Mono-unsaturated FA (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.monounsaturated_fa">{{ (results.monounsaturated_fa).toFixed(1)}}</span>
+                                                <span  v-if="results.monounsaturated_fa">{{ (results.monounsaturated_fa).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Polyunsaturated FA (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.polyunsaturated_fa">{{ (results.polyunsaturated_fa).toFixed(1)}}</span>
+                                                <span  v-if="results.polyunsaturated_fa">{{ (results.polyunsaturated_fa).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Cholesterol (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.cholesterol">{{ (results.cholesterol).toFixed(1)}}</span>
+                                                <span  v-if="results.cholesterol">{{ (results.cholesterol).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Total CHO for UDB</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.cho_udb">{{ (results.cho_udb).toFixed(1)}}</span>
+                                                <span  v-if="results.cho_udb">{{ (results.cho_udb).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Carbohydrate, avail. (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.cho_avail">{{ (results.cho_avail).toFixed(1)}}</span>
+                                                <span  v-if="results.cho_avail">{{ (results.cho_avail).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Total sugars (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.sugars">{{ (results.sugars).toFixed(1)}}</span>
+                                                <span  v-if="results.sugars">{{ (results.sugars).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Added sugar (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.added_sugar">{{ (results.added_sugar).toFixed(1)}}</span>
+                                                <span  v-if="results.added_sugar">{{ (results.added_sugar).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Total fibre (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.fibre">{{ (results.fibre).toFixed(1)}}</span>
+                                                <span  v-if="results.fibre">{{ (results.fibre).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Starch (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.starch">{{ (results.starch).toFixed(1)}}</span>
+                                                <span  v-if="results.starch">{{ (results.starch).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Ash (g)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.ash">{{ (results.ash).toFixed(1)}}</span>
+                                                <span  v-if="results.ash">{{ (results.ash).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Ca (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.ca">{{ (results.ca).toFixed(1)}}</span>
+                                                <span  v-if="results.ca">{{ (results.ca).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Fe (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.fe">{{ (results.fe).toFixed(1)}}</span>
+                                                <span  v-if="results.fe">{{ (results.fe).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Mg (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.mg">{{ (results.mg).toFixed(1)}}</span>
+                                                <span  v-if="results.mg">{{ (results.mg).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>P (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.p">{{ (results.p).toFixed(1)}}</span>
+                                                <span  v-if="results.p">{{ (results.p).toFixed(2)}}</span>
                                             </td>
                                         </tr>
                                     </table>
@@ -304,153 +310,170 @@
                                         <tr class="">
                                             <td>K (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.k">{{ (results.k).toFixed(1)}}</span>
+                                                <span  v-if="results.k">{{ (results.k).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Na (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.na">{{ (results.na).toFixed(1)}}</span>
+                                                <span  v-if="results.na">{{ (results.na).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Zn (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.zn">{{ (results.zn).toFixed(1)}}</span>
+                                                <span  v-if="results.zn">{{ (results.zn).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Cu (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.cu">{{ (results.cu).toFixed(1)}}</span>
+                                                <span  v-if="results.cu">{{ (results.cu).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Mn (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.mn">{{ (results.mn).toFixed(1)}}</span>
+                                                <span  v-if="results.mn">{{ (results.mn).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>I (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.i">{{ (results.i).toFixed(1)}}</span>
+                                                <span  v-if="results.i">{{ (results.i).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Se (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.se">{{ (results.se).toFixed(1)}}</span>
+                                                <span  v-if="results.se">{{ (results.se).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Vitamin A (RAE) (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.vitamin_a_rae">{{ (results.vitamin_a_rae).toFixed(1)}}</span>
+                                                <span  v-if="results.vitamin_a_rae">{{ (results.vitamin_a_rae).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Vitamin A (RE) (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.vitamin_a_re">{{ (results.vitamin_a_re).toFixed(1)}}</span>
+                                                <span  v-if="results.vitamin_a_re">{{ (results.vitamin_a_re).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Thiamin (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.thiamin">{{ (results.thiamin).toFixed(1)}}</span>
+                                                <span  v-if="results.thiamin">{{ (results.thiamin).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Riboflavin (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.riboflavin">{{ (results.riboflavin).toFixed(1)}}</span>
+                                                <span  v-if="results.riboflavin">{{ (results.riboflavin).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Niacin (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.niacin">{{ (results.niacin).toFixed(1)}}</span>
+                                                <span  v-if="results.niacin">{{ (results.niacin).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Vitamin B6 (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.vitamin_b6">{{ (results.vitamin_b6).toFixed(1)}}</span>
+                                                <span  v-if="results.vitamin_b6">{{ (results.vitamin_b6).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Folic acid (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.folic_acid">{{ (results.folic_acid).toFixed(1)}}</span>
+                                                <span  v-if="results.folic_acid">{{ (results.folic_acid).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Vitamin B12 (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.vitamin_b12">{{ (results.vitamin_b12).toFixed(1)}}</span>
+                                                <span  v-if="results.vitamin_b12">{{ (results.vitamin_b12).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Pantothenate (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.pantothenate">{{ (results.pantothenate).toFixed(1)}}</span>
+                                                <span  v-if="results.pantothenate">{{ (results.pantothenate).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Biotin (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.biotin">{{ (results.biotin).toFixed(1)}}</span>
+                                                <span  v-if="results.biotin">{{ (results.biotin).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Vitamin C (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.vitamin_c">{{ (results.vitamin_c).toFixed(1)}}</span>
+                                                <span  v-if="results.vitamin_c">{{ (results.vitamin_c).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Vitamin D (mcg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.vitamin_d">{{ (results.vitamin_d).toFixed(1)}}</span>
+                                                <span  v-if="results.vitamin_d">{{ (results.vitamin_d).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Vitamin E (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.vitamin_e">{{ (results.vitamin_e).toFixed(1)}}</span>
+                                                <span  v-if="results.vitamin_e">{{ (results.vitamin_e).toFixed(2)}}</span>
                                             </td>
                                         </tr>
 
                                         <tr class="">
                                             <td>Phytic Acid (mg)</td>
                                             <td class="text-left ">
-                                                <span  v-if="results.phytic_acid">{{ (results.phytic_acid).toFixed(1)}}</span>
+                                                <span  v-if="results.phytic_acid">{{ (results.phytic_acid).toFixed(2)}}</span>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button  v-if="!showResults" @click="logResults" type="submit" class="btn1" :disabled="!validation">
+                            <svg v-show="form.processing" class="inline w-4 h-4 mr-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+                            </svg>
+                            Show results
+                        </button>
+                        <button  v-else @click="generatePDF" class="btn1">
+                            <svg v-show="loading" class="inline w-4 h-4 mr-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
+                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
+                            </svg>
+                            Generate PDF
+                        </button>
                     </div>
                 </div>
             </div>
@@ -479,7 +502,10 @@ export default {
             selectedFoodType:"-1",
             selectedRetentionFactor:"-1",
             ingredientsList:[],
-            finalWeight:0
+            finalWeight:0,
+            form: this.$inertia.form({}),
+            showResults:false,
+            loading:false,
         }
     },
     computed:{
@@ -497,10 +523,16 @@ export default {
             return arr
         },
         foodTypesList(){
-            let arr = [{
-                id:-1,
-                text:"Select Food Group"
-            }]
+            let arr = [
+                {
+                    id:-1,
+                    text:"Select Food Group"
+                },
+                {
+                    id:0,
+                    text:"None"
+                },
+            ]
             for (let x in this.foodTypes.data){
                 arr.push({
                     'id' : this.foodTypes.data[x].id,
@@ -538,7 +570,7 @@ export default {
         },
         weightChange(){
             if (this.initialWeight !== 0 && this.finalWeight !== null && this.finalWeight.length > 1 && !isNaN(this.finalWeight))
-                return (((this.finalWeight - this.initialWeight)/this.initialWeight) * 100).toFixed(1)
+                return (((this.finalWeight - this.initialWeight)/this.initialWeight) * 100).toFixed(2)
             else
                 return ""
         },
@@ -591,55 +623,55 @@ export default {
             }
 
             for (let x in this.ingredientsList){
-                arr.moisture += this.ingredientsList[x].moisture * (this.ingredientsList[x].grams / 100)
-                arr.energy_kcal += this.ingredientsList[x].energy_kcal * (this.ingredientsList[x].grams / 100)
-                arr.energy_kj += this.ingredientsList[x].energy_kj * (this.ingredientsList[x].grams / 100)
-                arr.nitrogen += this.ingredientsList[x].nitrogen * (this.ingredientsList[x].grams / 100)
-                arr.protein += this.ingredientsList[x].protein * (this.ingredientsList[x].grams / 100)
-                arr.fats += this.ingredientsList[x].fats * (this.ingredientsList[x].grams / 100)
-                arr.saturated_fa += this.ingredientsList[x].saturated_fa * (this.ingredientsList[x].grams / 100)
-                arr.monounsaturated_fa += this.ingredientsList[x].monounsaturated_fa * (this.ingredientsList[x].grams / 100)
-                arr.polyunsaturated_fa += this.ingredientsList[x].polyunsaturated_fa * (this.ingredientsList[x].grams / 100)
-                arr.cholesterol += this.ingredientsList[x].cholesterol * (this.ingredientsList[x].grams / 100)
-                arr.cho_udb += this.ingredientsList[x].cho_udb * (this.ingredientsList[x].grams / 100)
-                arr.cho_avail += this.ingredientsList[x].cho_avail * (this.ingredientsList[x].grams / 100)
-                arr.sugars += this.ingredientsList[x].sugars * (this.ingredientsList[x].grams / 100)
-                arr.added_sugar += this.ingredientsList[x].added_sugar * (this.ingredientsList[x].grams / 100)
-                arr.fibre += this.ingredientsList[x].fibre * (this.ingredientsList[x].grams / 100)
-                arr.starch += this.ingredientsList[x].starch * (this.ingredientsList[x].grams / 100)
-                arr.ash += this.ingredientsList[x].ash * (this.ingredientsList[x].grams / 100)
-                arr.mn += this.ingredientsList[x].mn * (this.ingredientsList[x].grams / 100)
-                arr.i += this.ingredientsList[x].i * (this.ingredientsList[x].grams / 100)
-                arr.se += this.ingredientsList[x].se * (this.ingredientsList[x].grams / 100)
-                arr.vitamin_a_re += this.ingredientsList[x].vitamin_a_re * (this.ingredientsList[x].grams / 100)
-                arr.phytic_acid += this.ingredientsList[x].phytic_acid * (this.ingredientsList[x].grams / 100)
-                arr.ca += this.ingredientsList[x].ca * (this.ingredientsList[x].grams / 100)
-                arr.fe += this.ingredientsList[x].fe * (this.ingredientsList[x].grams / 100)
-                arr.mg += this.ingredientsList[x].mg * (this.ingredientsList[x].grams / 100)
-                arr.p += this.ingredientsList[x].p * (this.ingredientsList[x].grams / 100)
-                arr.k += this.ingredientsList[x].k * (this.ingredientsList[x].grams / 100)
-                arr.na += this.ingredientsList[x].na * (this.ingredientsList[x].grams / 100)
-                arr.zn += this.ingredientsList[x].zn * (this.ingredientsList[x].grams / 100)
-                arr.cu += this.ingredientsList[x].cu * (this.ingredientsList[x].grams / 100)
-                arr.vitamin_a_rae += this.ingredientsList[x].vitamin_a_rae * (this.ingredientsList[x].grams / 100)
-                arr.thiamin += this.ingredientsList[x].thiamin * (this.ingredientsList[x].grams / 100)
-                arr.riboflavin += this.ingredientsList[x].riboflavin * (this.ingredientsList[x].grams / 100)
-                arr.niacin += this.ingredientsList[x].niacin * (this.ingredientsList[x].grams / 100)
-                arr.vitamin_b6 += this.ingredientsList[x].vitamin_b6 * (this.ingredientsList[x].grams / 100)
-                arr.folic_acid += this.ingredientsList[x].folic_acid * (this.ingredientsList[x].grams / 100)
-                arr.vitamin_b12 += this.ingredientsList[x].vitamin_b12 * (this.ingredientsList[x].grams / 100)
-                arr.pantothenate += this.ingredientsList[x].pantothenate * (this.ingredientsList[x].grams / 100)
-                arr.biotin += this.ingredientsList[x].biotin * (this.ingredientsList[x].grams / 100)
-                arr.vitamin_c += this.ingredientsList[x].vitamin_c * (this.ingredientsList[x].grams / 100)
-                arr.vitamin_d += this.ingredientsList[x].vitamin_d * (this.ingredientsList[x].grams / 100)
-                arr.vitamin_e += this.ingredientsList[x].vitamin_e * (this.ingredientsList[x].grams / 100)
+                arr.moisture += parseFloat(this.ingredientsList[x].moisture) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.energy_kcal += parseFloat(this.ingredientsList[x].energy_kcal) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.energy_kj += parseFloat(this.ingredientsList[x].energy_kj) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.nitrogen += parseFloat(this.ingredientsList[x].nitrogen) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.protein += parseFloat(this.ingredientsList[x].protein) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.fats += parseFloat(this.ingredientsList[x].fats) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.saturated_fa += parseFloat(this.ingredientsList[x].saturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.monounsaturated_fa += parseFloat(this.ingredientsList[x].monounsaturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.polyunsaturated_fa += parseFloat(this.ingredientsList[x].polyunsaturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.cholesterol += parseFloat(this.ingredientsList[x].cholesterol) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.cho_udb += parseFloat(this.ingredientsList[x].cho_udb) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.cho_avail += parseFloat(this.ingredientsList[x].cho_avail) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.sugars += parseFloat(this.ingredientsList[x].sugars) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.added_sugar += parseFloat(this.ingredientsList[x].added_sugar) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.fibre += parseFloat(this.ingredientsList[x].fibre) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.starch += parseFloat(this.ingredientsList[x].starch) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.ash += parseFloat(this.ingredientsList[x].ash) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.mn += parseFloat(this.ingredientsList[x].mn) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.i += parseFloat(this.ingredientsList[x].i) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.se += parseFloat(this.ingredientsList[x].se) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.vitamin_a_re += parseFloat(this.ingredientsList[x].vitamin_a_re) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.phytic_acid += parseFloat(this.ingredientsList[x].phytic_acid) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.ca += parseFloat(this.ingredientsList[x].ca) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.fe += parseFloat(this.ingredientsList[x].fe) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.mg += parseFloat(this.ingredientsList[x].mg) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.p += parseFloat(this.ingredientsList[x].p) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.k += parseFloat(this.ingredientsList[x].k) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.na += parseFloat(this.ingredientsList[x].na) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.zn += parseFloat(this.ingredientsList[x].zn) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.cu += parseFloat(this.ingredientsList[x].cu) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.vitamin_a_rae += parseFloat(this.ingredientsList[x].vitamin_a_rae) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.thiamin += parseFloat(this.ingredientsList[x].thiamin) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.riboflavin += parseFloat(this.ingredientsList[x].riboflavin) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.niacin += parseFloat(this.ingredientsList[x].niacin) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.vitamin_b6 += parseFloat(this.ingredientsList[x].vitamin_b6) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.folic_acid += parseFloat(this.ingredientsList[x].folic_acid) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.vitamin_b12 += parseFloat(this.ingredientsList[x].vitamin_b12) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.pantothenate += parseFloat(this.ingredientsList[x].pantothenate) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.biotin += parseFloat(this.ingredientsList[x].biotin) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.vitamin_c += parseFloat(this.ingredientsList[x].vitamin_c) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.vitamin_d += parseFloat(this.ingredientsList[x].vitamin_d) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.vitamin_e += parseFloat(this.ingredientsList[x].vitamin_e) * (parseFloat(this.ingredientsList[x].grams) / 100)
             }
 
             return arr
         },
         results(){
             return {
-                "moisture":(this.recipeNutrientValues.moisture / this.finalWeight) * 100,
+                "moisture":((this.recipeNutrientValues.moisture- (this.initialWeight - this.finalWeight)))/this.finalWeight * 100,
                 "energy_kcal":(this.recipeNutrientValues.energy_kcal / this.finalWeight) * 100,
                 "energy_kj":(this.recipeNutrientValues.energy_kj / this.finalWeight) * 100,
                 "nitrogen":(this.recipeNutrientValues.nitrogen / this.finalWeight) * 100,
@@ -688,8 +720,8 @@ export default {
         yieldFactor(){
             return (1 - (this.initialWeight - this.finalWeight)/this.initialWeight)
         },
-        showResults(){
-            return !isNaN(this.yieldFactor) && !isNaN(this.finalWeight) && this.finalWeight > 0
+        validation(){
+            return !isNaN(this.yieldFactor) && !isNaN(this.finalWeight) && this.finalWeight > 0 && (this.recipe.length > 0)
         }
     },
     watch:{
@@ -698,6 +730,9 @@ export default {
         },
         selectedFoodType(){
             this.selectedRetentionFactor = "-1"
+        },
+        results(){
+            this.showResults=false
         }
     },
     methods:{
@@ -715,20 +750,51 @@ export default {
                 }
             }
 
-            //get Food Type
-            for (let y in this.foodTypes.data){
-                if (parseInt(this.selectedFoodType) === parseInt(this.foodTypes.data[y].id)){
-                    _foodType = this.foodTypes.data[y];
-                    break;
+            if (parseInt(this.selectedFoodType) === 0){
+                    _retentionFactor = {
+                        "ca": 1,
+                        "fe": 1,
+                        "mg": 1,
+                        "p": 1,
+                        "k": 1,
+                        "na": 1,
+                        "zn": 1,
+                        "cu": 1,
+                        "vitamin_a_rae": 1,
+                        "thiamin": 1,
+                        "riboflavin": 1,
+                        "niacin": 1,
+                        "vitamin_b6": 1,
+                        "folic_acid": 1,
+                        "vitamin_b12": 1,
+                        "pantothenate": 1,
+                        "biotin": 1,
+                        "vitamin_c": 1,
+                        "vitamin_d": 1,
+                        "vitamin_e": 1,
+                        "cooking_method":"None"
                 }
-            }
 
-            retentionFactors = _foodType.retention_factors;
-            //get retention factor
-            for (let z in retentionFactors){
-                if (parseInt(this.selectedRetentionFactor) === parseInt(retentionFactors[z].id)){
-                    _retentionFactor = retentionFactors[z];
-                    break;
+                _foodType = {
+                        'item' : "None",
+                }
+            }else {
+                //get Food Type
+                for (let y in this.foodTypes.data){
+                    if (parseInt(this.selectedFoodType) === parseInt(this.foodTypes.data[y].id)){
+                        _foodType = this.foodTypes.data[y];
+                        break;
+                    }
+                }
+
+                retentionFactors = _foodType.retention_factors;
+
+                //get retention factor
+                for (let z in retentionFactors){
+                    if (parseInt(this.selectedRetentionFactor) === parseInt(retentionFactors[z].id)){
+                        _retentionFactor = retentionFactors[z];
+                        break;
+                    }
                 }
             }
 
@@ -797,6 +863,55 @@ export default {
         removeIngredient(index){
             this.ingredientsList.splice(index,1)
         },
+        logResults(){
+            this.form
+                .transform(data => ({
+                    ... data,
+                    ingredients:this.ingredients,
+                    results:this.results,
+                    initialWeight:this.initialWeight,
+                    finalWeight:this.finalWeight,
+                }))
+                .post(this.route('recipe.calculator.store'),{
+                    preserveScroll: true,
+                    onSuccess: () => this.showResults = true,
+                })
+        },
+        generatePDF(){
+            this.loading = true;
+
+            axios.post(this.fileUrl("api/recipe/generate"),{
+                recipe: this.recipe,
+                yieldFactor: this.yieldFactor,
+                results: this.results,
+
+            },{ responseType: "blob" }).then(res => {
+                const headerContentDisp = res.headers["content-disposition"];
+                const filename =
+                    headerContentDisp &&
+                    headerContentDisp.split("filename=")[1].replace(/["']/g, ""); // TODO improve parcing
+                const contentType = res.headers["content-type"];
+
+                const blob = new Blob([res.data], { contentType });
+                const href = window.URL.createObjectURL(blob);
+
+                const el = document.createElement("a");
+                el.setAttribute("href", href);
+                el.setAttribute(
+                    "download",
+                    filename || (config && config.filename) || "someFile"
+                );
+                el.click();
+
+                this.loading = false;
+
+                window.URL.revokeObjectURL(blob);
+                return res;
+            }).catch(res =>
+                console.log(res)
+            );
+
+        }
     }
 
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\CompositionTableController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,10 @@ Route::get('/composition-table', [
 Route::get('/recipe-calculator', [
     PageController::class,'recipeCalculator'
 ])->name('recipe.calculator');
+
+Route::post('/recipe-calculator', [
+    RecipeController::class,'store'
+])->name('recipe.calculator.store');
 
 Route::get('/project-overview', [
     PageController::class,'projectOverview'

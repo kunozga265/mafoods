@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\RecipeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ Route::post('foodtypes/seeder',[\App\Http\Controllers\FoodTypeController::class,
 Route::post('retention-factors/seeder',[\App\Http\Controllers\RetentionFactorController::class,'seeder']);
 Route::post('/image-upload', [AppController::class, 'uploadImage']);
 Route::post('/file-upload', [AppController::class, 'uploadFile']);
+Route::post('/recipe/generate', [RecipeController::class, 'generatePDF']);
