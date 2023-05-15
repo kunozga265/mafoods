@@ -718,6 +718,7 @@ aside.sidebar ul li a div{
 }
 .admin-layout .news-box.style2 .news-thumb {
     max-width: 200px;
+    height: auto;
 }
 .admin-layout .news-box.style2 .news-detail {
     padding: 10px 5%;
