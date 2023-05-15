@@ -17,7 +17,7 @@
             <div class="menu-sec1">
                 <div class="nav_bar">
                     <div class="logo">
-                        <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>
+                        <h1 itemprop="headline"><a :href="route('admin.dashboard')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>
                     </div><!-- Logo -->
                     <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">
                         <i v-if="!open" class="fa fa-bars"></i>
