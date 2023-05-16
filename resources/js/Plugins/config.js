@@ -8,7 +8,7 @@ switch( process.env.NODE_ENV ){
         url = 'http://localhost:8000/';
         break;
     case 'production':
-        url = 'https://ica.ovationadagency.com/';
+        url = 'https://mafoods.luanar.ac.mw/';
         break;
 }
 
