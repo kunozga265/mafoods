@@ -573,6 +573,9 @@ form .action .btn1{
         font-size: 15px;
     }
 
+    .feat-cap, .feat-img:before{
+        z-index: auto;
+    }
 
 
 }
