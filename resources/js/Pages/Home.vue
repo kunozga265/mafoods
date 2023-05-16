@@ -59,7 +59,7 @@
                                             <i><img :src="fileUrl('images/table-icon.svg')" alt="" itemprop="image" /></i>
                                             <h2 itemprop="headline">Food Composition Table</h2>
                                             <p itemprop="description">Explore our database with 42 nutrients freely available </p>
-                                            <a href="#" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            <a :href="route('composition.table')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
@@ -67,7 +67,7 @@
                                             <i><img :src="fileUrl('images/calculator-icon.svg')" alt="" itemprop="image" /></i>
                                             <h2 itemprop="headline">Recipe Calculator</h2>
                                             <p itemprop="description">Develop recipes and calculate nutrient content of mixed dishes</p>
-                                            <a href="#" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            <a :href="route('recipe.calculator')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
@@ -75,7 +75,7 @@
                                             <i><img :src="fileUrl('images/epubs-icon.svg')" alt="" itemprop="image" /></i>
                                             <h2 itemprop="headline">ePublications</h2>
                                             <p itemprop="description">Download the food composition table v2019</p>
-                                            <a href="#" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
@@ -83,7 +83,7 @@
                                             <i><img :src="fileUrl('images/advisory-icon.svg')" alt="" itemprop="image" /></i>
                                             <h2 itemprop="headline">Advisory Group</h2>
                                             <p itemprop="description">Provide overall guidance and support implementation and management of the Malawi Food Composition Data Program</p>
-                                            <a href="#" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            <a :href="route('project-overview')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

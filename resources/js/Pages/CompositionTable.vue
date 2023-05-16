@@ -30,7 +30,7 @@
                                     <div class="col-md-6 col-sm-12 col-lg-8">
                                         <div class="product-detail-innr">
                                             <h1 itemprop="headline">Malawi Food Composition Table 2019</h1>
-                                            <span class="prd-cate">316 Food Items</span>
+                                            <span class="prd-cate">{{foodCount(null)}} Food Items</span>
                                             <span>| 42 Nutrients</span>
 <!--
                                             <p itemprop="description">The Government of Malawi (GoM) has developed
@@ -55,7 +55,7 @@
                                             <div class="prd-qunt">
 <!--                                                <span v-if="showMore === true" class="btn1-drk" @click="showMore=!showMore">Show Less</span>-->
 <!--                                                <span v-else class="btn1-drk" @click="showMore=!showMore">Show More</span>-->
-                                                <a href="#" title="" class="btn1" itemprop="url">Download PDF</a>
+                                                <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank" title="" class="btn1" itemprop="url">Download PDF</a>
                                             </div>
                                         </div>
                                     </div>

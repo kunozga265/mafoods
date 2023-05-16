@@ -9869,7 +9869,7 @@ var render = function render() {
     }
   }, [_vm._v("Malawi Food Composition Table 2019")]), _vm._v(" "), _c("span", {
     staticClass: "prd-cate"
-  }, [_vm._v("316 Food Items")]), _vm._v(" "), _c("span", [_vm._v("| 42 Nutrients")]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.foodCount(null)) + " Food Items")]), _vm._v(" "), _c("span", [_vm._v("| 42 Nutrients")]), _vm._v(" "), _c("div", {
     staticClass: "description"
   }, [_c("div", {
     domProps: {
@@ -9880,7 +9880,8 @@ var render = function render() {
   }, [_c("a", {
     staticClass: "btn1",
     attrs: {
-      href: "#",
+      href: _vm.fileUrl("files/Malawian Food Composition Table 2019.pdf"),
+      target: "_blank",
       title: "",
       itemprop: "url"
     }
@@ -10615,7 +10616,7 @@ var render = function render() {
     }
   }, [_vm._v("Explore our database with 42 nutrients freely available ")]), _vm._v(" "), _c("a", {
     attrs: {
-      href: "#",
+      href: _vm.route("composition.table"),
       title: "",
       itemprop: "url"
     }
@@ -10641,7 +10642,7 @@ var render = function render() {
     }
   }, [_vm._v("Develop recipes and calculate nutrient content of mixed dishes")]), _vm._v(" "), _c("a", {
     attrs: {
-      href: "#",
+      href: _vm.route("recipe.calculator"),
       title: "",
       itemprop: "url"
     }
@@ -10667,7 +10668,8 @@ var render = function render() {
     }
   }, [_vm._v("Download the food composition table v2019")]), _vm._v(" "), _c("a", {
     attrs: {
-      href: "#",
+      href: _vm.fileUrl("files/Malawian Food Composition Table 2019.pdf"),
+      target: "_blank",
       title: "",
       itemprop: "url"
     }
@@ -10693,7 +10695,7 @@ var render = function render() {
     }
   }, [_vm._v("Provide overall guidance and support implementation and management of the Malawi Food Composition Data Program")]), _vm._v(" "), _c("a", {
     attrs: {
-      href: "#",
+      href: _vm.route("project-overview"),
       title: "",
       itemprop: "url"
     }
