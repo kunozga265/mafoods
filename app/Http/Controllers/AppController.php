@@ -76,9 +76,9 @@ class AppController extends Controller
 
             $extension=$request->image->extension();
             $filename=uniqid().".".$extension;
-            $request->image->move(public_path("images/sermons"),$filename);
+            $request->image->move(public_path("images/"),$filename);
 
-            return response()->json(['url'=>env('APP_URL')."images/sermons/$filename"],200);
+            return response()->json(['url'=>env('APP_URL')."images/$filename"],200);
 
         }catch (\RuntimeException $e){
             return response()->json([

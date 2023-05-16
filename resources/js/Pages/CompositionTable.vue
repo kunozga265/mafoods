@@ -16,12 +16,81 @@
         </div><!-- Page Top -->
 
         <section>
-            <div class="block pb-35">
+            <div class="block pb-35 composition-table">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="">
+                        <div class="">
                             <div class="">
-                                <div class="row">
+                                <div class="title-style2 center-align">
+<!--                                    <h4 itemprop="headline"><i>Malawian</i> Food Composition Database</h4>-->
+                                    <h4 itemprop="headline"><i>Malawian Food</i> Composition Database</h4>
+<!--                                    <span>Summary Statistics | 2019 Version 1</span>-->
+<!--                                    <p itemprop="description">Summary Statistics</p>-->
+                                    <div class="tagline">
+                                        <div>Summary Statistics
+                                        <span>| 2019 Version 1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                              <div class="row">
+                                  <div class="col-md-6 col-sm-12">
+                                      <div class="statistic">
+                                          <div class="number">
+                                              <div>125</div>
+                                          </div>
+                                          <div class="info">
+                                              <p>Number of Malawian Foods</p>
+                                              <ul>
+                                                  <li>Analytical data from literature sources of 32 publications</li>
+                                                  <li>Theses data from Malawian Universities added into database</li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6 col-sm-12">
+                                      <div class="statistic">
+                                          <div class="number">
+                                              <div>73</div>
+                                          </div>
+                                          <div class="info">
+                                              <p>Number of Malawian Recipes</p>
+                                              <ul>
+                                                  <li>Analytical data from literature sources of 32 publications</li>
+                                                  <li>Theses data from Malawian Universities added into database</li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6 col-sm-12">
+                                      <div class="statistic">
+                                          <div class="number">
+                                              <div>118</div>
+                                          </div>
+                                          <div class="info">
+                                              <p>Number of Foods Borrowed</p>
+                                              <ul>
+                                                  <li>Analytical data from literature sources of 32 publications</li>
+                                                  <li>Theses data from Malawian Universities added into database</li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6 col-sm-12">
+                                      <div class="statistic">
+                                          <div class="number">
+                                              <div>316</div>
+                                          </div>
+                                          <div class="info">
+                                              <p>Total number of foods in Malawian</p>
+                                              <ul>
+                                                  <li>Analytical data from literature sources of 32 publications</li>
+                                                  <li>Theses data from Malawian Universities added into database</li>
+                                              </ul>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+<!--                                <div class="row">
                                     <div class="col-md-6 col-sm-12 col-lg-4">
                                         <div class="prd-thm">
                                             <img :src="fileUrl('images/composition-table.jpg')" alt="" itemprop="image" />
@@ -32,7 +101,7 @@
                                             <h1 itemprop="headline">Malawi Food Composition Table 2019</h1>
                                             <span class="prd-cate">{{foodCount(null)}} Food Items</span>
                                             <span>| 42 Nutrients</span>
-<!--
+&lt;!&ndash;
                                             <p itemprop="description">The Government of Malawi (GoM) has developed
                                                 the first edition of the Malawian Food Composition
                                                 Table (MFCT) which describes the content of
@@ -40,40 +109,203 @@
                                                 of their nutrients and energy. Food composition data
                                                 form the basis of all practices in human nutrition
                                                 and health. It is therefore essential to have a reliable
-                                                country-specific food composition database.</p>-->
+                                                country-specific food composition database.</p>&ndash;&gt;
                                             <div class="description">
                                                 <div v-html="page.data.contents.composition_table_description"></div>
-<!--                                                <div v-show="showMore">
+&lt;!&ndash;                                                <div v-show="showMore">
                                                     <p itemprop="description">Users of the data should become familiar with the variables that affect how food composition data are produced and compiled as a precondition for making good use of the data.</p>
                                                     <p>MAFOODS. 2019. Malawian Food Composition Table. 1st Edition. Averalda van Graan, Joelaine Chetty, Malory Jumat, Sitilitha Masangwi, Agnes Mwangwela, Felix Pensulo Phiri, Lynne M. Ausman, Shibani Ghosh, Elizabeth Marino-Costello (Eds). Lilongwe, Malawi.)</p>
                                                     <p>In the Frequently Asked Questions (FAQ) section of this website, provides answers for a better understanding of the compilation process and understanding the tables.</p>
                                                     <p>Searching the Malawian Food Composition Tables, a total of 316 food items are presented in the publication. For each food item, energy and approximate composition data are reported and some minerals and vitamins are presented for 42 components, i.e. moisture, energy, macronutrients, minerals and vitamins, as well as phytate values for select items. The nutrient information in MAFOODS 2019 represents mean values and cannot always be considered as an exact reflection of the nutrient content. As was previously indicated, various factors influence the nutrient content of food. Nutrient information is presented per 100g edible food.</p>
 
-                                                </div>-->
+                                                </div>&ndash;&gt;
                                             </div>
 
                                             <div class="prd-qunt">
-<!--                                                <span v-if="showMore === true" class="btn1-drk" @click="showMore=!showMore">Show Less</span>-->
-<!--                                                <span v-else class="btn1-drk" @click="showMore=!showMore">Show More</span>-->
+&lt;!&ndash;                                                <span v-if="showMore === true" class="btn1-drk" @click="showMore=!showMore">Show Less</span>&ndash;&gt;
+&lt;!&ndash;                                                <span v-else class="btn1-drk" @click="showMore=!showMore">Show More</span>&ndash;&gt;
                                                 <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank" title="" class="btn1" itemprop="url">Download PDF</a>
                                             </div>
                                         </div>
                                     </div>
+                                </div>-->
+                                <div class="col-sm-12">
+                                    <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank">
+                                        <div class="pdf">
+                                            <img :src="fileUrl('images/pdf.png')" alt="">
+                                            <div>Download</div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </div><!-- Product Detail -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <section>
+            <div class="block  whitish hgh-opc composition-table">
+                <div class="fixed-bg" style="background: url(images/resource/parallax2.jpg);"></div>
+                <div class="container">
+                    <div class="title-style2 center-align">
+                        <h4 itemprop="headline">Data reference source compilation</h4>
+<!--                        <span>What we are offering you!</span>-->
+                        <!--                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>-->
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card">
+                                <div class="charts">
+                                    <div class="display">
+                                        <div class="chart-info absolute h-full w-full font-bold flex justify-center items-center">
+                                            <div>
+                                                <div>63%</div>
+                                                <!--                                        <div class="source">Malawi</div>-->
+                                            </div>
+                                        </div>
+                                        <DoughnutChart
+                                            :chart-data="malawiData"
+                                            :chart-options="chartOptions"
+                                            chart-id="malawi"
+                                            dataset-id-key="malawi"
+                                        />
+                                    </div>
+                                    <div class="source">
+                                        Malawi
+                                        <div class="news-meta">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card">
+                                <div class="charts">
+                                    <div class="display">
+                                        <div class="chart-info absolute h-full w-full font-bold flex justify-center items-center">
+                                            <div>
+                                                <div>30%</div>
+                                                <!--                                        <div class="source">Malawi</div>-->
+                                            </div>
+                                        </div>
+                                        <DoughnutChart
+                                            :chart-data="southAfricaData"
+                                            :chart-options="chartOptions"
+                                            chart-id="malawi"
+                                            dataset-id-key="malawi"
+                                        />
+                                    </div>
+                                    <div class="source">
+                                        South Africa
+                                        <div class="news-meta">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card">
+                                <div class="charts">
+                                    <div class="display">
+                                        <div class="chart-info absolute h-full w-full font-bold flex justify-center items-center">
+                                            <div>
+                                                <div>4%</div>
+                                                <!--                                        <div class="source">Malawi</div>-->
+                                            </div>
+                                        </div>
+                                        <DoughnutChart
+                                            :chart-data="westData"
+                                            :chart-options="chartOptions"
+                                            chart-id="malawi"
+                                            dataset-id-key="malawi"
+                                        />
+                                    </div>
+                                    <div class="source">
+                                        West
+                                        <div class="news-meta">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card">
+                                <div class="charts">
+                                    <div class="display">
+                                        <div class="chart-info absolute h-full w-full font-bold flex justify-center items-center">
+                                            <div>
+                                                <div>2%</div>
+                                                <!--                                        <div class="source">Malawi</div>-->
+                                            </div>
+                                        </div>
+                                        <DoughnutChart
+                                            :chart-data="unitedStatesData"
+                                            :chart-options="chartOptions"
+                                            chart-id="malawi"
+                                            dataset-id-key="malawi"
+                                        />
+                                    </div>
+                                    <div class="source">
+                                        United States
+                                        <div class="news-meta">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="card">
+                                <div class="charts">
+                                    <div class="display">
+                                        <div class="chart-info absolute h-full w-full font-bold flex justify-center items-center">
+                                            <div>
+                                                <div>1%</div>
+                                                <!--                                        <div class="source">Malawi</div>-->
+                                            </div>
+                                        </div>
+                                        <DoughnutChart
+                                            :chart-data="mozambiqueData"
+                                            :chart-options="chartOptions"
+                                            chart-id="malawi"
+                                            dataset-id-key="malawi"
+                                        />
+                                    </div>
+                                    <div class="source">
+                                        Mozambique
+                                        <div class="news-meta">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <ul>
+                                <li>Data for 8 food groups collated: Staples; Legumes; Animal Foods; Vegetables; Fruits; Fats & Oils; Baby Foods and Miscellaneous group </li>
+                                <li>>50 Publications reviewed using data quality checklist tool developed</li>
+                                <li>Number of food components captured equals 42</li>
+                                <li>More missing data for vitamins than for mineral data, whilst proximate values are well represented</li>
+                            </ul>
+                        </div>
+                    </div>
+<!--                    <doughnut></doughnut>-->
+                </div>
+            </div>
+        </section>
+
+
+
 
         <section>
             <div class="block gray pt-0">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
-                            <div class="fltrs style2 paddlr30 center-align">
+                    <div class="title-style2 center-align">
+                        <h4 itemprop="headline">Browse Table</h4>
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <div class="fltrs style2 center-align">
                                 <ul class="fltrs-lst">
                                     <li class="selected"><span @click="selectedGroup=0" :class="{selected:selectedGroup===0}">All Items ({{foodCount(null)}})</span></li>
                                     <li v-for="(group,index) in groups.data" :key="index">
@@ -81,7 +313,7 @@
                                     </li>
                                 </ul>
                                 <div class="srch-fund">
-                                    <div class="row">
+                                    <div class="">
                                         <div class=" ">
                                             <div class="srch-fund-inr">
                                                 <form class="pg-srch-frm">
@@ -92,8 +324,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="remove-ext">
-                                    <div class="row">
+                                <div class="">
+                                    <div class="">
                                         <!--                                        <div class="masonry" v-if="search.length === 0">
                                                                                     <div
                                                                                         v-for="(food,index) in foods.data"
@@ -108,7 +340,7 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>-->
-                                        <div class="row">
+                                        <div class="">
                                             <div
                                                 v-for="(food,index) in filteredFoods"
                                                 :key="index"
@@ -116,11 +348,12 @@
                                                 <div class="cause-box1 style2">
                                                     <inertia-link :href="route('foods.show',food.code)">
                                                         <div class="cause-info">
+
                                                             <div>
                                                                 <span class="cate"><span>{{ food.group.name }}</span></span>
                                                                 <h2 itemprop="headline"><a href="#" title="" itemprop="url">{{ food.item }}</a></h2>
                                                             </div>
-                                                            <span class="dnt-gl"><!--Code: --><span class="price">{{ food.code }}</span></span>
+                                                            <div class="dnt-gl"><!--Code: --><span class="price">{{ food.code }}</span></div>
                                                         </div>
                                                     </inertia-link>
                                                 </div>
@@ -141,16 +374,58 @@
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
+import DoughnutChart from "@/Components/DoughnutChart";
+// import Doughnut from "@/Components/Doughnut";
 
 export default {
     name: "CompositionTable",
     props:['groups','foods','page'],
-    components: {AppLayout},
+    components: {AppLayout,DoughnutChart},
     data(){
         return{
             search:"",
             selectedGroup:0,
-            showMore:false
+            showMore:false,
+            chartOptions:{
+                plugins: {
+                    tooltip: {
+                        enabled: false
+                    },
+                    legend:{
+                        display:false
+                    }
+                }, cutout:30
+            },
+            malawiData:{
+                datasets: [{
+                    data: [63, (100-63)],
+                    backgroundColor: ['#58bf00','#f2f2f4'],
+                }],
+            },
+            southAfricaData:{
+                datasets: [{
+                    data: [30, (100-30)],
+                    backgroundColor: ['#58bf00','#f2f2f4'],
+                }],
+            },
+            westData:{
+                datasets: [{
+                    data: [4, (100-4)],
+                    backgroundColor: ['#58bf00','#f2f2f4'],
+                }],
+            },
+            unitedStatesData:{
+                datasets: [{
+                    data: [2, (100-2)],
+                    backgroundColor: ['#58bf00','#f2f2f4'],
+                }],
+            },
+            mozambiqueData:{
+                datasets: [{
+                    data: [1, (100-1)],
+                    backgroundColor: ['#58bf00','#f2f2f4'],
+                }],
+            },
         }
     },
     computed:{

@@ -104,6 +104,9 @@
 
 .dnt-gl{
     text-align: right;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 12px;
 }
 
 .fltrs-lst {
@@ -129,10 +132,109 @@
     text-transform: uppercase;
     font-family: "Montserrat",sans-serif;
 }
-ul.listing{
-    list-style: circle;
+.composition-table ul{
+    list-style: disc;
     margin-left: 16px;
 }
+.composition-table ol{
+    list-style: decimal;
+    margin-left: 16px;
+}
+.composition-table .title-style2{
+    float: none;
+}
+
+.composition-table .tagline{
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    max-width: 615px;
+    margin: auto;
+    /*border-top: 1px solid #a2a2a2;*/
+    /*border-bottom: 1px solid #a2a2a2;*/
+    /*padding: 10px 106px;*/
+}
+.composition-table .tagline>div:first-child{
+    font-weight: normal;
+    text-align: center;
+    color: #58bf00;
+}
+
+.composition-table .statistic{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.composition-table .statistic .number{
+    width: 110px;
+    height: 110px;
+    border-radius: 50% 0 50% 50%;
+    background-color: #58bf00;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.composition-table .statistic .number>div{
+    width: 75px;
+    height: 75px;
+    background-color: #272727;
+    color: #f2f2f4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.composition-table .statistic .info{
+    margin-left: 20px;
+}
+
+.composition-table .statistic .info p{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Montserrat, 'sans-serif';
+}
+.composition-table .pdf{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.composition-table .pdf img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+.charts{
+    display: flex;
+    align-items:center;
+}
+
+.charts .display{
+    position: relative;
+    width: 110px;
+    height: 110px;
+}
+
+.charts .chart-info{
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    /*color: white;*/
+}
+.charts .source{
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family:Montserrat, "sans-serif";
+    margin-left: 20px;
+}
+
 
 .product-detail-innr .description{
     color: #666;
@@ -525,6 +627,19 @@ form .action .btn1{
         border-left: 0;
         position: relative;
     }
+    .composition-table .statistic .number{
+        width: 100px;
+        height: 100px;
+    }
+    .composition-table .statistic .number>div{
+        width: 70px;
+        height: 70px;
+        font-size: 18px;
+    }
+
+    .composition-table .statistic .info p{
+        font-size: 16px;
+    }
 }
 
 @media (max-width:768px){
@@ -575,6 +690,20 @@ form .action .btn1{
 
     .feat-cap, .feat-img:before{
         z-index: auto;
+    }
+
+    .composition-table .statistic .number{
+        width: 80px;
+        height: 80px;
+    }
+    .composition-table .statistic .number>div{
+        width: 58px;
+        height: 58px;
+        font-size: 16px;
+    }
+
+    .composition-table .statistic .info p{
+        font-size: 14px;
     }
 
 
