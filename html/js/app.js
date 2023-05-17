@@ -10012,7 +10012,7 @@ var render = function render() {
     staticClass: "number"
   }, [_c("div", [_vm._v("73")])]), _vm._v(" "), _c("div", {
     staticClass: "info"
-  }, [_c("p", [_vm._v("Number of Malawian Recipes")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Analytical data from literature sources of 32 publications")]), _vm._v(" "), _c("li", [_vm._v("Theses data from Malawian Universities added into database")])])])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Number of Malawian Recipes")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Recipe calculations accessed from local cookbooks")]), _vm._v(" "), _c("li", [_vm._v("Information sourced from recipe books developed by Ministry of Health and other Malawian cookbooks available in country")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("div", {
     staticClass: "statistic"
@@ -10020,7 +10020,7 @@ var render = function render() {
     staticClass: "number"
   }, [_c("div", [_vm._v("118")])]), _vm._v(" "), _c("div", {
     staticClass: "info"
-  }, [_c("p", [_vm._v("Number of Foods Borrowed")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Analytical data from literature sources of 32 publications")]), _vm._v(" "), _c("li", [_vm._v("Theses data from Malawian Universities added into database")])])])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Number of Foods Borrowed")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Foods borrowed from international food databases")]), _vm._v(" "), _c("li", [_vm._v("Only resorted to borrowing when local data did not pass stringent data quality checks")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("div", {
     staticClass: "statistic"
@@ -10028,7 +10028,7 @@ var render = function render() {
     staticClass: "number"
   }, [_c("div", [_vm._v("316")])]), _vm._v(" "), _c("div", {
     staticClass: "info"
-  }, [_c("p", [_vm._v("Total number of foods in Malawian")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Analytical data from literature sources of 32 publications")]), _vm._v(" "), _c("li", [_vm._v("Theses data from Malawian Universities added into database")])])])])])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Total number of foods in Malawian Food Composition Database")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Information reported as at February 2019")]), _vm._v(" "), _c("li", [_vm._v("Information gathered from various data sources, inclusive of literature retrieved from Malawian tertiary institutions, recipe calculations and international food databases")])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-sm-12"
   }, [_c("a", {
     attrs: {
@@ -10042,7 +10042,7 @@ var render = function render() {
       src: _vm.fileUrl("images/pdf.png"),
       alt: ""
     }
-  }), _vm._v(" "), _c("div", [_vm._v("Download")])])])])])])])])])]), _vm._v(" "), _c("section", [_c("div", {
+  }), _vm._v(" "), _c("div", [_vm._v("Click to download Malawi Food Composition Table")])])])])])])])])])]), _vm._v(" "), _c("section", [_c("div", {
     staticClass: "block whitish hgh-opc composition-table"
   }, [_c("div", {
     staticClass: "fixed-bg",
@@ -10053,11 +10053,7 @@ var render = function render() {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "title-style2 center-align"
-  }, [_c("h4", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("Data reference source compilation")])]), _vm._v(" "), _c("div", {
+  }, [_c("h3", [_vm._v("Data reference source contribution")])]), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col-sm-12 col-md-6"
@@ -10120,7 +10116,7 @@ var render = function render() {
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "source"
-  }, [_vm._v("\n                                        West\n                                        "), _c("div", {
+  }, [_vm._v("\n                                        West Africa\n                                        "), _c("div", {
     staticClass: "news-meta"
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-sm-12 col-md-6"
@@ -10141,7 +10137,7 @@ var render = function render() {
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "source"
-  }, [_vm._v("\n                                        United States\n                                        "), _c("div", {
+  }, [_vm._v("\n                                        United States of America\n                                        "), _c("div", {
     staticClass: "news-meta"
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-sm-12 col-md-6"
@@ -10172,11 +10168,7 @@ var render = function render() {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "title-style2 center-align"
-  }, [_c("h4", {
-    attrs: {
-      itemprop: "headline"
-    }
-  }, [_vm._v("Browse Table")])]), _vm._v(" "), _c("div", {}, [_c("div", {}, [_c("div", {
+  }, [_c("h3", [_vm._v("Browse Table")])]), _vm._v(" "), _c("div", {}, [_c("div", {}, [_c("div", {
     staticClass: "fltrs style2 center-align"
   }, [_c("ul", {
     staticClass: "fltrs-lst"

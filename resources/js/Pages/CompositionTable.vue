@@ -55,8 +55,8 @@
                                           <div class="info">
                                               <p>Number of Malawian Recipes</p>
                                               <ul>
-                                                  <li>Analytical data from literature sources of 32 publications</li>
-                                                  <li>Theses data from Malawian Universities added into database</li>
+                                                  <li>Recipe calculations accessed from local cookbooks</li>
+                                                  <li>Information sourced from recipe books developed by Ministry of Health and other Malawian cookbooks available in country</li>
                                               </ul>
                                           </div>
                                       </div>
@@ -69,8 +69,8 @@
                                           <div class="info">
                                               <p>Number of Foods Borrowed</p>
                                               <ul>
-                                                  <li>Analytical data from literature sources of 32 publications</li>
-                                                  <li>Theses data from Malawian Universities added into database</li>
+                                                  <li>Foods borrowed from international food databases</li>
+                                                  <li>Only resorted to borrowing when local data did not pass stringent data quality checks</li>
                                               </ul>
                                           </div>
                                       </div>
@@ -81,10 +81,10 @@
                                               <div>316</div>
                                           </div>
                                           <div class="info">
-                                              <p>Total number of foods in Malawian</p>
+                                              <p>Total number of foods in Malawian Food Composition Database</p>
                                               <ul>
-                                                  <li>Analytical data from literature sources of 32 publications</li>
-                                                  <li>Theses data from Malawian Universities added into database</li>
+                                                  <li>Information reported as at February 2019</li>
+                                                  <li>Information gathered from various data sources, inclusive of literature retrieved from Malawian tertiary institutions, recipe calculations and international food databases</li>
                                               </ul>
                                           </div>
                                       </div>
@@ -133,7 +133,7 @@
                                     <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank">
                                         <div class="pdf">
                                             <img :src="fileUrl('images/pdf.png')" alt="">
-                                            <div>Download</div>
+                                            <div>Click to download Malawi Food Composition Table</div>
                                         </div>
                                     </a>
                                 </div>
@@ -149,7 +149,7 @@
                 <div class="fixed-bg" style="background: url(images/resource/parallax2.jpg);"></div>
                 <div class="container">
                     <div class="title-style2 center-align">
-                        <h4 itemprop="headline">Data reference source compilation</h4>
+                        <h3>Data reference source contribution</h3>
 <!--                        <span>What we are offering you!</span>-->
                         <!--                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>-->
                     </div>
@@ -223,7 +223,7 @@
                                         />
                                     </div>
                                     <div class="source">
-                                        West
+                                        West Africa
                                         <div class="news-meta">
                                         </div>
                                     </div>
@@ -248,7 +248,7 @@
                                         />
                                     </div>
                                     <div class="source">
-                                        United States
+                                        United States of America
                                         <div class="news-meta">
                                         </div>
                                     </div>
@@ -301,7 +301,7 @@
             <div class="block gray pt-0">
                 <div class="container">
                     <div class="title-style2 center-align">
-                        <h4 itemprop="headline">Browse Table</h4>
+                        <h3 >Browse Table</h3>
                     </div>
                     <div class="">
                         <div class="">
