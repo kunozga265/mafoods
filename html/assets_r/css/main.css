@@ -167,9 +167,13 @@
     margin-bottom: 20px;
 }
 
+.composition-table .statistic>div:first-child{
+    width:100px;
+}
+
 .composition-table .statistic .number{
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     border-radius: 50% 0 50% 50%;
     background-color: #58bf00;
     justify-content: center;

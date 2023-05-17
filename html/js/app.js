@@ -10000,33 +10000,33 @@ var render = function render() {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("div", {
     staticClass: "statistic"
-  }, [_c("div", {
+  }, [_c("div", [_c("div", {
     staticClass: "number"
-  }, [_c("div", [_vm._v("125")])]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v("125")])])]), _vm._v(" "), _c("div", {
     staticClass: "info"
   }, [_c("p", [_vm._v("Number of Malawian Foods")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Analytical data from literature sources of 32 publications")]), _vm._v(" "), _c("li", [_vm._v("Theses data from Malawian Universities added into database")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("div", {
     staticClass: "statistic"
-  }, [_c("div", {
+  }, [_c("div", [_c("div", {
     staticClass: "number"
-  }, [_c("div", [_vm._v("73")])]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v("73")])])]), _vm._v(" "), _c("div", {
     staticClass: "info"
   }, [_c("p", [_vm._v("Number of Malawian Recipes")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Recipe calculations accessed from local cookbooks")]), _vm._v(" "), _c("li", [_vm._v("Information sourced from recipe books developed by Ministry of Health and other Malawian cookbooks available in country")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("div", {
     staticClass: "statistic"
-  }, [_c("div", {
+  }, [_c("div", [_c("div", {
     staticClass: "number"
-  }, [_c("div", [_vm._v("118")])]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v("118")])])]), _vm._v(" "), _c("div", {
     staticClass: "info"
   }, [_c("p", [_vm._v("Number of Foods Borrowed")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Foods borrowed from international food databases")]), _vm._v(" "), _c("li", [_vm._v("Only resorted to borrowing when local data did not pass stringent data quality checks")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("div", {
     staticClass: "statistic"
-  }, [_c("div", {
+  }, [_c("div", [_c("div", {
     staticClass: "number"
-  }, [_c("div", [_vm._v("316")])]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_vm._v("316")])])]), _vm._v(" "), _c("div", {
     staticClass: "info"
   }, [_c("p", [_vm._v("Total number of foods in Malawian Food Composition Database")]), _vm._v(" "), _c("ul", [_c("li", [_vm._v("Information reported as at February 2019")]), _vm._v(" "), _c("li", [_vm._v("Information gathered from various data sources, inclusive of literature retrieved from Malawian tertiary institutions, recipe calculations and international food databases")])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-sm-12"

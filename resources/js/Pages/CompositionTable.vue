@@ -35,8 +35,10 @@
                               <div class="row">
                                   <div class="col-md-6 col-sm-12">
                                       <div class="statistic">
-                                          <div class="number">
-                                              <div>125</div>
+                                          <div>
+                                              <div class="number">
+                                                  <div>125</div>
+                                              </div>
                                           </div>
                                           <div class="info">
                                               <p>Number of Malawian Foods</p>
@@ -49,8 +51,10 @@
                                   </div>
                                   <div class="col-md-6 col-sm-12">
                                       <div class="statistic">
-                                          <div class="number">
+                                          <div>
+                                              <div class="number">
                                               <div>73</div>
+                                          </div>
                                           </div>
                                           <div class="info">
                                               <p>Number of Malawian Recipes</p>
@@ -63,8 +67,10 @@
                                   </div>
                                   <div class="col-md-6 col-sm-12">
                                       <div class="statistic">
-                                          <div class="number">
+                                          <div>
+                                              <div class="number">
                                               <div>118</div>
+                                          </div>
                                           </div>
                                           <div class="info">
                                               <p>Number of Foods Borrowed</p>
@@ -77,8 +83,10 @@
                                   </div>
                                   <div class="col-md-6 col-sm-12">
                                       <div class="statistic">
-                                          <div class="number">
+                                          <div>
+                                              <div class="number">
                                               <div>316</div>
+                                          </div>
                                           </div>
                                           <div class="info">
                                               <p>Total number of foods in Malawian Food Composition Database</p>
