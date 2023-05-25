@@ -15,11 +15,17 @@ class Food extends Model
         return $this->belongsTo(Group::class);
     }
 
+    public function source()
+    {
+        return $this->belongsTo(Source::class);
+    }
+
     protected $fillable=[
         "code",
         "ref_no",
         "item",
         "group_id",
+        "source_id",
         "moisture",
         "energy_kcal",
         "energy_kj",

@@ -1,12 +1,46 @@
 /* Corrections */
+.app-layout{
+    padding-top:168px;
+}
+.app-layout header.stick.style2, .app-layout .rs-lg-br{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    min-height: 105px;
+}
+
+.app-layout .menu-sec1, .app-layout .rs-lg-br{
+    background-color: white;
+}
+
 .logo img{
     height:70px;
+}
+
+.logo h1{
+    margin: 0;
+    padding: 0;
+}
+.logo h1 a{
+    /*margin-top: 12px;*/
+    color:#272727;
+    font-size:30px;
+    text-transform:uppercase;
+    font-weight: bold;
+}
+.app-layout .feat-img{
+    height: 600px;
 }
 
 .image-placeholder{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.image-overlay{
+    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.7);
 }
 
 .service-box img{
@@ -21,7 +55,7 @@
 }
 
 .feat-img{
-    background-color: #141414;
+    /*background-color: #141414;*/
 }
 .owl-carousel.owl-loaded {
     display: block;
@@ -35,7 +69,7 @@
 }
 
 .block.gray.news{
-    padding-bottom: 0;
+    /*padding-bottom: 0;*/
 }
 
 /*Breadcrumb */
@@ -212,6 +246,10 @@
 .composition-table .pdf img{
     width: 40px;
     margin-right: 10px;
+}
+
+.composition-table tbody tr> td:nth-child(2){
+    text-align: left;
 }
 
 .title-style2>h3{
@@ -565,6 +603,11 @@
     height: 60px;
 }
 
+.partners img{
+    max-height: 150px;
+    margin:auto;
+}
+
 /* Login Form */
 .auth-card{
     max-width: 500px;
@@ -611,6 +654,11 @@ form .action .btn1{
     margin: 0;
 }
 
+@media (max-width:1024px){
+    .app-layout{
+        padding-top:105px;
+    }
+}
 @media (max-width:996px){
     .fltrs-lst {
         display: none;
@@ -656,14 +704,18 @@ form .action .btn1{
         opacity: 0;
     }
 
+    .app-layout .feat-img{
+        height: auto;
+    }
+
     .feat-cap{
         padding: 50px 15px;
-        background-image: url("../../images/hero-1.jpg");
+   /*     background-image: url("../../images/hero-1.jpg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         background-blend-mode: darken;
-        background-color: rgba(0,0,0,0.8);
+        background-color: rgba(0,0,0,0.8);*/
     }
 
     .owl-carousel.owl-loaded {
@@ -903,6 +955,9 @@ aside.sidebar ul li a div{
 }
 .style2 .blg-mta .pst-meta{
     margin-bottom: 20px;
+}
+.blg-mta .body img{
+    float:left;
 }
 
 .blg-mta .body img{

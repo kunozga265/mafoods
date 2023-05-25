@@ -7,6 +7,11 @@ import PortalVue from 'portal-vue';
 import '@/Plugins/mixins'
 import CKEditor from '@ckeditor/ckeditor5-vue2';
 
+//MDB
+// require("bootstrap-css-only/css/bootstrap.min.css");
+// require("mdbvue/lib/css/mdb.min.css");
+require("@fortawesome/fontawesome-free/css/all.min.css");
+
 Vue.mixin({ methods: { route } });
 // Vue.prototype.$route = route
 Vue.use(InertiaPlugin);

@@ -13,7 +13,7 @@
             <div class="block no-padding">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-lg-12">
-                        <div class="feat-img">
+                        <div class="feat-img image-placeholder image-overlay" :style="{backgroundImage:`url(${fileUrl(group.image)})`}">
                             <div class="feat-cap">
                                 <!--                                <i class="flaticon-ribbon"></i>
                                                                 <img :src="fileUrl('images/malawi-map.svg')" alt="Map of Malawi">-->
@@ -27,14 +27,14 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="feat-img-car">
-                                <div class="fea-img"><img :src="fileUrl('images/hero-3.jpg')" alt="" itemprop="image" /></div>
-                                <div class="fea-img"><img :src="fileUrl('images/hero-2.jpg')" alt="" itemprop="image" /></div>
-                                <div class="fea-img"><img :src="fileUrl('images/hero-4.jpg')" alt="" itemprop="image" /></div>
-                                <div class="fea-img"><img :src="fileUrl('images/hero-5.jpg')" alt="" itemprop="image" /></div>
-                                <div class="fea-img"><img :src="fileUrl('images/hero-6.jpg')" alt="" itemprop="image" /></div>
-                                <div class="fea-img"><img :src="fileUrl('images/hero-7.jpg')" alt="" itemprop="image" /></div>
-                            </div>
+<!--                            <div class="feat-img-car">
+                                <div class="fea-img image-placeholder" :style="{backgroundImage:`url(${fileUrl('images/hero-2.jpg')})`}"></div>
+&lt;!&ndash;                                <div class="fea-img"><img :src="fileUrl('images/hero-2.jpg')" alt="" itemprop="image" /></div>&ndash;&gt;
+&lt;!&ndash;                                <div class="fea-img"><img :src="fileUrl('images/hero-4.jpg')" alt="" itemprop="image" /></div>&ndash;&gt;
+&lt;!&ndash;                                <div class="fea-img"><img :src="fileUrl('images/hero-5.jpg')" alt="" itemprop="image" /></div>&ndash;&gt;
+&lt;!&ndash;                                <div class="fea-img"><img :src="fileUrl('images/hero-6.jpg')" alt="" itemprop="image" /></div>&ndash;&gt;
+&lt;!&ndash;                                <div class="fea-img"><img :src="fileUrl('images/hero-7.jpg')" alt="" itemprop="image" /></div>&ndash;&gt;
+                            </div>-->
                         </div><!-- Featured Image -->
                     </div>
                 </div>
@@ -127,7 +127,7 @@
 <!--                                <p itemprop="description">Get every single update</p>-->
                             </div>
                             <div class="remove-ext paddlr100">
-                                <div class="row">
+                                <div class="">
                                     <div class="col-md-6 col-sm-6 col-lg-6"
                                          v-for="(news_item,index) in news.data"
                                          :key="index"
@@ -169,7 +169,7 @@ import AppLayout from "@/Layouts/AppLayout";
 
 export default {
     name: "Home",
-    props:['page','news'],
+    props:['page','news','group'],
 
     components:{
         AppLayout

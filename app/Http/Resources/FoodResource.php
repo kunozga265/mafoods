@@ -20,6 +20,7 @@ class FoodResource extends JsonResource
             "ref_no"                =>$this->ref_no,
             "item"                  =>$this->item,
             "group"                 =>$this->group,
+            "source"                =>$this->source,
             "moisture"              =>$this->moisture,
             "energy_kcal"           =>$this->energy_kcal,
             "energy_kj"             =>$this->energy_kj,

@@ -11,7 +11,7 @@
 <!--        </div>&lt;!&ndash; Pageloader &ndash;&gt;-->
 
         <main>
-            <div class="web-lyut">
+            <div class="web-lyut app-layout">
                 <header class="stick style2">
                     <div class="topbar1 style2">
                         <div class="container">
@@ -26,9 +26,15 @@
                             </div>
                             <div v-else>
                                 <ul class="tb-br-cnt1">
-                                    <li class="socials"><span class="">FOLLOW US AT:</span> <i class="fa fa-facebook">  </i><i class="fa fa-twitter"></i></li>
-                                    <li><i class="fa fa-envelope-square"></i> <a href="#" title="" itemprop="url">mafoods@luanar.ac.mw</a></li>
-                                    <li><i class="fa fa-phone"></i> <span>Call Us At:</span> +265 882 85 60 52</li>
+                                    <li class="socials">
+                                        <span class="">FOLLOW US AT:</span>
+                                        <a href="https://www.linkedin.com"target="_blank"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://web.facebook.com/mafoods2020" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.twitter.com"target="_blank"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.instagram.com"target="_blank"><i class="fab fa-instagram"></i></a>
+                                    </li>
+                                    <li><i class="fa fa-envelope-square"></i> <a href="mailto:mafoods@luanar.ac.mw" title="" itemprop="url">mafoods@luanar.ac.mw</a></li>
+                                    <li><i class="fa fa-phone"></i> <span>Call Us At:</span> <a href="tel:2651277222">+265 12 77 222</a></li>
                                 </ul>
                                 <!--                            <a class="btn2 dnt-pp" href="#" title="" itemprop="url">Action Button</a>-->
                                 <div class="tb-br-scl2">
@@ -40,9 +46,9 @@
                         </div>
                     </div><!-- Topbar 1 -->
                     <div class="menu-sec1">
-                        <div class="container">
+                        <div class="container flex items-center">
                             <div class="logo">
-                                <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>
+                                <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url">Mafoods<!--<img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" />--></a></h1>
                             </div><!-- Logo -->
                             <nav>
                                 <div>
@@ -51,14 +57,15 @@
                                         <li><a :href="route('composition.table')" title="" itemprop="url">Composition Table</a></li>
                                         <li><a :href="route('recipe.calculator')" title="" itemprop="url">Recipe Calculator</a></li>
                                         <li><a :href="route('news')" title="" itemprop="url">News</a></li>
+                                        <li><a :href="route('partners')" title="" itemprop="url">Our Partners</a></li>
                                         <li class="menu-item-has-children"><a href="#" title="" itemprop="url">About Us</a>
                                             <ul>
+                                                <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
                                                 <li><a :href="route('project-overview')" title="" itemprop="url">Project Overview</a></li>
 <!--                                                <li><a :href="route('home')" title="" itemprop="url">Project Overview</a></li>-->
                                                 <li><a :href="route('faqs')" title="" itemprop="url">Frequently Asked Questions</a></li>
                                             </ul>
                                         </li>
-                                        <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
                                     </ul>
                                 </div>
                             </nav><!-- Nav -->
@@ -67,9 +74,9 @@
                 </header><!-- Header -->
 
                 <div class="rsp-hdr">
-                    <div class="rs-lg-br">
+                    <div class="rs-lg-br flex items-center">
                         <div class="logo">
-                            <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>
+                            <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url">Mafoods<!--<img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" />--></a></h1>
                         </div>
                         <span class="rs-mu-btn"><i class="fa fa-list"></i></span>
                     </div>
@@ -86,6 +93,7 @@
                                     <li><a :href="route('faqs')" title="" itemprop="url">Frequently Asked Questions</a></li>
                                 </ul>
                             </li>
+                            <li><a :href="route('partners')" title="" itemprop="url">Our Partners</a></li>
                             <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
                         </ul>
                     </div><!-- Responsive Menu -->
@@ -93,24 +101,24 @@
 
                 <slot></slot>
 
-                <section>
-                    <div class="block less-spacing">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                    <div class="sponsors">
-                                        <div class="sponsor-box">
-                                            <a href="#" title="" itemprop="url"><img :src="fileUrl('images/usaid-logo.png')" alt="" itemprop="image" /></a>
-                                        </div>
-                                        <div class="sponsor-box">
-                                            <a href="#" title="" itemprop="url"><img :src="fileUrl('images/luanar-logo.png')" alt="" itemprop="image" /></a>
-                                        </div>
-                                    </div><!-- Sponsor -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+<!--                <section>-->
+<!--                    <div class="block less-spacing">-->
+<!--                        <div class="container">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-md-12 col-sm-12 col-lg-12">-->
+<!--                                    <div class="sponsors">-->
+<!--                                        <div class="sponsor-box">-->
+<!--                                            <a href="#" title="" itemprop="url"><img :src="fileUrl('images/usaid-logo.png')" alt="" itemprop="image" /></a>-->
+<!--                                        </div>-->
+<!--                                        <div class="sponsor-box">-->
+<!--                                            <a href="#" title="" itemprop="url"><img :src="fileUrl('images/luanar-logo.png')" alt="" itemprop="image" /></a>-->
+<!--                                        </div>-->
+<!--                                    </div>&lt;!&ndash; Sponsor &ndash;&gt;-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
 
                 <footer>
                     <div class="block dark">
@@ -161,7 +169,7 @@
                                                                 <ul>
                                                                     <li><a :href="route('home')" title="" itemprop="url">Home</a></li>
                                                                     <li><a :href="route('composition.table')" title="" itemprop="url">Composition Table</a></li>
-                                                                    <li><a :href="route('home')" title="" itemprop="url">Recipe Calculator</a></li>
+                                                                    <li><a :href="route('recipe.calculator')" title="" itemprop="url">Recipe Calculator</a></li>
                                                                     <li><a :href="route('news')" title="" itemprop="url">News</a></li>
                                                                     <li><a :href="route('project-overview')" title="" itemprop="url">Project Overview</a></li>
                                                                     <li><a :href="route('faqs')" title="" itemprop="url">FAQs</a></li>
@@ -176,17 +184,17 @@
                                                             <div class="widget-data">
                                                                 <ul class="cnt-lst">
                                                                     <li class="addr">
-                                                                        <i class="fa fa-home"></i>
+                                                                        <i class="fas fa-map"></i>
                                                                         <strong>Address:</strong>
-                                                                        <span>123 Luanar Bunda Campus</span>
+                                                                        <span>Bunda College Campus, P. O. Box 219, Lilongwe</span>
                                                                     </li>
                                                                     <li>
                                                                         <strong>Call:</strong>
-                                                                        <span>+265 882 85 60 52</span>
+                                                                        <span><a href="tel:2651277222">+265 12 77 222</a></span>
                                                                     </li>
                                                                     <li>
                                                                         <strong>Email:</strong>
-                                                                        <a href="#" title="" itemprop="url">mafoods@luanar.ac.mw</a>
+                                                                        <a href="mail:mafoods@luanar.ac.mw" title="" itemprop="url">mafoods@luanar.ac.mw</a>
                                                                     </li>
                                                                 </ul>
                                                             </div>

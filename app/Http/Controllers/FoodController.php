@@ -62,6 +62,7 @@ class FoodController extends Controller
                 "vitamin_d"             =>$food["vitamin_d"],
                 "vitamin_e"             =>$food["vitamin_e"],
                 "phytic_acid"           =>$food["phytic_acid"],
+                "source_id"             =>$food["source"],
             ]);
         }
 

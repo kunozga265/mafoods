@@ -20,12 +20,13 @@ class PageController extends Controller
 {
     public function home()
     {
-        //$group=Group::inRandomOrder()->first();
+        $group=Group::inRandomOrder()->first();
         $page = Page::where('name','home')->first();
         $news = News::orderBy('date')->limit(2)->get();
         return Inertia::render('Home',[
-            'page' => new PageResource($page),
-            'news' => NewsResource::collection($news)
+            'page'  => new PageResource($page),
+            'news'  => NewsResource::collection($news),
+            'group' => $group
         ]);
     }
 
@@ -122,6 +123,14 @@ class PageController extends Controller
         }else{
             return back()->with('status','News Article not found');
         }
+    }
+
+    public function partners()
+    {
+        $page = Page::where('name','partners')->first();
+        return Inertia::render("Partners",[
+            'page' => new PageResource($page)
+        ]);
     }
 
     /* Admin Routes */

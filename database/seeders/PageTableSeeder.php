@@ -51,12 +51,27 @@ class PageTableSeeder extends Seeder
            'name'          => 'project_overview',
            'contents'      => json_encode([
                'project_overview_description'    => "Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.",
-               'project_overview_main_text'       => "  <p>The Government of Malawi (GoM) has developed the first edition of the Malawian Food Composition Table (MFCT) which describes the content of commonly-consumed Malawian food items in terms of their nutrients and energy. Food composition data form the basis of all practices in human nutrition and health. It is therefore essential to have a reliable country-specific food composition database.</p>
-                                <p>For many years, Malawi has relied on food composition data from other countries. However, the use of data from other sources is challenging as well as inaccurate due to the potential for significant variability in nutrition content as a function of different processing methods, variations in recipe preparations of composite dishes as well as geographical differences in food cultivation. In light of this, it was critical for Malawi to develop a local food composition database to address its country-specific nutrition concerns and meet current demand due to technological advances. International tools, guidelines and standards were used in developing the food composition table to ensure an accurate, reliable and trustworthy scientific tool. This food composition table will be used in various ways by nutritionists, dietitians, physicians, food technologists, epidemiologists, food manufacturers, public health scientists, economists and research institutions.</p>
-                                <p>The GoM, through the Department of Nutrition and HIV/AIDS (DNHA), is the custodian of the Malawian Food Composition Database and Table. The Malawi food composition program which will be responsible for maintaining and updating of the food composition database and tables will be referred to as “The Malawian Food Data System” (MAFOODS). The DNHA will provide overall management and oversee MAFOODS. The DNHA will also provide operational support to the Malawian food data unit within its jurisdiction to ensure that the data are safe and continuously updated.</p>
-                                <p>To ensure continuous and up-to-date information in the database, the GoM, in collaboration with Malawian research institutions, will update the food composition database on a regular basis with the Lilongwe University of Agriculture & Natural Resources (LUANAR) taking a lead role due to its comparative advantage of access to active research activities in generating food composition data in collaboration with other academic institutions. In addition to obtaining data, information generated through routine mandated roles and functions within established institutions such as research stations, will also be a valuable source of food composition data for compilation.</p>
-                                <p>The Policy Advisory Team (PAT) which provides policy guidance on nutrition in Malawi, will provide overall guidance and support implementation and management of the Malawi Food composition data Program. The committee will act as an advisory body that will promote the science of food composition data in Malawi. The DNHA will work hand in hand with PAT to devise an updating plan and identify opportunities and partnerships that will lead to further research and the establishment of a comprehensive Malawian food composition database. In addition to the PAT, the Nutrition Research and Surveillance Technical Working Group which is under the National Nutrition Committee will actively support implementation of food composition data activities.</p>
-                                <p>The technical working group will focus on identifying key activities and supporting them in order to ensure that the goals and objectives of the food composition program are met.</p>",
+               'project_overview_main_text'       => "<p><strong>2019:</strong> Government of Malawi in collaboration with Lilongwe University of Agriculture and
+Natural Resource, the USAID funded Feed the Future Innovation Lab for Nutrition at the
+Friedman School of Nutrition Science and Policy, Tufts University and South African Food
+Data System (SAFOODS) of the South African Medical Research Council developed a
+Malawi specific food composition table and database.</p>
+<p>Government of Malawi through the Department of Nutrition and HIV/AIDS (DNHA) is the
+custodian of the Malawi Food Composition Database and Table.</p>
+<p>The Malawi Food Data System (MAFOODS) is the Malawi food composition program
+responsible for maintaing and updating of the food composition database and tables</p>
+<p><strong>2021 to present:</strong></p>
+<p>The Faculty of Food and Human Science at LUANAR received an award from USAID to
+implement a 5-year (May 2021 to May 2026) Nutritional for Health Project to support local
+capacity for strengthening health services delivery in Malawi. The goal of the project was to
+strengthen national capacity to accelerate effective response to nutrition that affect the
+health of Malawians. To achieve this goal, one of the activities was to develop second
+version of the Malawi Food Composition Database. The development of this second Malawi
+Food Composition Database was built on the great milestones of the first edition.</p>
+<p>In addition, MAFOODS also developed additional tools:</p>
+<ul><li>Malawi Food Quantities Manual available in both PDF and Book</li>
+<li>Food Composition Table for Extension Workers for Infant and Young Child Feed</li>
+<li>Recipe Calculation web-based and app version launched</li></ul>",
            ])
         ]);
 
@@ -167,7 +182,7 @@ class PageTableSeeder extends Seeder
                         "name"          =>"Dr Agnes Mwangwela",
                         "designation"   =>"Senior Scientist MAFOODS",
                         "address"       =>"Lilongwe University of Agriculture and Natural Resources P. O. Box 219 Lilongwe",
-                        "email"         =>"amwangwela@luanar.ac.mw",
+                        "email1"         =>"amwangwela@luanar.ac.mw",
                         "phoneNumber1"  =>"+265 888 878 777",
                         "phoneNumber2"  =>"",
                     ],
@@ -175,19 +190,66 @@ class PageTableSeeder extends Seeder
                         "name"          =>"Ms. Dalitso Chimwala",
                         "designation"   =>"Food Composition Data Compiler MAFOODS",
                         "address"       =>"Lilongwe University of Agriculture and Natural Resources P. O. Box 219 Lilongwe",
-                        "email"         =>"dchimwala@luanar.ac.mw",
+                        "email1"         =>"dchimwala@luanar.ac.mw",
                         "phoneNumber1"  =>"+265 882 856 05",
                         "phoneNumber2"  =>"+265 997 255 086",
+                    ],
+                    [
+                        "name"          =>"Dr Tinna Manani",
+                        "designation"   =>"Dean Faculty of Food and Human Sciences and Team Leader-Nutrition for Health Activity",
+                        "address"       =>"Lilongwe University of Agriculture and Natural Resources P. O. Box 219 Lilongwe",
+                        "email1"         =>"tmanani@luanar.ac.mw",
+                        "phoneNumber1"  =>"+265 882 815 580",
+                        "phoneNumber2"  =>"+265 999 048 960",
                     ],
                     [
                         "name"          =>"Dr Felix Pensulo Phiri",
                         "designation"   =>"Director of Nutrition Department of Nutrition, HIV and AIDS",
                         "address"       =>"Department of Nutrition, HIV and AIDS Ministry of Health Private Bag B401 Lilongwe",
-                        "email"         =>"felixphiri8@gmail.com",
+                        "email1"         =>"felixphiri8@gmail.com",
                         "phoneNumber1"  =>"+265 888 959 900",
                         "phoneNumber2"  =>"+265 999 953 747",
                     ],
+                    [
+                        "name"          =>"Ministry of Health",
+                        "designation"   =>"",
+                        "address"       =>"Department of Nutrition, HIV and AIDS Ministry of Health Private Bag B401 Lilongwe",
+                        "email1"         =>"secretary@dnha.gov.mw",
+                        "email2"        =>"www.dnha.gov.mw",
+                    ],
+                    [
+                        "name"          =>"Lilongwe University of Agriculture and Natural Resources,",
+                        "designation"   =>"",
+                        "address"       =>"Faculty of Food and Human Sciences P. O. Box 219 Lilongwe",
+                        "email1"         =>"ffhs@luanar.ac.mw",
+                        "email2"        =>"mafoods@luanar.ac.mw",
+                    ],
                 ]
+            ])
+        ]);
+
+        Page::create([
+            'name'       => 'partners',
+            'contents'   => json_encode([
+                'partners_description'  => "We would like to appreciate the following that have made this project a success",
+                'partners'              => [
+                    [
+                        'name'  => "USAID",
+                        'image' => "images/usaid-logo.png",
+                        'link'  => "https://google.com"
+                    ],
+                    [
+                        'name'  => "CSONA",
+                        'image'  => "images/csona-logo.jpg",
+                        'link'  => "https://google.com"
+                    ],
+                    [
+                        'name'  => "Malawi Government",
+                        'image'  => "images/mw-govt.jpg",
+                        'link'  => "https://google.com"
+                    ],
+                ],
+
             ])
         ]);
     }

@@ -55,6 +55,10 @@ Route::get('/contact-us', [
     PageController::class,'contactUs'
 ])->name('contact-us');
 
+Route::get('/partners', [
+    PageController::class,'partners'
+])->name('partners');
+
 Route::get('/news', [
     PageController::class,'news'
 ])->name('news');

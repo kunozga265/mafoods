@@ -38,8 +38,9 @@
                                         <li>
                                             <p class="address" v-text="contact.address"></p>
                                         </li>
-                                        <li><i class="fa fa-envelope"></i> <span v-text="contact.email"></span></li>
-                                        <li><i class="fa fa-phone"></i> <span v-text="contact.phoneNumber1"></span> <span v-if="contact.phoneNumber2">/ {{contact.phoneNumber2}}</span></li>
+                                        <li><i class="fa fa-envelope"></i> <span v-text="contact.email1"></span></li>
+                                        <li v-if="contact.email2"><i class="fa fa-envelope"></i> <span v-text="contact.email2"></span></li>
+                                        <li v-if="contact.phoneNumber1"><i class="fa fa-phone"></i> <span v-text="contact.phoneNumber1"></span> <span v-if="contact.phoneNumber2">/ {{contact.phoneNumber2}}</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -50,7 +51,7 @@
         </section>
 
         <section>
-            <div class="">
+            <div class="block gray">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">

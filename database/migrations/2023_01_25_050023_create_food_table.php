@@ -19,6 +19,7 @@ class CreateFoodTable extends Migration
             $table->string("ref_no")->nullable();
             $table->string("item");
             $table->integer("group_id");
+            $table->integer("source_id");
             $table->double("moisture")->nullable();
             $table->double("energy_kcal")->nullable();
             $table->double("energy_kj")->nullable();
