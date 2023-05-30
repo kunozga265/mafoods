@@ -75,12 +75,12 @@
                                          </a>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
-                                         <a :href="route('composition.table')" title="" itemprop="url">
+                                         <a :href="route('downloads')" title="" itemprop="url">
                                             <div class="service-box">
                                                 <i><img :src="fileUrl('images/epubs-icon.svg')" alt="" itemprop="image" /></i>
-                                                <h2 itemprop="headline">ePublications</h2>
-                                                <p itemprop="description">Download the food composition table v2019</p>
-                                                <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                                <h2 itemprop="headline">Downloads</h2>
+                                                <p itemprop="description">Download the food composition table and other relevant resources</p>
+                                                <a :href="route('downloads')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
                                             </div>
                                          </a>
                                     </div>
