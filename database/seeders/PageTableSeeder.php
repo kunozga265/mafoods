@@ -252,5 +252,12 @@ Food Composition Database was built on the great milestones of the first edition
 
             ])
         ]);
+
+        Page::create([
+            'name'       => 'downloads',
+            'contents'   => json_encode([
+                'downloads_description'  => "Learn more about MAFOODS through the following downloads",
+            ])
+        ]);
     }
 }

@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DownloadResource;
 use App\Http\Resources\FoodResource;
 use App\Http\Resources\FoodTypeResource;
 use App\Http\Resources\GroupResource;
 use App\Http\Resources\NewsResource;
 use App\Http\Resources\PageResource;
+use App\Mail\ContactUsMail;
+use App\Models\Download;
 use App\Models\Food;
 use App\Models\FoodType;
 use App\Models\Group;
 use App\Models\News;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -102,6 +106,19 @@ class PageController extends Controller
         ]);
     }
 
+    public function sendContactUsForm(Request $request)
+    {
+        $request->validate([
+            'name'  => 'required',
+            'email'  => 'required',
+            'message'  => 'required'
+        ]);
+
+        Mail::to("kunozgamlowoka@gmail.com")->send(new ContactUsMail($request->name, $request->email,$request->message));
+
+        Redirect::back()->with("success","Message sent!");
+    }
+
     public function news()
     {
         $news = News::orderBy('date')->paginate((new AppController())->paginate);
@@ -131,6 +148,18 @@ class PageController extends Controller
         return Inertia::render("Partners",[
             'page' => new PageResource($page)
         ]);
+    }
+
+    public function downloads()
+    {
+        $page = Page::where('name','downloads')->first();
+        $downloads = Download::orderBy('name','asc')->get();
+        return Inertia::render("Downloads",[
+            'page'      => new PageResource($page),
+            'downloads' => DownloadResource::collection($downloads),
+
+        ]);
+
     }
 
     /* Admin Routes */
@@ -217,8 +246,9 @@ class PageController extends Controller
         }else{
             return Redirect::back()->with('error',"An error occured, invalid page.");
         }
-
     }
+
+
 
 
 }

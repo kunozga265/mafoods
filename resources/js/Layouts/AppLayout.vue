@@ -57,10 +57,11 @@
                                         <li><a :href="route('composition.table')" title="" itemprop="url">Composition Table</a></li>
                                         <li><a :href="route('recipe.calculator')" title="" itemprop="url">Recipe Calculator</a></li>
                                         <li><a :href="route('news')" title="" itemprop="url">News</a></li>
-                                        <li><a :href="route('partners')" title="" itemprop="url">Our Partners</a></li>
+                                        <li><a :href="route('partners')" title="" itemprop="url">Partners</a></li>
+                                        <li><a :href="route('downloads')" title="" itemprop="url">Downloads</a></li>
                                         <li class="menu-item-has-children"><a href="#" title="" itemprop="url">About Us</a>
                                             <ul>
-                                                <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
+                                                <li><a :href="route('contact-us')" title="" itemprop="url">Contact Us</a></li>
                                                 <li><a :href="route('project-overview')" title="" itemprop="url">Project Overview</a></li>
 <!--                                                <li><a :href="route('home')" title="" itemprop="url">Project Overview</a></li>-->
                                                 <li><a :href="route('faqs')" title="" itemprop="url">Frequently Asked Questions</a></li>
@@ -87,14 +88,16 @@
                             <li><a :href="route('composition.table')" title="" itemprop="url">Composition Table</a></li>
                             <li><a :href="route('recipe.calculator')" title="" itemprop="url">Recipe Calculator</a></li>
                             <li><a :href="route('news')" title="" itemprop="url">News</a></li>
+                            <li><a :href="route('partners')" title="" itemprop="url">Partners</a></li>
+                            <li><a :href="route('downloads')" title="" itemprop="url">Downloads</a></li>
                             <li class="menu-item-has-children"><a href="#" title="" itemprop="url">About Us</a>
                                 <ul>
+                                    <li><a :href="route('contact-us')" title="" itemprop="url">Contact Us</a></li>
                                     <li><a :href="route('project-overview')" title="" itemprop="url">Project Overview</a></li>
                                     <li><a :href="route('faqs')" title="" itemprop="url">Frequently Asked Questions</a></li>
                                 </ul>
                             </li>
-                            <li><a :href="route('partners')" title="" itemprop="url">Our Partners</a></li>
-                            <li><a :href="route('contact-us')" title="" itemprop="url">Contact</a></li>
+                            <li><a :href="route('login')" title="" itemprop="url">Login</a></li>
                         </ul>
                     </div><!-- Responsive Menu -->
                 </div><!-- Responsive Header -->
@@ -190,7 +193,7 @@
                                                                     </li>
                                                                     <li>
                                                                         <strong>Call:</strong>
-                                                                        <span><a href="tel:2651277222">+265 12 77 222</a></span>
+                                                                        <a href="tel:2651277222">+265 12 77 222</a>
                                                                     </li>
                                                                     <li>
                                                                         <strong>Email:</strong>
@@ -237,7 +240,7 @@ export default {
     name: "AppLayout",
     methods: {
         logout() {
-            this.$inertia.post(route('logout'));
+            this.$inertia.post(route('user.logout'));
         },
     }
 }

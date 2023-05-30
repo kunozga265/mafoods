@@ -174,7 +174,7 @@
     list-style: decimal;
     margin-left: 16px;
 }
-.composition-table .title-style2{
+.composition-table .title-style2, .downloads-section .title-style2{
     float: none;
 }
 
@@ -376,12 +376,32 @@
     line-height: 16px;
 }
 
-.cnt-frm input, .cnt-frm textarea{
+.contact-form{
+    background-color: #58bf00;
+    text-align: center;
+}
+.contact-form h4{
+    color:#272727;
+    font-size: 25px;
+    margin: 0;
+}
+.contact-form p{
+    color:#272727;
+    margin-bottom: 50px;
+}
+
+.contact-form input, .contact-form textarea{
     background-color: #f2f2f4;
-    font-size: 12px;
-    border-radius: 30px;
+    font-size: 16px;
+    border-radius: 0;
     padding-left: 40px;
     padding-right: 40px;
+    margin-bottom:12px;
+    color:#272727;
+}
+
+.contact-form textarea{
+    height:auto;
 }
 
 .calculator .steps{
@@ -608,6 +628,41 @@
     margin:auto;
 }
 
+.downloads{
+    display: flex;
+    /*align-items: center;*/
+    /*border: 1px solid #dfe2e6;*/
+}
+
+.downloads img{
+    height: 200px;
+}
+
+.downloads .downloads-details{
+    margin-left: 20px;
+    /*border-left: 1px solid #dfe2e6;*/
+}
+
+.downloads .line{
+    width: 1px;
+    height:100%;
+    background-color: #dfe2e6;
+}
+
+.downloads-section .gallery-box{
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.downloads-section .gallery-info{
+    text-align: center;
+}
+
+.downloads-section .gallery-info h2{
+    margin-bottom: 12px;
+}
 /* Login Form */
 .auth-card{
     max-width: 500px;

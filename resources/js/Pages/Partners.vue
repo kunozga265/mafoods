@@ -51,7 +51,7 @@
 import AppLayout from "@/Layouts/AppLayout";
 
 export default {
-    name: "ProjectOverview",
+    name: "Partners",
     props:['page'],
     components: {AppLayout},
     data(){

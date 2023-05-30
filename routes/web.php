@@ -5,6 +5,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,9 +56,17 @@ Route::get('/contact-us', [
     PageController::class,'contactUs'
 ])->name('contact-us');
 
+Route::post('/contact-us', [
+    PageController::class,'sendContactUsForm'
+])->name('contact-us.send');
+
 Route::get('/partners', [
     PageController::class,'partners'
 ])->name('partners');
+
+Route::get('/downloads', [
+    PageController::class,'downloads'
+])->name('downloads');
 
 Route::get('/news', [
     PageController::class,'news'
@@ -136,4 +145,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
     Route::post('/composition-table/update/{code}', [
         CompositionTableController::class,'update'
     ])->name('admin.composition-table.update');
+
+    Route::post('/user', [
+        UserController::class,'store'
+    ])->name('user.store');
+
+    Route::post('/user/logout', [
+        UserController::class,'logout'
+    ])->name('user.logout');
 });

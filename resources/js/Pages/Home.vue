@@ -1,14 +1,14 @@
 <template>
     <app-layout>
-<!--        <div class="pageloader">-->
-<!--            <div class="loader">-->
-<!--                <div class="loader-inner ball-scale-multiple">-->
-<!--                    <div></div>-->
-<!--                    <div></div>-->
-<!--                    <div></div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>&lt;!&ndash; Pageloader &ndash;&gt;-->
+        <div class="pageloader">
+            <div class="loader">
+                <div class="loader-inner ball-scale-multiple">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div><!-- Pageloader -->
         <section>
             <div class="block no-padding">
                 <div class="row">
@@ -45,46 +45,54 @@
             <div class="block whitish hgh-opc">
                 <div class="fixed-bg" style="background: url(images/resource/parallax2.jpg);"></div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="">
+                        <div class="">
                             <div class="title-style2 center-align">
                                 <h4 itemprop="headline">Features</h4>
                                 <span>What we are offering you!</span>
 <!--                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>-->
                             </div>
                             <div class="services">
-                                <div class="row">
+                                <div class="">
                                     <div class="col-md-6 col-sm-6">
-                                        <div class="service-box">
-                                            <i><img :src="fileUrl('images/table-icon.svg')" alt="" itemprop="image" /></i>
-                                            <h2 itemprop="headline">Food Composition Table</h2>
-                                            <p itemprop="description">Explore our database with 42 nutrients freely available </p>
-                                            <a :href="route('composition.table')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
-                                        </div>
+                                         <a :href="route('composition.table')" title="" itemprop="url">
+                                            <div class="service-box">
+                                                <i><img :src="fileUrl('images/table-icon.svg')" alt="" itemprop="image" /></i>
+                                                <h2 itemprop="headline">Food Composition Table</h2>
+                                                <p itemprop="description">Explore our database with 42 nutrients freely available </p>
+                                                <a :href="route('composition.table')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            </div>
+                                         </a>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
-                                        <div class="service-box">
-                                            <i><img :src="fileUrl('images/calculator-icon.svg')" alt="" itemprop="image" /></i>
-                                            <h2 itemprop="headline">Recipe Calculator</h2>
-                                            <p itemprop="description">Develop recipes and calculate nutrient content of mixed dishes</p>
-                                            <a :href="route('recipe.calculator')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
-                                        </div>
+                                         <a :href="route('recipe.calculator')" title="" itemprop="url">
+                                            <div class="service-box">
+                                                <i><img :src="fileUrl('images/calculator-icon.svg')" alt="" itemprop="image" /></i>
+                                                <h2 itemprop="headline">Recipe Calculator</h2>
+                                                <p itemprop="description">Develop recipes and calculate nutrient content of mixed dishes</p>
+                                                <a :href="route('recipe.calculator')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            </div>
+                                         </a>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
-                                        <div class="service-box">
-                                            <i><img :src="fileUrl('images/epubs-icon.svg')" alt="" itemprop="image" /></i>
-                                            <h2 itemprop="headline">ePublications</h2>
-                                            <p itemprop="description">Download the food composition table v2019</p>
-                                            <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
-                                        </div>
+                                         <a :href="route('composition.table')" title="" itemprop="url">
+                                            <div class="service-box">
+                                                <i><img :src="fileUrl('images/epubs-icon.svg')" alt="" itemprop="image" /></i>
+                                                <h2 itemprop="headline">ePublications</h2>
+                                                <p itemprop="description">Download the food composition table v2019</p>
+                                                <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            </div>
+                                         </a>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
-                                        <div class="service-box">
-                                            <i><img :src="fileUrl('images/advisory-icon.svg')" alt="" itemprop="image" /></i>
-                                            <h2 itemprop="headline">Advisory Group</h2>
-                                            <p itemprop="description">Provide overall guidance and support implementation and management of the Malawi Food Composition Data Program</p>
-                                            <a :href="route('project-overview')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
-                                        </div>
+                                         <a :href="route('project-overview')" title="" itemprop="url">
+                                            <div class="service-box">
+                                                <i><img :src="fileUrl('images/advisory-icon.svg')" alt="" itemprop="image" /></i>
+                                                <h2 itemprop="headline">Advisory Group</h2>
+                                                <p itemprop="description">Provide overall guidance and support implementation and management of the Malawi Food Composition Data Program</p>
+                                                <a :href="route('project-overview')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
+                                            </div>
+                                         </a>
                                     </div>
                                 </div>
                             </div>
