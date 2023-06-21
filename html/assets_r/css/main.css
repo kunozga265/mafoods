@@ -262,7 +262,7 @@
     background-color: #58bf00;
 }
 
-.composition-table .table-view{
+.composition-table .table-view .dataTables_wrapper div:nth-child(2){
     overflow-x: scroll;
 }
 
