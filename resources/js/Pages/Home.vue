@@ -53,7 +53,7 @@
 <!--                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>-->
                             </div>
                             <div class="services">
-                                <div class="row">
+                                <div class="">
                                     <div class="col-md-6 col-sm-6">
                                          <a :href="route('composition.table')" title="" itemprop="url">
                                             <div class="service-box">

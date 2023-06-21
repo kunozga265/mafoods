@@ -262,14 +262,21 @@
     background-color: #58bf00;
 }
 
-.composition-table .table-view, .search-results .table-view{
+.composition-table .table-view{
+    overflow-x: scroll;
+}
+
+.composition-table .table-view table{
+    min-width: 1000px;
+}
+
+/*.composition-table .table-view, .search-results .table-view{
     overflow-x: scroll;
 }
 
 .composition-table .table-view table, .search-results .table-view table{
     min-width: 1000px;
-}
-
+}*/
 .title-style2>h3{
     font-size: 25px;
     text-transform: uppercase;
