@@ -26,7 +26,7 @@
                                Login
                            </button>
                            <div>
-                               <a href="#"><span>Forgot password?</span></a>
+<!--                               <a href="#"><span>Forgot password?</span></a>-->
                            </div>
                        </div>
                    </form>

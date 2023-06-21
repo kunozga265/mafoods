@@ -17,10 +17,10 @@
         </div><!-- Page Top -->
 
         <section>
-            <div class="block gray">
+            <div class="block gray search-results">
                 <div class="container">
                     <div class="srch-fund">
-                        <div class="row">
+                        <div class="">
                             <div class=" ">
                                 <div class="srch-fund-inr">
                                     <form class="pg-srch-frm" :action="route('search')" method="get">
@@ -31,8 +31,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="table-view">
+                        <table class="table table-bordered dataTable table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Food Code</th>
+                                    <th>Food Item</th>
+                                    <th>Food Group</th>
+                                    <th>Source</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    v-for="(food,index) in filteredFoods"
+                                    :key="index"
+                                >
+                                    <td>{{food.code}}</td>
+                                    <td><a :href="route('foods.show',food.code)" title="" itemprop="url">{{ food.item }}</a></td>
+                                    <td>{{food.group.name}}</td>
+                                    <td>{{food.group.source}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+<!--                        <div class="">
                             <div class="fltrs style2 paddlr30 center-align">
                                 <ul class="fltrs-lst">
                                     <li class="selected"><span @click="selectedGroup=0" :class="{selected:selectedGroup===0}">All Items ({{foodCount(null)}})</span></li>
@@ -42,7 +63,7 @@
                                 </ul>
                                 <div class="remove-ext">
                                     <div class="row">
-                                        <!--                                        <div class="masonry" v-if="search.length === 0">
+                                        &lt;!&ndash;                                        <div class="masonry" v-if="search.length === 0">
                                                                                     <div
                                                                                         v-for="(food,index) in foods.data"
                                                                                         :key="index"
@@ -55,7 +76,7 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>-->
+                                                                                </div>&ndash;&gt;
                                         <div class="row">
                                             <div
                                                 v-for="(food,index) in filteredFoods"
@@ -78,7 +99,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
