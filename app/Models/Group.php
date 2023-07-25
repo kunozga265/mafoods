@@ -13,4 +13,9 @@ class Group extends Model
     {
         return $this->hasMany(Food::class);
     }
+
+    protected $hidden=[
+        "created_at",
+        "updated_at",
+    ];
 }

@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\RetentionFactorsResource;
 use App\Models\RetentionFactor;
 use Illuminate\Http\Request;
 
 class RetentionFactorController extends Controller
 {
+    public function index()
+    {
+        $retentionFactors=RetentionFactor::all();
+        return response()->json(RetentionFactorsResource::collection($retentionFactors));
+    }
+
     public function seeder(Request $request)
     {
         foreach ($request->retention_factors as $retention_factor) {

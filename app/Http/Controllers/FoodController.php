@@ -12,6 +12,12 @@ use Inertia\Inertia;
 
 class FoodController extends Controller
 {
+    public function index()
+    {
+        $foods = Food::all();
+        return response()->json(FoodResource::collection($foods));
+    }
+
     public function seeder(Request $request)
     {
         foreach ($request->foods as $food) {

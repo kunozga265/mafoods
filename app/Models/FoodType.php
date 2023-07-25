@@ -18,4 +18,9 @@ class FoodType extends Model
         "item",
         "group",
     ];
+
+    protected $hidden=[
+        "created_at",
+        "updated_at",
+    ];
 }

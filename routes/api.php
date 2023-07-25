@@ -26,3 +26,8 @@ Route::post('retention-factors/seeder',[\App\Http\Controllers\RetentionFactorCon
 Route::post('/image-upload', [AppController::class, 'uploadImage']);
 Route::post('/file-upload', [AppController::class, 'uploadFile']);
 Route::post('/recipe/generate', [RecipeController::class, 'generatePDF']);
+Route::get("/groups", [\App\Http\Controllers\GroupController::class,"index"]);
+Route::get("/fetch-data", [\App\Http\Controllers\API\AppController::class,"index"]);
+Route::get("/foods", [\App\Http\Controllers\FoodController::class,"index"]);
+Route::get("/food-types", [\App\Http\Controllers\FoodTypeController::class,"index"]);
+Route::get("/retention-factors", [\App\Http\Controllers\RetentionFactorController::class,"index"]);
