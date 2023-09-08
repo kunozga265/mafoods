@@ -280,9 +280,16 @@ class RecipeController extends Controller
 
     }
 
-    public function printRecipe()
+    public function printRecipe($id)
     {
+        $recipe = Recipe::findorFail($id);
+        $pdf = PDF::loadView('recipe', [
+            'recipe'         => $recipe->name,
+            'yieldFactor'    => ($recipe->final_cooked_weight/$recipe->initial_weight),
+            'results'        => new RecipeResource($recipe),
+        ]);
 
+        return $pdf->download(strtoupper($recipe->name)." RECIPE.pdf");
     }
 
     public function generatePDF(Request $request)

@@ -32,3 +32,4 @@ Route::get("/foods", [\App\Http\Controllers\FoodController::class,"index"]);
 Route::get("/food-types", [\App\Http\Controllers\FoodTypeController::class,"index"]);
 Route::get("/retention-factors", [\App\Http\Controllers\RetentionFactorController::class,"index"]);
 Route::post("/recipes", [\App\Http\Controllers\RecipeController::class,"store"]);
+Route::get('/recipes/print/{id}', [RecipeController::class, 'printRecipe']);
