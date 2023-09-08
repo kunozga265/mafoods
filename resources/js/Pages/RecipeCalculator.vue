@@ -58,7 +58,7 @@
                                         <div class="weight">
                                             <span>GRAMS</span>
                                             <span class="line"></span>
-                                            <input type="text" v-model="ingredient.grams">
+                                            <input type="text" v-model="ingredient.weight">
                                         </div>
 
                                         <div class="content">
@@ -112,7 +112,7 @@
                                     INITIAL WEIGHT (g)
                                 </div>
                                 <div class="weight">
-                                    <!--                                <span>GRAMS</span>-->
+                                    <!--                                <span>weight</span>-->
                                     <input type="text" v-model="initialWeight" disabled>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                                     FINAL WEIGHT (g)
                                 </div>
                                 <div class="weight">
-                                    <!--                                <span>GRAMS</span>-->
+                                    <!--                                <span>weight</span>-->
                                     <input type="text" v-model="finalWeight">
                                 </div>
                             </div>
@@ -130,8 +130,29 @@
                                     WEIGHT CHANGE (%)
                                 </div>
                                 <div class="weight">
-                                    <!--                                <span>GRAMS</span>-->
+                                    <!--                                <span>weight</span>-->
                                     <input type="text" v-model="weightChange" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="steps">
+                        <div>Step 4</div>
+                        <h4>Personal Information</h4>
+                    </div>
+                    <div class="steps-content">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="">
+<!--                                                                    <span>weight</span>-->
+                                    <input type="text" v-model="userName" placeholder="Enter your name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="">
+                                    <!--                                <span>weight</span>-->
+                                    <input type="email" v-model="userEmail" placeholder="Enter your email">
                                 </div>
                             </div>
                         </div>
@@ -465,7 +486,7 @@
                                 <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
                                 <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
                             </svg>
-                            Show results
+                            Generate Recipe
                         </button>
                         <button  v-else @click="generatePDF" class="btn1">
                             <svg v-show="loading" class="inline w-4 h-4 mr-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -498,6 +519,8 @@ export default {
     data(){
         return{
             recipe:"",
+            userName:"",
+            userEmail:"",
             selectedIngredient:"-1",
             selectedFoodType:"-1",
             selectedRetentionFactor:"-1",
@@ -507,6 +530,11 @@ export default {
             showResults:false,
             loading:false,
         }
+    },
+    created(){
+      this.recipe = localStorage.getItem("recipe") ?? ""
+      this.finalWeight = localStorage.getItem("finalWeight") ?? ""
+      this.ingredientsList = JSON.parse(localStorage.getItem("ingredientsList")) ?? []
     },
     computed:{
         foodsList(){
@@ -561,12 +589,12 @@ export default {
             return arr
         },
         initialWeight(){
-            let grams = 0;
+            let weight = 0;
 
             for (let x in this.ingredientsList)
-                grams += parseFloat(this.ingredientsList[x].grams)
+                weight += parseFloat(this.ingredientsList[x].weight)
 
-            return grams
+            return weight
         },
         weightChange(){
             if (this.initialWeight !== 0 && this.finalWeight !== null && this.finalWeight.length > 1 && !isNaN(this.finalWeight))
@@ -623,48 +651,48 @@ export default {
             }
 
             for (let x in this.ingredientsList){
-                arr.moisture += parseFloat(this.ingredientsList[x].moisture) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.energy_kcal += parseFloat(this.ingredientsList[x].energy_kcal) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.energy_kj += parseFloat(this.ingredientsList[x].energy_kj) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.nitrogen += parseFloat(this.ingredientsList[x].nitrogen) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.protein += parseFloat(this.ingredientsList[x].protein) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.fats += parseFloat(this.ingredientsList[x].fats) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.saturated_fa += parseFloat(this.ingredientsList[x].saturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.monounsaturated_fa += parseFloat(this.ingredientsList[x].monounsaturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.polyunsaturated_fa += parseFloat(this.ingredientsList[x].polyunsaturated_fa) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.cholesterol += parseFloat(this.ingredientsList[x].cholesterol) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.cho_udb += parseFloat(this.ingredientsList[x].cho_udb) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.cho_avail += parseFloat(this.ingredientsList[x].cho_avail) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.sugars += parseFloat(this.ingredientsList[x].sugars) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.added_sugar += parseFloat(this.ingredientsList[x].added_sugar) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.fibre += parseFloat(this.ingredientsList[x].fibre) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.starch += parseFloat(this.ingredientsList[x].starch) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.ash += parseFloat(this.ingredientsList[x].ash) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.mn += parseFloat(this.ingredientsList[x].mn) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.i += parseFloat(this.ingredientsList[x].i) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.se += parseFloat(this.ingredientsList[x].se) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.vitamin_a_re += parseFloat(this.ingredientsList[x].vitamin_a_re) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.phytic_acid += parseFloat(this.ingredientsList[x].phytic_acid) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.ca += parseFloat(this.ingredientsList[x].ca) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.fe += parseFloat(this.ingredientsList[x].fe) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.mg += parseFloat(this.ingredientsList[x].mg) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.p += parseFloat(this.ingredientsList[x].p) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.k += parseFloat(this.ingredientsList[x].k) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.na += parseFloat(this.ingredientsList[x].na) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.zn += parseFloat(this.ingredientsList[x].zn) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.cu += parseFloat(this.ingredientsList[x].cu) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.vitamin_a_rae += parseFloat(this.ingredientsList[x].vitamin_a_rae) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.thiamin += parseFloat(this.ingredientsList[x].thiamin) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.riboflavin += parseFloat(this.ingredientsList[x].riboflavin) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.niacin += parseFloat(this.ingredientsList[x].niacin) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.vitamin_b6 += parseFloat(this.ingredientsList[x].vitamin_b6) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.folic_acid += parseFloat(this.ingredientsList[x].folic_acid) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.vitamin_b12 += parseFloat(this.ingredientsList[x].vitamin_b12) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.pantothenate += parseFloat(this.ingredientsList[x].pantothenate) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.biotin += parseFloat(this.ingredientsList[x].biotin) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.vitamin_c += parseFloat(this.ingredientsList[x].vitamin_c) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.vitamin_d += parseFloat(this.ingredientsList[x].vitamin_d) * (parseFloat(this.ingredientsList[x].grams) / 100)
-                arr.vitamin_e += parseFloat(this.ingredientsList[x].vitamin_e) * (parseFloat(this.ingredientsList[x].grams) / 100)
+                arr.moisture += parseFloat(this.ingredientsList[x].moisture) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.energy_kcal += parseFloat(this.ingredientsList[x].energy_kcal) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.energy_kj += parseFloat(this.ingredientsList[x].energy_kj) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.nitrogen += parseFloat(this.ingredientsList[x].nitrogen) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.protein += parseFloat(this.ingredientsList[x].protein) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.fats += parseFloat(this.ingredientsList[x].fats) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.saturated_fa += parseFloat(this.ingredientsList[x].saturated_fa) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.monounsaturated_fa += parseFloat(this.ingredientsList[x].monounsaturated_fa) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.polyunsaturated_fa += parseFloat(this.ingredientsList[x].polyunsaturated_fa) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.cholesterol += parseFloat(this.ingredientsList[x].cholesterol) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.cho_udb += parseFloat(this.ingredientsList[x].cho_udb) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.cho_avail += parseFloat(this.ingredientsList[x].cho_avail) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.sugars += parseFloat(this.ingredientsList[x].sugars) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.added_sugar += parseFloat(this.ingredientsList[x].added_sugar) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.fibre += parseFloat(this.ingredientsList[x].fibre) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.starch += parseFloat(this.ingredientsList[x].starch) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.ash += parseFloat(this.ingredientsList[x].ash) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.mn += parseFloat(this.ingredientsList[x].mn) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.i += parseFloat(this.ingredientsList[x].i) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.se += parseFloat(this.ingredientsList[x].se) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.vitamin_a_re += parseFloat(this.ingredientsList[x].vitamin_a_re) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.phytic_acid += parseFloat(this.ingredientsList[x].phytic_acid) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.ca += parseFloat(this.ingredientsList[x].ca) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.fe += parseFloat(this.ingredientsList[x].fe) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.mg += parseFloat(this.ingredientsList[x].mg) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.p += parseFloat(this.ingredientsList[x].p) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.k += parseFloat(this.ingredientsList[x].k) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.na += parseFloat(this.ingredientsList[x].na) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.zn += parseFloat(this.ingredientsList[x].zn) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.cu += parseFloat(this.ingredientsList[x].cu) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.vitamin_a_rae += parseFloat(this.ingredientsList[x].vitamin_a_rae) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.thiamin += parseFloat(this.ingredientsList[x].thiamin) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.riboflavin += parseFloat(this.ingredientsList[x].riboflavin) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.niacin += parseFloat(this.ingredientsList[x].niacin) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.vitamin_b6 += parseFloat(this.ingredientsList[x].vitamin_b6) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.folic_acid += parseFloat(this.ingredientsList[x].folic_acid) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.vitamin_b12 += parseFloat(this.ingredientsList[x].vitamin_b12) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.pantothenate += parseFloat(this.ingredientsList[x].pantothenate) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.biotin += parseFloat(this.ingredientsList[x].biotin) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.vitamin_c += parseFloat(this.ingredientsList[x].vitamin_c) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.vitamin_d += parseFloat(this.ingredientsList[x].vitamin_d) * (parseFloat(this.ingredientsList[x].weight) / 100)
+                arr.vitamin_e += parseFloat(this.ingredientsList[x].vitamin_e) * (parseFloat(this.ingredientsList[x].weight) / 100)
             }
 
             return arr
@@ -721,7 +749,7 @@ export default {
             return (1 - (this.initialWeight - this.finalWeight)/this.initialWeight)
         },
         validation(){
-            return !isNaN(this.yieldFactor) && !isNaN(this.finalWeight) && this.finalWeight > 0 && (this.recipe.length > 0)
+            return !isNaN(this.yieldFactor) && !isNaN(this.finalWeight) && this.finalWeight > 0 && (this.recipe.length > 0) && (this.userName.length > 0) && (this.userEmail.length > 0)
         }
     },
     watch:{
@@ -733,9 +761,29 @@ export default {
         },
         results(){
             this.showResults=false
+        },
+        recipe(){
+            this.saveSession();
+        },
+        finalWeight(){
+            this.saveSession();
+        },
+        ingredientsList(){
+            this.saveSession();
         }
     },
     methods:{
+        saveSession(){
+            localStorage.setItem("recipe", this.recipe)
+            localStorage.setItem("finalWeight", this.finalWeight)
+            localStorage.setItem("ingredientsList", JSON.stringify(this.ingredientsList))
+        },
+        clearSession(){
+            localStorage.setItem("recipe", "")
+            localStorage.setItem("finalWeight", "")
+            localStorage.setItem("ingredientsList", [])
+        },
+
         addIngredient(){
             let _ingredient;
             let _foodType;
@@ -854,7 +902,11 @@ export default {
                 "cooking_method": _retentionFactor.cooking_method,
 
                 //additions
-                "grams":0
+                "weight":0,
+
+                //web end
+                "food_id" : this.selectedIngredient,
+                "retention_factor_id": this.selectedRetentionFactor
 
             })
 
@@ -864,18 +916,23 @@ export default {
             this.ingredientsList.splice(index,1)
         },
         logResults(){
+            // this.showResults=true
             this.form
                 .transform(data => ({
                     ... data,
-                    ingredients:this.ingredients,
+                    ingredients:this.ingredientsList,
                     results:this.results,
-                    initialWeight:this.initialWeight,
-                    finalWeight:this.finalWeight,
+                    name:this.recipe,
+                    user_name:this.userName,
+                    user_email:this.userEmail,
+                    final_cooked_weight:this.finalWeight,
                 }))
                 .post(this.route('recipe.calculator.store'),{
                     preserveScroll: true,
-                    onSuccess: () => this.showResults = true,
+                    // onSuccess: () => this.showResults = true,
+                    onFinish: () =>  this.clearSession()
                 })
+
         },
         generatePDF(){
             this.loading = true;

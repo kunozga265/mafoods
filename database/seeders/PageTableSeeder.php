@@ -248,6 +248,11 @@ Food Composition Database was built on the great milestones of the first edition
                         'image'  => "images/mw-govt.jpg",
                         'link'  => "https://google.com"
                     ],
+                    [
+                        'name'  => "LUANAR",
+                        'image'  => "images/luanar-logo.png",
+                        'link'  => "https://google.com"
+                    ],
                 ],
 
             ])

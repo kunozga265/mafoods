@@ -43,7 +43,7 @@
 
         <section>
             <div class="block whitish hgh-opc">
-                <div class="fixed-bg" style="background: url(images/resource/parallax2.jpg);"></div>
+                <div class="fixed-bg" :style="{backgroundImage: `url(${fileUrl('images/hero-img-2.jpg')})`}"></div>
                 <div class="container">
                     <div class="">
                         <div class="">

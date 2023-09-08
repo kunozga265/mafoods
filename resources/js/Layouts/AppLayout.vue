@@ -230,14 +230,19 @@
                 </div><!-- Header Search -->
 
             </div>
+            <toast/>
         </main>
-
     </div>
 </template>
 
 <script>
+import Toast from "@/Components/Toast";
+
 export default {
     name: "AppLayout",
+    components:{
+      Toast
+    },
     methods: {
         logout() {
             this.$inertia.post(route('user.logout'));

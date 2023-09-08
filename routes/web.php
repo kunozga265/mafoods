@@ -41,7 +41,7 @@ Route::get('/recipe-calculator', [
 ])->name('recipe.calculator');
 
 Route::post('/recipe-calculator', [
-    RecipeController::class,'store'
+    RecipeController::class,'storeWeb'
 ])->name('recipe.calculator.store');
 
 Route::get('/project-overview', [

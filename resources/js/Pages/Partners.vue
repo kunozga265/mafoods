@@ -27,7 +27,7 @@
                                 <p itemprop="description" v-text="page.data.contents.partners_description"></p>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-4"
+                                <div class="col-sm-12 col-md-6 "
                                      v-for="(partner, index) in page.data.contents.partners"
                                      :key="index"
                                 >
