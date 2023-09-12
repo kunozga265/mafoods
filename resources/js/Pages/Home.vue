@@ -1,14 +1,14 @@
 <template>
     <app-layout>
-        <div class="pageloader">
-            <div class="loader">
-                <div class="loader-inner ball-scale-multiple">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </div><!-- Pageloader -->
+<!--        <div class="pageloader">-->
+<!--            <div class="loader">-->
+<!--                <div class="loader-inner ball-scale-multiple">-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                    <div></div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>&lt;!&ndash; Pageloader &ndash;&gt;-->
         <section>
             <div class="block no-padding">
                 <div class="row">

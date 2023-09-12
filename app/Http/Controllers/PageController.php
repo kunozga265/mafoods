@@ -8,6 +8,7 @@ use App\Http\Resources\FoodTypeResource;
 use App\Http\Resources\GroupResource;
 use App\Http\Resources\NewsResource;
 use App\Http\Resources\PageResource;
+use App\Http\Resources\RecipeResource;
 use App\Mail\ContactUsMail;
 use App\Models\Download;
 use App\Models\Food;
@@ -15,6 +16,8 @@ use App\Models\FoodType;
 use App\Models\Group;
 use App\Models\News;
 use App\Models\Page;
+use App\Models\Recipe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
@@ -24,10 +27,10 @@ class PageController extends Controller
 {
     public function home()
     {
-        $group=Group::inRandomOrder()->first();
-        $page = Page::where('name','home')->first();
+        $group = Group::inRandomOrder()->first();
+        $page = Page::where('name', 'home')->first();
         $news = News::orderBy('date')->limit(2)->get();
-        return Inertia::render('Home',[
+        return Inertia::render('Home', [
             'page'  => new PageResource($page),
             'news'  => NewsResource::collection($news),
             'group' => $group
@@ -36,10 +39,10 @@ class PageController extends Controller
 
     public function compositionTable()
     {
-        $groups=Group::all();
-        $foods=Food::orderBy('group_id','asc')->get();
-        $page = Page::where('name','composition_table')->first();
-        return Inertia::render('CompositionTable',[
+        $groups = Group::all();
+        $foods = Food::orderBy('group_id', 'asc')->get();
+        $page = Page::where('name', 'composition_table')->first();
+        return Inertia::render('CompositionTable', [
             'groups'    => GroupResource::collection($groups),
             'foods'    => FoodResource::collection($foods),
             'page' => new PageResource($page)
@@ -49,14 +52,23 @@ class PageController extends Controller
 
     public function recipeCalculator()
     {
-        $groups=Group::all();
-        $foods=Food::orderBy('group_id','asc')->get();
-        $foodTypes=FoodType::orderBy('item','asc')->get();
+        $groups = Group::all();
+        $foods = Food::orderBy('group_id', 'asc')->get();
+        $foodTypes = FoodType::orderBy('item', 'asc')->get();
 
-        return Inertia::render('RecipeCalculator',[
+        return Inertia::render('RecipeCalculator', [
             'groups'        => GroupResource::collection($groups),
             'foods'         => FoodResource::collection($foods),
             'foodTypes'     => FoodTypeResource::collection($foodTypes),
+        ]);
+    }
+
+    public function recipes(Request  $request)
+    {
+        $user = (new AppController())->getAuthUser($request);
+
+        return Inertia::render('Recipes', [
+            'recipes'        => RecipeResource::collection($user->recipes),
         ]);
     }
 
@@ -64,18 +76,18 @@ class PageController extends Controller
     {
         $query = $request->query('query');
 
-        if($query !== null){
-            $foods=Food::where('code', 'like', '%' .$query. '%')
-                ->orWhere('ref_no', 'like', '%' .$query. '%')
-                ->orWhere('item', 'like', '%' .$query. '%')
+        if ($query !== null) {
+            $foods = Food::where('code', 'like', '%' . $query . '%')
+                ->orWhere('ref_no', 'like', '%' . $query . '%')
+                ->orWhere('item', 'like', '%' . $query . '%')
                 ->get();
-        }else{
-//            $query = 'all';
-            $foods=Food::orderBy('code','asc')->get();
+        } else {
+            //            $query = 'all';
+            $foods = Food::orderBy('code', 'asc')->get();
         }
-        $groups=Group::all();
+        $groups = Group::all();
 
-        return Inertia::render('Search',[
+        return Inertia::render('Search', [
             'groups'    => GroupResource::collection($groups),
             'foods'     => FoodResource::collection($foods),
             'query'     => ucfirst($query)
@@ -84,24 +96,24 @@ class PageController extends Controller
 
     public function projectOverview()
     {
-        $page = Page::where('name','project_overview')->first();
-        return Inertia::render("ProjectOverview",[
+        $page = Page::where('name', 'project_overview')->first();
+        return Inertia::render("ProjectOverview", [
             'page' => new PageResource($page)
         ]);
     }
 
     public function faqs()
     {
-        $page = Page::where('name','faqs')->first();
-        return Inertia::render("FAQS",[
+        $page = Page::where('name', 'faqs')->first();
+        return Inertia::render("FAQS", [
             'page' => new PageResource($page)
         ]);
     }
 
     public function contactUs()
     {
-        $page = Page::where('name','contacts')->first();
-        return Inertia::render("ContactUs",[
+        $page = Page::where('name', 'contacts')->first();
+        return Inertia::render("ContactUs", [
             'page' => new PageResource($page)
         ]);
     }
@@ -114,58 +126,66 @@ class PageController extends Controller
             'message'  => 'required'
         ]);
 
-        Mail::to("kunozgamlowoka@gmail.com")->send(new ContactUsMail($request->name, $request->email,$request->message));
+        Mail::to("kunozgamlowoka@gmail.com")->send(new ContactUsMail($request->name, $request->email, $request->message));
 
-        Redirect::back()->with("success","Message sent!");
+        Redirect::back()->with("success", "Message sent!");
     }
 
     public function news()
     {
         $news = News::orderBy('date')->paginate((new AppController())->paginate);
-        return Inertia::render("News",[
+        return Inertia::render("News", [
             'news'          => NewsResource::collection($news),
         ]);
     }
 
     public function newsArticle($slug)
     {
-        $news=News::where('slug',$slug)->first();
-        if (is_object($news)){
+        $news = News::where('slug', $slug)->first();
+        if (is_object($news)) {
 
             $popular_news = News::orderBy('date')->limit(3)->get();
-            return Inertia::render('NewsDetails',[
+            return Inertia::render('NewsDetails', [
                 'popular_news'  => NewsResource::collection($popular_news),
                 'news'  =>  new NewsResource($news)
             ]);
-        }else{
-            return back()->with('status','News Article not found');
+        } else {
+            return back()->with('status', 'News Article not found');
         }
     }
 
     public function partners()
     {
-        $page = Page::where('name','partners')->first();
-        return Inertia::render("Partners",[
+        $page = Page::where('name', 'partners')->first();
+        return Inertia::render("Partners", [
             'page' => new PageResource($page)
         ]);
     }
 
     public function downloads()
     {
-        $page = Page::where('name','downloads')->first();
-        $downloads = Download::orderBy('name','asc')->get();
-        return Inertia::render("Downloads",[
+        $page = Page::where('name', 'downloads')->first();
+        $downloads = Download::orderBy('name', 'asc')->get();
+        return Inertia::render("Downloads", [
             'page'      => new PageResource($page),
             'downloads' => DownloadResource::collection($downloads),
 
         ]);
-
     }
 
     /* Admin Routes */
     public function dashboard()
     {
-        return Inertia::render("Auth/Dashboard");
+        $users = User::count();
+        $recipes = Recipe::count();
+        $news = News::count();
+        $foods = Food::count();
+        return Inertia::render("Auth/Dashboard", [
+            'users'     => $users,
+            'recipes'   => $recipes,
+            'news'      => $news,
+            'foods'      => $foods,
+        ]);
     }
 
     public function profile()
@@ -177,12 +197,12 @@ class PageController extends Controller
     public function pageContent()
     {
         //get page contents
-        $home = Page::where('name','home')->first();
-        $composition_table = Page::where('name','composition_table')->first();
-        $project_overview = Page::where('name','project_overview')->first();
-        $faqs = Page::where('name','faqs')->first();
-        $contacts = Page::where('name','contacts')->first();
-        return Inertia::render("Auth/PageContent",[
+        $home = Page::where('name', 'home')->first();
+        $composition_table = Page::where('name', 'composition_table')->first();
+        $project_overview = Page::where('name', 'project_overview')->first();
+        $faqs = Page::where('name', 'faqs')->first();
+        $contacts = Page::where('name', 'contacts')->first();
+        return Inertia::render("Auth/PageContent", [
             "home"                  => new PageResource($home),
             "composition_table"     => new PageResource($composition_table),
             "project_overview"      => new PageResource($project_overview),
@@ -197,12 +217,12 @@ class PageController extends Controller
             'page'  => 'required'
         ]);
 
-        $page = Page::where('name',$request->page)->first();
-        if(is_object($page)){
-            switch ($request->page){
+        $page = Page::where('name', $request->page)->first();
+        if (is_object($page)) {
+            switch ($request->page) {
                 case 'home':
                     $page->update([
-                        'contents'=>json_encode([
+                        'contents' => json_encode([
                             'home_section_1_title'       => $request->home_section_1_title,
                             'home_section_1_subtitle'    => $request->home_section_1_subtitle,
                             'home_section_2_title'       => $request->home_section_2_title,
@@ -212,14 +232,14 @@ class PageController extends Controller
                     break;
                 case 'composition_table':
                     $page->update([
-                        'contents'=>json_encode([
+                        'contents' => json_encode([
                             'composition_table_description' => $request->composition_table_description
                         ])
                     ]);
                     break;
                 case 'project_overview':
                     $page->update([
-                        'contents'=>json_encode([
+                        'contents' => json_encode([
                             'project_overview_description'  =>  $request->project_overview_description,
                             'project_overview_main_text'    =>  $request->project_overview_main_text,
                         ])
@@ -227,12 +247,12 @@ class PageController extends Controller
                     break;
                 case 'faqs':
                     $page->update([
-                        'contents'=> json_encode($request->faqs)
+                        'contents' => json_encode($request->faqs)
                     ]);
                     break;
                 case 'contacts':
                     $page->update([
-                        'contents'=>json_encode([
+                        'contents' => json_encode([
                             'contacts_description'  =>  $request->contacts_description,
                             'contacts'              =>  $request->contacts
                         ])
@@ -240,15 +260,9 @@ class PageController extends Controller
                     break;
             }
 
-            return Redirect::back()->with('success','Successfully updated content!');
-
-
-        }else{
-            return Redirect::back()->with('error',"An error occured, invalid page.");
+            return Redirect::back()->with('success', 'Successfully updated content!');
+        } else {
+            return Redirect::back()->with('error', "An error occured, invalid page.");
         }
     }
-
-
-
-
 }

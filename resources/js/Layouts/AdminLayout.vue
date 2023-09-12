@@ -5,11 +5,15 @@
                 <div class="">
                     <div class="">
                         <ul class="tb-br-cnt1 mr-20">
-                            <li><strong><i class="fa fa-user"></i> Logged in:</strong> <a href="#" title="" itemprop="url">{{$page.props.auth.name}}</a></li>
+                            <li><strong><i class="fa fa-user"></i> Logged in:</strong> <a href="#" title="" itemprop="url">{{$page.props.auth.data.name}}</a></li>
                         </ul>
 
                         <div @click="logout" class="tb-br-scl2 cursor-pointer">
                             <strong><i class="fa fa-arrow-circle-left"></i> Logout</strong>
+                        </div>
+
+                        <div class="tb-br-scl2 cursor-pointer">
+                            <strong><inertia-link :href="route('home')">Home</inertia-link></strong>
                         </div>
                     </div>
                 </div>
@@ -17,7 +21,8 @@
             <div class="menu-sec1">
                 <div class="nav_bar">
                     <div class="logo">
-                        <h1 itemprop="headline"><a :href="route('admin.dashboard')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>
+                        <h1 itemprop="headline"><a :href="route('admin.dashboard')" title="" itemprop="url">Mafoods<!--<img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" />--></a></h1>
+<!--                        <h1 itemprop="headline"><a :href="route('admin.dashboard')" title="" itemprop="url"><img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" /></a></h1>-->
                     </div><!-- Logo -->
                     <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 focus:outline-none focus:text-gray-500 transition duration-150 ease-in-out">
                         <i v-if="!open" class="fa fa-bars"></i>

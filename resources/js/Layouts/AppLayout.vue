@@ -17,21 +17,32 @@
                         <div class="container">
                             <div v-if="$page.props.auth">
                                 <ul class="tb-br-cnt1 mr-20">
-                                    <li><strong><i class="fa fa-user"></i> Logged in:</strong> <a href="#" title="" itemprop="url">{{$page.props.auth.name}}</a></li>
+                                    <li><strong><i class="fa fa-user"></i> Logged in:</strong> <a href="#" title="" itemprop="url">{{$page.props.auth.data.name}}</a></li>
                                 </ul>
+
+
 
                                 <div @click="logout" class="tb-br-scl2 cursor-pointer">
                                     <strong><i class="fa fa-arrow-circle-left"></i> Logout</strong>
                                 </div>
+
+                                <div v-show="$page.props.auth.data.role[0].name === 'administrator'" class="tb-br-scl2 cursor-pointer">
+                                    <strong><inertia-link :href="route('admin.dashboard')">Admin Panel</inertia-link></strong>
+                                </div>
+
+                                <div v-show="$page.props.auth != null" class="tb-br-scl2 cursor-pointer">
+                                    <strong><inertia-link :href="route('recipes')">My Recipes</inertia-link></strong>
+                                </div>
+
                             </div>
                             <div v-else>
                                 <ul class="tb-br-cnt1">
                                     <li class="socials">
                                         <span class="">FOLLOW US AT:</span>
-                                        <a href="https://www.linkedin.com"target="_blank"><i class="fab fa-linkedin"></i></a>
+                                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
                                         <a href="https://web.facebook.com/mafoods2020" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.twitter.com"target="_blank"><i class="fab fa-twitter"></i></a>
-                                        <a href="https://www.instagram.com"target="_blank"><i class="fab fa-instagram"></i></a>
+                                        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </li>
                                     <li><i class="fa fa-envelope-square"></i> <a href="mailto:mafoods@luanar.ac.mw" title="" itemprop="url">mafoods@luanar.ac.mw</a></li>
                                     <li><i class="fa fa-phone"></i> <span>Call Us At:</span> <a href="tel:2651277222">+265 12 77 222</a></li>

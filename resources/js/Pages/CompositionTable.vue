@@ -141,7 +141,7 @@
                                     <a :href="fileUrl('files/Malawian Food Composition Table 2019.pdf')" target="_blank">
                                         <div class="pdf">
                                             <img :src="fileUrl('images/pdf.png')" alt="">
-                                            <div>Click to download Malawi Food Composition Table</div>
+                                            <div>Click to Download Malawi Food Composition Table</div>
                                         </div>
                                     </a>
                                 </div>
@@ -471,10 +471,12 @@ export default {
             for(let x in foods){
                 arr.rows.push({
                     code:foods[x].code,
-                    item:foods[x].item,
+                    //item:foods[x].item,
+                    item:"<a href="+ this.fileUrl("composition-table/"+foods[x].code) +">" + foods[x].item + "</a>",
+
                     group:foods[x].group.name,
                     source:foods[x].source.name,
-                    // clickEvent: () => this.navigateToFood(foods[x].id),
+                    clickEvent: () => console.log(foods[x].id),
                     // clickEvent: () => this.handleClick(foods[x].code)
                     // item:<button className="food-item" onClick={() => this.navigateToFood(foods[x].code)}>Add</button>
                 })

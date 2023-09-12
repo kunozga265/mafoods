@@ -2,6 +2,10 @@
 .app-layout{
     padding-top:168px;
 }
+
+.tb-br-scl2 > strong > a {
+    color:#58bf00;
+}
 .app-layout header.stick.style2, .app-layout .rs-lg-br{
     position: fixed;
     top: 0;
@@ -940,6 +944,7 @@ aside.sidebar ul li a div{
 }
 .admin-layout .nav_bar .logo{
     margin-left: 20px;
+    margin-top: 10px;
 }
 .admin-layout .nav_bar>button{
     float: right;
@@ -979,7 +984,7 @@ aside.sidebar ul li a div{
     align-items: baseline;
 }
 
-.admin-layout .error-message{
+ .error-message{
     color: red;
 }
 

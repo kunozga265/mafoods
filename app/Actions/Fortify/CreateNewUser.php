@@ -2,8 +2,11 @@
 
 namespace App\Actions\Fortify;
 
+use App\Mail\NewUserMail;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -31,10 +34,17 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+        $user = User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        $role = Role::where("name","normal")->first();
+        $user->roles()->attach($role);
+
+        Mail::to($input['email'])->send(new NewUserMail($input['name'],$input['email'],$input['password']));
+
+        return $user;
     }
 }

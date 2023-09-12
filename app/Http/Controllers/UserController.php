@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NewUserMail;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -22,11 +23,14 @@ class UserController extends Controller
             "password"      => ['required', 'confirmed', new \Laravel\Fortify\Rules\Password, 'string'],
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $role = Role::where("name","administrator")->first();
+        $user->roles()->attach($role);
 
         Mail::to($request->email)->send(new NewUserMail($request->name,$request->email,$request->password));
 

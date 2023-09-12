@@ -1,6 +1,6 @@
 <body>
 <p>Hello, {{$name}}!</p>
-<p>You have been registered as an administrator for Malawi Food Data System (MAFOODS) with the following credentials;</p>
+<p>You are registered as a user under Malawi Food Data System (MAFOODS) with the following credentials;</p>
 <p>
     Email: {{$email}}<br>
     Password: {{$password}}

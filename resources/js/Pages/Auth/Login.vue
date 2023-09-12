@@ -5,17 +5,19 @@
             <div class="block">
                 <div class="container auth-card">
                     <div class="title-style2 center-align">
-                        <h4 itemprop="headline"><i>Admin</i> Panel</h4>
+                        <h4 itemprop="headline"><i>Account</i> Login</h4>
 <!--                        <span>Project Overview</span>-->
                     </div>
                    <form @submit.prevent="submit" class="form">
                        <div>
                            <label for="email">Email</label>
                            <input v-model="form.email" id="email" type="email">
+                           <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.email }}</div>
                        </div>
                        <div>
                            <label for="password">Password</label>
                            <input v-model="form.password" id="password" type="password">
+                           <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.password }}</div>
                        </div>
                        <div class="action">
                            <button type="submit" class="btn1" :disabled="form.processing">
@@ -25,6 +27,8 @@
                                </svg>
                                Login
                            </button>
+                           <div class="mt-8">Do not have an account?
+                               <inertia-link :href="route('register')">Register Now</inertia-link></div>
                            <div>
 <!--                               <a href="#"><span>Forgot password?</span></a>-->
                            </div>

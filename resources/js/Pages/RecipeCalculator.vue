@@ -137,22 +137,26 @@
                         </div>
                     </div>
 
-                    <div class="steps">
-                        <div>Step 4</div>
-                        <h4>Personal Information</h4>
-                    </div>
-                    <div class="steps-content">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="">
-<!--                                                                    <span>weight</span>-->
-                                    <input type="text" v-model="userName" placeholder="Enter your name">
+                    <div v-show="$page.props.auth == null">
+                        <div class="steps">
+                            <div>Step 4</div>
+                            <h4>Personal Information</h4>
+                        </div>
+                        <div class="steps-content">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="">
+                                        <!--                                                                    <span>weight</span>-->
+                                        <input type="text" v-model="userName" placeholder="Enter your name">
+                                        <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.user_name }}</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="">
-                                    <!--                                <span>weight</span>-->
-                                    <input type="email" v-model="userEmail" placeholder="Enter your email">
+                                <div class="col-sm-6">
+                                    <div class="">
+                                        <!--                                <span>weight</span>-->
+                                        <input type="email" v-model="userEmail" placeholder="Enter your email">
+                                        <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.user_email }}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -488,17 +492,32 @@
                             </svg>
                             Generate Recipe
                         </button>
-                        <button  v-else @click="generatePDF" class="btn1">
-                            <svg v-show="loading" class="inline w-4 h-4 mr-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>
-                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>
-                            </svg>
-                            Generate PDF
-                        </button>
+                        <div v-show="$page.props.auth == null" class="mt-8">To save your recipes, Please
+                        <inertia-link :href="route('login')">login</inertia-link></div>
+<!--                        <button  v-else @click="generatePDF" class="btn1">-->
+<!--                            <svg v-show="loading" class="inline w-4 h-4 mr-3 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"/>-->
+<!--                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentColor"/>-->
+<!--                            </svg>-->
+<!--                            Generate PDF-->
+<!--                        </button>-->
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="fixed left-6 bottom-6 md:right-10 md:bottom-10">
+            <div v-show="!validation" id="toast-danger" class="flex items-center w-full  p-4 mb-4 text-red-700 bg-red-100 rounded-lg shadow dark:text-red-400 dark:bg-red-800" role="alert">
+                <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+                    <i class="mdi mdi-alert-circle text-2xl"></i>
+                </div>
+                <div class="ml-3  font-normal">{{ errorMessage }}</div>
+                <button @click="error=false" type="button" class="ml-auto -mx-1.5 -my-1.5 text-red-700 hover:text-red-900 rounded-lg focus:ring-2 focus:ring-red-300 p-1.5 hover:bg-red-100 inline-flex h-8 w-8 dark:text-red-500 dark:hover:text-white dark:bg-red-800 dark:hover:bg-red-700" aria-label="Close">
+                    <span class="sr-only">Close</span>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+        </div>
 
 
     </app-layout>
@@ -529,6 +548,7 @@ export default {
             form: this.$inertia.form({}),
             showResults:false,
             loading:false,
+            errorMessage:"",
         }
     },
     created(){
@@ -749,7 +769,20 @@ export default {
             return (1 - (this.initialWeight - this.finalWeight)/this.initialWeight)
         },
         validation(){
-            return !isNaN(this.yieldFactor) && !isNaN(this.finalWeight) && this.finalWeight > 0 && (this.recipe.length > 0) && (this.userName.length > 0) && (this.userEmail.length > 0)
+            if(this.recipe.length === 0) {
+                this.errorMessage = "Enter Recipe Name"
+                return false
+            } else if(this.ingredientsList.length === 0) {
+                this.errorMessage = "Enter Ingredients"
+                return false
+            } else if(this.finalWeight.length === 0 || this.finalWeight <= 0) {
+                this.errorMessage = "Enter Final Weight"
+                return false
+            } else if(isNaN(this.finalWeight)){
+                this.errorMessage = "Final Weight should be a number"
+                return false
+            }else
+                return true
         }
     },
     watch:{
@@ -923,7 +956,7 @@ export default {
                     ingredients:this.ingredientsList,
                     results:this.results,
                     name:this.recipe,
-                    user_name:this.userName,
+                    user_name: this.userName,
                     user_email:this.userEmail,
                     final_cooked_weight:this.finalWeight,
                 }))

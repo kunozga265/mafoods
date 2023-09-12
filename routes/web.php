@@ -44,6 +44,14 @@ Route::post('/recipe-calculator', [
     RecipeController::class,'storeWeb'
 ])->name('recipe.calculator.store');
 
+Route::get('/recipes', [
+    PageController::class,'recipes'
+])->name('recipes')->middleware(['auth']);
+
+Route::get('/recipes/print/{id}', [
+    RecipeController::class, 'printRecipe'
+])->name('recipes.print')->middleware('auth');
+
 Route::get('/project-overview', [
     PageController::class,'projectOverview'
 ])->name('project-overview');
@@ -77,10 +85,12 @@ Route::get('/news/{slug}', [
 ])->name('news.show');
 
 /* Auth Routes */
-Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
+Route::group(['prefix'=>'admin', 'middleware'=>['auth', 'roles']], function (){
 
     Route::get('/', [
-        PageController::class,'dashboard'
+//        PageController::class,'dashboard',
+        "uses"  => "App\Http\Controllers\PageController@dashboard",
+        'roles' =>['administrator']
     ])->name('admin.dashboard');
 
     Route::group(['prefix'=>'news'], function (){

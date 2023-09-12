@@ -24,10 +24,7 @@
                             <input type="text" v-model="form.code" id="code">
                             <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.code }}</div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="ref_no">REF NO</label>
-                            <input type="text" v-model="form.ref_no" id="ref_no">
-                        </div>
+                    
                         <div class="col-md-6">
                             <label for="group">Group</label>
                             <div>
@@ -41,6 +38,24 @@
                                 </select>
                             </div>
                             <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.group }}</div>
+                        </div>
+                         <div class="col-md-6">
+                            <label for="source">Source</label>
+                            <div>
+                                <select id="source" class="select2 select2-container" v-model="form.source">
+                                    <option
+                                        v-for="(source, index) in sources"
+                                        :key="index"
+                                        :value="source.id">
+                                        {{ source.name }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.source }}</div>
+                        </div>
+                          <div class="col-md-6">
+                            <label for="ref_no">REF NO</label>
+                            <input type="text" v-model="form.ref_no" id="ref_no">
                         </div>
                         <div class="col-md-6">
                             <label for="moisture">Moisture (g)</label>
@@ -235,7 +250,7 @@ import Select2 from "v-select2-component";
 
 export default {
     name: "Create",
-    props:['groups','food'],
+    props:['groups','food','sources'],
     components: {AdminLayout, Select2},
     data(){
         return{
@@ -244,6 +259,7 @@ export default {
                 "ref_no":this.food.data.ref_no,
                 "item":this.food.data.item,
                 "group":this.food.data.group.id,
+                "source":this.food.data.source.id,
                 "moisture":this.food.data.moisture,
                 "energy_kcal":this.food.data.energy_kcal,
                 "energy_kj":this.food.data.energy_kj,

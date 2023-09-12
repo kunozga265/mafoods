@@ -6,6 +6,7 @@ use App\Http\Resources\FoodResource;
 use App\Http\Resources\GroupResource;
 use App\Models\Food;
 use App\Models\Group;
+use App\Models\Source;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rule;
@@ -27,8 +28,10 @@ class CompositionTableController extends Controller
     public function create()
     {
         $groups=Group::all();
+        $sources=Source::all();
         return Inertia::render('Auth/CompositionTable/Create',[
             'groups'    => GroupResource::collection($groups),
+            'sources'   => $sources,
         ]);
     }
 
@@ -38,6 +41,7 @@ class CompositionTableController extends Controller
            'item'   => 'required',
            'code'   => ['required','unique:foods'],
            'group'  => 'required',
+           'source'  => 'required',
         ]);
 
         Food::create([
@@ -45,6 +49,7 @@ class CompositionTableController extends Controller
             "ref_no"                =>$request->ref_no,
             "item"                  =>$request->item,
             "group_id"              =>$request->group,
+            "source_id"              =>$request->source,
             "moisture"              =>$request->moisture,
             "energy_kcal"           =>$request->energy_kcal,
             "energy_kj"             =>$request->energy_kj,
@@ -99,9 +104,11 @@ class CompositionTableController extends Controller
 
         if(is_object($food)){
             $groups=Group::all();
+             $sources=Source::all();
             return Inertia::render('Auth/CompositionTable/Show',[
                 'food'  =>  new FoodResource($food),
                 'groups'    => GroupResource::collection($groups),
+                'sources'   => $sources,
             ]);
 
         }else{
@@ -120,6 +127,7 @@ class CompositionTableController extends Controller
                 'item'   => 'required',
                 'code'   => 'required',
                 'group'  => 'required',
+                'source'  => 'required',
                 Rule::unique('foods')->ignore($code),
             ]);
 
@@ -128,6 +136,7 @@ class CompositionTableController extends Controller
                 "ref_no"                =>$request->ref_no,
                 "item"                  =>$request->item,
                 "group_id"              =>$request->group,
+                "source_id"             =>$request->source,
                 "moisture"              =>$request->moisture,
                 "energy_kcal"           =>$request->energy_kcal,
                 "energy_kj"             =>$request->energy_kj,

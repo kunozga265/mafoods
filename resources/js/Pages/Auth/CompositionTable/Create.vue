@@ -25,10 +25,6 @@
                             <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.code }}</div>
                         </div>
                         <div class="col-md-6">
-                            <label for="ref_no">REF NO</label>
-                            <input type="text" v-model="form.ref_no" id="ref_no">
-                        </div>
-                        <div class="col-md-6">
                             <label for="group">Group</label>
                             <div>
                                 <select id="group" class="select2 select2-container" v-model="form.group">
@@ -41,6 +37,24 @@
                                 </select>
                             </div>
                             <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.group }}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="source">Source</label>
+                            <div>
+                                <select id="source" class="select2 select2-container" v-model="form.source">
+                                    <option
+                                        v-for="(source, index) in sources"
+                                        :key="index"
+                                        :value="source.id">
+                                        {{ source.name }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="error-message" v-if="$page.props.errors">{{$page.props.errors.source }}</div>
+                        </div>
+                          <div class="col-md-6">
+                            <label for="ref_no">REF NO</label>
+                            <input type="text" v-model="form.ref_no" id="ref_no">
                         </div>
                         <div class="col-md-6">
                             <label for="moisture">Moisture (g)</label>
@@ -235,7 +249,7 @@ import Select2 from "v-select2-component";
 
 export default {
     name: "Create",
-    props:['groups'],
+    props:['groups', 'sources'],
     components: {AdminLayout, Select2},
     data(){
         return{
@@ -244,6 +258,7 @@ export default {
                 "ref_no":"",
                 "item":"",
                 "group":null,
+                "source":null,
                 "moisture":0,
                 "energy_kcal":0,
                 "energy_kj":0,

@@ -9,8 +9,16 @@ class Recipe extends Model
 {
     use HasFactory;
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     protected $fillable=[
         "name",
+        "user_id",
+        "user_email",
+        "user_name",
         "final_cooked_weight",
         "initial_weight",
         "moisture",

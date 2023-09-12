@@ -35,7 +35,7 @@ class CheckRole
             return response()->json(['message' => 'Unauthorized. Does not have access rights.'], 403);
         else{
             //Web Response
-            return Redirect::route('dashboard')->with('error','Unauthorized. You do not have access rights.');
+            return Redirect::route('home')->with('error','Unauthorized. You do not have access rights.');
         }
     }
 }

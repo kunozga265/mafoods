@@ -31,6 +31,9 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::loginView(function () {
             return Inertia::render("Auth/Login");
         });
+        Fortify::registerView(function () {
+            return Inertia::render("Auth/Register");
+        });
 
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);

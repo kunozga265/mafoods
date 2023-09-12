@@ -16,6 +16,9 @@ class CreateRecipesTable extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->integer("user_id")->nullable();
+            $table->string("user_email")->nullable();
+            $table->string("user_name")->nullable();
             $table->double("final_cooked_weight");
             $table->double("initial_weight");
             $table->double("moisture")->nullable();

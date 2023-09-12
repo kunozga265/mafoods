@@ -9,7 +9,9 @@ use App\Models\Food;
 use App\Models\Recipe;
 use App\Models\RetentionFactor;
 use Barryvdh\DomPDF\Facade\Pdf;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
@@ -288,8 +290,20 @@ class RecipeController extends Controller
             'name'                  => 'required',
             'final_cooked_weight'   => 'required',
             'ingredients'           => 'required',
-            'user_email'           => 'required'
         ]);
+
+        $user = (new AppController())->getAuthUser($request);
+        if($user != null){
+            $user_name = $user->name;
+            $user_email = $user->email;
+        }else{
+            $request->validate([
+                'user_email'          => 'required',
+                'user_name'           => 'required'
+            ]);
+            $user_name = $request->user_name;
+            $user_email = $request->user_email;
+        }
 
         $ingredients = [];
 
@@ -488,8 +502,11 @@ class RecipeController extends Controller
         $results["vitamin_d"] = ($results["vitamin_d"] / $final_cooked_weight) * 100;
         $results["vitamin_e"] = ($results["vitamin_e"] / $final_cooked_weight) * 100;
 
-        //save results
+            //save results
         $recipe = Recipe::create([
+            "user_id"                   =>Auth::id(),
+            "user_name"                 =>$user_name,
+            "user_email"                =>$user_email,
             "name"                      =>$request->name,
             "initial_weight"            =>$initial_weight,
             "final_cooked_weight"       =>$final_cooked_weight,
@@ -540,7 +557,11 @@ class RecipeController extends Controller
             "vitamin_e"                 =>$results["vitamin_e"],
         ]);
 
-        Mail::to($request->user_email)->send(new GeneratedRecipeMail($recipe, $request->user_name));
+        try{
+            Mail::to($request->user_email)->send(new GeneratedRecipeMail($recipe, $request->user_name));
+        }catch(GuzzleException $e){
+
+        }
         return Redirect::back()->with("success", "Recipe Generated! Please Check your email");
 
     }

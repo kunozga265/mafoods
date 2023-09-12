@@ -45,7 +45,7 @@ class HandleInertiaRequests extends Middleware
             },
             'auth'=> function() use ($request){
                 if (Auth::check())
-                    return Auth::user();
+                    return new UserResource(Auth::user());
                 else
                     return null;
             },
