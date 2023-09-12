@@ -118,14 +118,19 @@
                                                     <input v-model="contact.designation" type="text" required>
                                                     <!--                                                    <div class="error-message" v-if="$page.props.errors.updatePassword">{{$page.props.errors.updatePassword.password }}</div>-->
                                                 </div>
-                                               <div class="col-md-6">
+                                               <div class="col-md-12">
                                                     <label>Address</label>
                                                     <input v-model="contact.address" type="text" required>
                                                     <!--                                                    <div class="error-message" v-if="$page.props.errors.updatePassword">{{$page.props.errors.updatePassword.password }}</div>-->
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>Email</label>
-                                                    <input v-model="contact.email" type="text" required>
+                                                    <label>Email - 1</label>
+                                                    <input v-model="contact.email1" type="text" required>
+                                                    <!--                                                    <div class="error-message" v-if="$page.props.errors.updatePassword">{{$page.props.errors.updatePassword.password }}</div>-->
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Email - 2</label>
+                                                    <input v-model="contact.email2" type="text" required>
                                                     <!--                                                    <div class="error-message" v-if="$page.props.errors.updatePassword">{{$page.props.errors.updatePassword.password }}</div>-->
                                                 </div>
                                                 <div class="col-md-6">
