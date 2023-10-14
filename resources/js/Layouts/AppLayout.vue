@@ -57,7 +57,7 @@
                         </div>
                     </div><!-- Topbar 1 -->
                     <div class="menu-sec1">
-                        <div class="container flex items-center">
+                        <div class="justify-center flex items-center">
                             <div class="logo">
                                 <h1 itemprop="headline"><a :href="route('home')" title="" itemprop="url">Mafoods<!--<img :src="fileUrl('images/mafoods-logo.png')" alt="" itemprop="image" />--></a></h1>
                             </div><!-- Logo -->

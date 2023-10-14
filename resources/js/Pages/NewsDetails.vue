@@ -1,7 +1,8 @@
 <template>
     <app-layout>
         <div class="page-top style2 blackish opc7">
-            <div class="fixed-bg2" :style="{ backgroundImage:`url(${fileUrl(news.data.photo)})` }"></div>
+            <!-- <div class="fixed-bg2" :style="{ backgroundImage:`url(${fileUrl(news.data.photo)})` }"></div> -->
+            <div class="fixed-bg2" :style="{ backgroundImage:`url(${fileUrl('images/page-top.jpg')})` }"></div>
             <div class="container">
                 <div class="page-title">
                     <div class="pg-tl">
@@ -23,7 +24,7 @@
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="row">
                                 <div class="col-md-12 col-sm-12 col-lg-9">
-<!--                                    <img class="" :src="fileUrl(news.data.photo)" :alt="news.data.title">-->
+                                   <img class="" :src="fileUrl(news.data.photo)" :alt="news.data.title">
                                     <div class="blg-dtl style2">
                                         <div class="blg-mta">
 <!--                                            <h2> {{ // news.data.title }}</h2>-->

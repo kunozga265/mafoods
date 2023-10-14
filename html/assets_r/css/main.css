@@ -44,7 +44,7 @@
 
 .image-overlay{
     background-blend-mode: darken;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.4);
 }
 
 .service-box img{
@@ -655,6 +655,7 @@
 .partners img{
     max-height: 150px;
     margin:auto;
+    margin-bottom: 20px;
 }
 
 .downloads{

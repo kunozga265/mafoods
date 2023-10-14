@@ -103,7 +103,7 @@
                     </div>
                     <div class="steps">
                         <div>Step 3</div>
-                        <h4>Enter Recipe Weights</h4>
+                        <h4>Enter Ingredients Weights</h4>
                     </div>
                     <div class="steps-content weights">
                         <div class="row">

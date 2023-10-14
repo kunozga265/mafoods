@@ -22,7 +22,7 @@
                                 <!--                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>-->
                                 <div>
                                     <form class="newsletter-frm" :action="route('search')" method="get">
-                                        <input name="query" type="text" placeholder="Search" />
+                                        <input name="query" type="text" placeholder="Search for food" />
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>
@@ -58,7 +58,7 @@
                                          <a :href="route('composition.table')" title="" itemprop="url">
                                             <div class="service-box">
                                                 <i><img :src="fileUrl('images/table-icon.svg')" alt="" itemprop="image" /></i>
-                                                <h2 itemprop="headline">Food Composition Table</h2>
+                                                <h2 itemprop="headline">Malawi Food Composition Table</h2>
                                                 <p itemprop="description">Explore our database with 42 nutrients freely available </p>
                                                 <a :href="route('composition.table')" title="" itemprop="url">Learn More <i class="fa fa-caret-right"></i></a>
                                             </div>
@@ -116,7 +116,7 @@
                                 <p itemprop="description">{{ page.data.contents.home_section_2_subtitle }}</p>
                             </div>
                             <div class="fun-facts center-align paddlr170">
-                                <a href="#" title="" class="btn1 dnt-pp" itemprop="url">Learn More</a>
+                                <a :href="route('project-overview')" title="" class="btn1" itemprop="url">Learn More</a>
                             </div><!-- Fun Facts -->
                         </div>
                     </div>
@@ -134,9 +134,9 @@
                                 <span>Get every single update</span>
 <!--                                <p itemprop="description">Get every single update</p>-->
                             </div>
-                            <div class="remove-ext paddlr100">
-                                <div class="">
-                                    <div class="col-md-6 col-sm-6 col-lg-6"
+                            <div class="paddlr100">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-lg-6"
                                          v-for="(news_item,index) in news.data"
                                          :key="index"
                                     >
@@ -158,10 +158,11 @@
                                             </inertia-link>
                                         </div><!-- News Box -->
                                     </div>
-                                    <div class="center-align">
+                                   
+                                </div>
+                                <div class="col-sm-12 center-align">
                                         <a :href="route('news')" title="" class="btn1-drk" itemprop="url">View all</a>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
