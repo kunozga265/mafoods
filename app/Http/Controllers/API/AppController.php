@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DescriptorResource;
 use App\Http\Resources\FoodResource;
 use App\Http\Resources\FoodTypeResource;
 use App\Http\Resources\RetentionFactorsResource;
+use App\Models\Descriptor;
 use App\Models\Food;
 use App\Models\FoodType;
 use App\Models\Group;
@@ -22,6 +24,7 @@ class AppController extends Controller
         $retentionFactors=RetentionFactor::all();
         $groups=Group::all();
         $sources=Source::all();
+        $descriptors=Descriptor::all();
 
         return response()->json([
             'foods' => FoodResource::collection($foods),
@@ -29,6 +32,7 @@ class AppController extends Controller
             'retention_factors' => RetentionFactorsResource::collection($retentionFactors),
             'groups' => $groups,
             'sources' => $sources,
+            'descriptors' => DescriptorResource::collection($descriptors),
         ]);
     }
 }
