@@ -45,9 +45,6 @@
                 </div>
             </div>
         </section>
-
-
-
     </app-layout>
 </template>
 

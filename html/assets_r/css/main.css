@@ -165,7 +165,7 @@
 
 .food-details tr td:first-child{
     background-color: #f2f2f4;
-    max-width: 50px;
+    /*max-width: 50px;*/
     font-weight: bold;
     text-transform: uppercase;
     font-family: "Montserrat",sans-serif;
