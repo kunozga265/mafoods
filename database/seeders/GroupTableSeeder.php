@@ -28,7 +28,7 @@ class GroupTableSeeder extends Seeder
 
         //id -> 3
         Group::create([
-            'name'  => "Animals",
+            'name'  => "Animal Foods",
             'image' => "images/groups/animals.jpg"
         ]);
 
