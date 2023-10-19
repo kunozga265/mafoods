@@ -33,3 +33,6 @@ Route::get("/food-types", [\App\Http\Controllers\FoodTypeController::class,"inde
 Route::get("/retention-factors", [\App\Http\Controllers\RetentionFactorController::class,"index"]);
 Route::post("/recipes", [\App\Http\Controllers\RecipeController::class,"store"]);
 Route::get('/recipes/print/{id}', [RecipeController::class, 'printRecipe']);
+
+Route::post('descriptors/seeder',[\App\Http\Controllers\DescriptorController::class,'seeder']);
+
