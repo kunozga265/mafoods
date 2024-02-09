@@ -15,7 +15,7 @@ class FoodTypeResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'                => $this->id,
+            'id'                => intval($this->id),
             'item'              => $this->item,
             'group'             => $this->group,
             'retention_factors' => $this->retentionFactors()->orderBy('cooking_method','asc')->get(),

@@ -15,7 +15,7 @@ class DescriptorResource extends JsonResource
     public function toArray($request)
     {
         return [
-            "id"            =>$this->id,
+            "id"            =>intval($this->id),
             "code"          =>$this->code,
             "name"          =>$this->name,
             "description"   =>$this->description,
