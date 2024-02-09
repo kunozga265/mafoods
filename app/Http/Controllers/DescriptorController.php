@@ -15,10 +15,12 @@ class DescriptorController extends Controller
             $refs = explode("*",$descriptor["reference"]);
             foreach ($refs as $ref){
                 $item = explode("?",$ref);
-                $references[]=[
-                  "citation"    => $item[0],
-                  "full"        => $item[1],
-                ];
+                if(isset($item[1])) {
+                    $references[] = [
+                        "citation" => $item[0],
+                        "full" => $item[1],
+                    ];
+                }
             }
 
             Descriptor::create([

@@ -19,7 +19,7 @@ class CreateDescriptorsTable extends Migration
             $table->string("name");
             $table->text("description");
             $table->text("function");
-            $table->text("other");
+            $table->text("other")->nullable();
             $table->json("references");
             $table->timestamps();
         });
