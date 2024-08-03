@@ -1,7 +1,7 @@
 <template>
     <app-layout>
-        <div class="page-top style2 blackish opc7">
-            <div class="fixed-bg2" :style="{ backgroundImage:`url(${fileUrl(food.data.group.image)})` }"></div>
+        <div class="page-top blackish style2 opc7">
+            <div class="fixed-bg2" style="background-color: white; background-blend-mode: normal " :style="{ backgroundImage:`url(${fileUrl(food.data.group.image)})` }"></div>
             <div class="container">
                 <div class="page-title">
                     <div class="pg-tl">

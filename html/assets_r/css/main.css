@@ -3,6 +3,12 @@
     padding-top:168px;
 }
 
+.fixed-bg2{
+    background-color: #577e48;
+    background-blend-mode: luminosity;
+}
+
+
 .tb-br-scl2 > strong > a {
     color:#58bf00;
 }

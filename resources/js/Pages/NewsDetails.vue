@@ -2,7 +2,7 @@
     <app-layout>
         <div class="page-top style2 blackish opc7">
             <!-- <div class="fixed-bg2" :style="{ backgroundImage:`url(${fileUrl(news.data.photo)})` }"></div> -->
-            <div class="fixed-bg2" :style="{ backgroundImage:`url(${fileUrl('images/page-top.jpg')})` }"></div>
+            <div class="fixed-bg2" :style="{backgroundImage:`url(${fileUrl('images/overlay.png')})`}"></div>
             <div class="container">
                 <div class="page-title">
                     <div class="pg-tl">
