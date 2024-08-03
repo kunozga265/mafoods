@@ -80,6 +80,7 @@ class PageController extends Controller
             $foods = Food::where('code', 'like', '%' . $query . '%')
                 ->orWhere('ref_no', 'like', '%' . $query . '%')
                 ->orWhere('item', 'like', '%' . $query . '%')
+                ->orWhere('translation', 'like', '%' . $query . '%')
                 ->get();
         } else {
             //            $query = 'all';

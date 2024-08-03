@@ -5,6 +5,9 @@ Vue.mixin({
         fileUrl: function (path) {
             return this.$page.props.publicPath+path
         },
+        getTranslation: function (food){
+            return food.translation.length !== 0 ? "(" + food.translation + ")" : "";
+        },
         getDate(timestamp,time=false){
             let date = new Date(timestamp*1000);
             const month=date.getMonth()+1

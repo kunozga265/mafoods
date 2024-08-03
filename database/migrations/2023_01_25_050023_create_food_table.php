@@ -18,6 +18,7 @@ class CreateFoodTable extends Migration
             $table->string("code");
             $table->string("ref_no")->nullable();
             $table->string("item");
+            $table->string("translation")->nullable();
             $table->integer("group_id");
             $table->integer("source_id");
             $table->double("moisture")->nullable();

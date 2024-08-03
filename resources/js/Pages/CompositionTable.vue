@@ -414,10 +414,11 @@ export default {
             let foods = this.foods.data
 
             for(let x in foods){
+
                 arr.rows.push({
                     code:foods[x].code,
                     //item:foods[x].item,
-                    item:"<a href="+ this.fileUrl("composition-table/"+foods[x].code) +">" + foods[x].item + "</a>",
+                    item:"<a href="+ this.fileUrl("composition-table/"+foods[x].code) +">" + foods[x].item + " <em>" + this.getTranslation(foods[x]) + "</em>" + "</a>",
 
                     group:foods[x].group.name,
                     source:foods[x].source.name,

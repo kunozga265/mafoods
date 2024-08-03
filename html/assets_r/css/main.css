@@ -3,13 +3,17 @@
     padding-top:168px;
 }
 
+.title-style2 em{
+    color:#58bf00;
+}
+
 .fixed-bg2{
     background-color: #577e48;
     background-blend-mode: luminosity;
 }
 
 
-.tb-br-scl2 > strong > a {
+.tb-br-scl2 > strong > a{
     color:#58bf00;
 }
 .app-layout header.stick.style2, .app-layout .rs-lg-br{
@@ -289,10 +293,10 @@
     min-width: 1000px;
 }
 
-.composition-table .table-view table tbody a{
+.table-view table tbody a{
     color: #444;
 }
-.composition-table .table-view table tbody a:hover{
+.table-view table tbody a:hover{
     color: #58bf00;
 }
 

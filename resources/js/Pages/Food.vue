@@ -25,8 +25,9 @@
                         <div class="bg-white">
 
                             <div class="title-style2 center-align">
-                                <h3 style="text-transform: none"> {{ food.data.item }}</h3>
-                                <span>{{ food.data.code }}</span>
+                                <h2 style="text-transform: none;"> {{ food.data.item }} </h2>
+                                <h3 style="text-transform: none;  margin:0px"><em>{{getTranslation(food.data)}}</em></h3>
+                                <p style="text-transform: none;  margin-top:10px">{{ food.data.code }}</p>
                             </div>
 
 

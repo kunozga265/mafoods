@@ -24,6 +24,7 @@ class Food extends Model
         "code",
         "ref_no",
         "item",
+        "translation",
         "group_id",
         "source_id",
         "moisture",

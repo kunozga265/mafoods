@@ -47,7 +47,7 @@
                                     :key="index"
                                 >
                                     <td>{{food.code}}</td>
-                                    <td><a :href="route('foods.show',food.code)" title="" itemprop="url">{{ food.item }}</a></td>
+                                    <td><a :href="route('foods.show',food.code)" title="" itemprop="url">{{ food.item }} <em>{{getTranslation(food)}}</em></a></td>
                                     <td>{{food.group.name}}</td>
                                     <td>{{food.source.name}}</td>
                                 </tr>

@@ -21,10 +21,22 @@ class FoodController extends Controller
     public function seeder(Request $request)
     {
         foreach ($request->foods as $food) {
+            $arr = explode('(',$food["item"]);
+            $item = trim($arr[0]);
+            $translation="";
+            if (array_key_exists(1,$arr)){
+                $translation = trim($arr[1]);
+                $translation = str_replace(")","",$translation);
+            }
+            if($item[-1] == ","){
+                $item = substr($item,0,-1);
+            }
+
             Food::create([
                 "code"                  =>$food["code"],
                 "ref_no"                =>$food["ref_no"],
-                "item"                  =>$food["item"],
+                "item"                  =>$item,
+                "translation"           =>$translation,
                 "group_id"              =>$food["group"],
                 "moisture"              =>$food["moisture"],
                 "energy_kcal"           =>$food["energy_kcal"],
@@ -72,7 +84,7 @@ class FoodController extends Controller
             ]);
         }
 
-        dd("Database Seeded");
+        dd("Food Database Seeded");
 
     }
 

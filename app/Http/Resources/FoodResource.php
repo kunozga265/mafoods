@@ -19,6 +19,7 @@ class FoodResource extends JsonResource
             "code"                  =>$this->code,
             "ref_no"                =>$this->ref_no,
             "item"                  =>$this->item,
+            "translation"           =>$this->translation,
             "group"                 =>$this->group,
             "source"                =>$this->source,
             "moisture"              =>floatval($this->moisture),
