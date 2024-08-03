@@ -26,8 +26,8 @@
                                 <p itemprop="description" v-text="page.data.contents.contacts_description"></p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 col-lg-4"
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class=""
                                  v-for="(contact,index) in page.data.contents.contacts"
                                  :key="index"
                             >

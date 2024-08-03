@@ -406,14 +406,14 @@
 }
 .contact.news-detail{
     background-color: #f2f2f4;
-    margin-bottom: 30px;
+    /*margin-bottom: 30px;*/
     min-height: 270px;
 }
 
 @media (max-width:996px){
     .contact.news-detail{
         background-color: #f2f2f4;
-        margin-bottom: 30px;
+        /*margin-bottom: 30px;*/
         min-height: auto;
     }
 }

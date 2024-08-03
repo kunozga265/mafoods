@@ -97,8 +97,8 @@
                                 <!--                                <p itemprop="description">Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.</p>-->
                             </div>
                             <div class="">
-                                <div class="">
-                                    <div class=" col-md-6">
+                                <div class="w-full grid grid-cols-1 md:grid-cols-2">
+                                    <div class=" ">
                                         <a :href="route('composition.table')" title="" itemprop="url">
                                             <div class="feature">
                                                 <div class="image">
@@ -115,7 +115,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class=" col-md-6">
+                                    <div class=" ">
                                         <a :href="route('recipe.calculator')" title="" itemprop="url">
                                             <div class="feature">
                                                 <div class="image">
@@ -132,7 +132,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class=" col-md-6">
+                                    <div class=" ">
                                         <a :href="route('downloads')" title="" itemprop="url">
                                             <div class="feature">
                                                 <div class="image">
@@ -149,7 +149,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class=" col-md-6">
+                                    <div class=" ">
                                         <a :href="route('project-overview')" title="" itemprop="url">
                                             <div class="feature">
                                                 <div class="image">
@@ -208,8 +208,8 @@
                                 <!--                                <p itemprop="description">Get every single update</p>-->
                             </div>
                             <div class="paddlr100">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12 col-lg-6"
+                                <div class="w-full grid grid-cols-1 md:grid-cols-2">
+                                    <div class=""
                                          v-for="(news_item,index) in news.data"
                                          :key="index"
                                     >

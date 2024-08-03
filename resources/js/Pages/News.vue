@@ -18,8 +18,8 @@
         <section>
             <div class="block pb-35">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-lg-4"
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                        <div class=""
                              v-for="(news_item,index) in news.data"
                              :key="index"
                         >
