@@ -187,20 +187,20 @@ Food Composition Database was built on the great milestones of the first edition
                         "phoneNumber2"  => "",
                     ],
                     [
-                        "name"          => "Ms. Dalitso Chimwala",
-                        "designation"   => "Food Composition Data Compiler MAFOODS",
-                        "address"       => "Lilongwe University of Agriculture and Natural Resources P. O. Box 219 Lilongwe",
-                        "email1"         => "dchimwala@luanar.ac.mw",
-                        "phoneNumber1"  => "+265 882 856 05",
-                        "phoneNumber2"  => "+265 997 255 086",
-                    ],
-                    [
                         "name"          => "Dr Tinna Manani",
                         "designation"   => "Dean Faculty of Food and Human Sciences and Team Leader-Nutrition for Health Activity",
                         "address"       => "Lilongwe University of Agriculture and Natural Resources P. O. Box 219 Lilongwe",
                         "email1"         => "tmanani@luanar.ac.mw",
                         "phoneNumber1"  => "+265 882 815 580",
                         "phoneNumber2"  => "+265 999 048 960",
+                    ],
+                    [
+                        "name"          => "Ms. Sitilitha Masangwi",
+                        "designation"   => "Food Composition Data Compiler MAFOODS",
+                        "address"       => "Lilongwe University of Agriculture and Natural Resources P. O. Box 219 Lilongwe",
+                        "email1"         => "smasangwi@luanar.ac.mw",
+                        "phoneNumber1"  => "+265 995 51 72 86",
+//                        "phoneNumber2"  => "+265 997 255 086",
                     ],
                     [
                         // "name"          =>"Dr Felix Pensulo Phiri",

@@ -6,6 +6,10 @@
     font-family: "Montserrat";
 }
 
+nav>div>ul>li>a.active, .rs-mnu>ul li a.active{
+    color: #58bf00;
+}
+
 .feature{
     /*display: flex;*/
     width: 100%;

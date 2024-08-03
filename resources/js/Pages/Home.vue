@@ -203,7 +203,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="title-style2 center-align">
-                                <h4 itemprop="headline">Latest <i>News</i></h4>
+                                <h4 itemprop="headline">Latest News  <i>& Updates</i></h4>
                                 <span>Get every single update</span>
                                 <!--                                <p itemprop="description">Get every single update</p>-->
                             </div>
