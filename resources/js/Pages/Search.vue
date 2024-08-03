@@ -19,19 +19,19 @@
         <section>
             <div class="block gray search-results">
                 <div class="container">
-                    <div class="srch-fund">
+                    <div class="srch-fund mb-4">
                         <div class="">
                             <div class=" ">
                                 <div class="srch-fund-inr">
                                     <form class="pg-srch-frm" :action="route('search')" method="get">
-                                        <input name="query" type="text" placeholder="Search" :value="query"/>
+                                        <input class="search" name="query" type="text" placeholder="Search" :value="query"/>
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="table-view">
+                    <div class="table-view mt-16">
                         <table class="table table-bordered dataTable table-sm table-striped">
                             <thead>
                                 <tr>
@@ -49,7 +49,7 @@
                                     <td>{{food.code}}</td>
                                     <td><a :href="route('foods.show',food.code)" title="" itemprop="url">{{ food.item }}</a></td>
                                     <td>{{food.group.name}}</td>
-                                    <td>{{food.group.source}}</td>
+                                    <td>{{food.source.name}}</td>
                                 </tr>
                             </tbody>
                         </table>

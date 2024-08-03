@@ -311,67 +311,9 @@
                     <div class="title-style2 center-align">
                         <h3 >Browse Malawi Food Composition Table</h3>
                     </div>
-                    <div class="">
-                        <div class="">
-                            <div class="fltrs style2 center-align ">
-<!--                                <ul class="fltrs-lst">
-                                    <li class="selected"><span @click="selectedGroup=0" :class="{selected:selectedGroup===0}">All Items ({{foodCount(null)}})</span></li>
-                                    <li v-for="(group,index) in groups.data" :key="index">
-                                        <span  @click="selectedGroup=group.id" :class="{selected:selectedGroup===group.id}">{{ group.name }} ({{foodCount(group.id)}})</span>
-                                    </li>
-                                </ul>
-                                <div class="srch-fund">
-                                    <div class="">
-                                        <div class=" ">
-                                            <div class="srch-fund-inr">
-                                                <form class="pg-srch-frm">
-                                                    <input type="text" placeholder="Search for food" v-model="search"/>
-                                                    <button type="submit"><i class="fa fa-search"></i></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>-->
-                                <div class="">
-                                    <div class="">
-                                        <!--                                        <div class="masonry" v-if="search.length === 0">
-                                                                                    <div
-                                                                                        v-for="(food,index) in foods.data"
-                                                                                        :key="index"
-                                                                                        class="col-md-6 col-sm-6 col-lg-4 flt-itm" :class="slug(food.group.name)">
-                                                                                        <div class="cause-box1 style2">
-                                                                                            <div class="cause-info">
-                                                                                                <span class="cate"><span>{{ food.group.name }}</span></span>
-                                                                                                <h2 itemprop="headline"><a href="#" title="" itemprop="url">{{ food.item }}</a></h2>
-                                                                                                <span class="dnt-gl">Code: <span class="price">{{ food.code }}</span></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>-->
-                                        <div class="table-view">
-<!--                                            <div
-                                                v-for="(food,index) in filteredFoods"
-                                                :key="index"
-                                                class="">
-                                                <div class="cause-box1 style2">
-                                                    <inertia-link :href="route('foods.show',food.code)">
-                                                        <div class="cause-info">
-
-                                                            <div>
-                                                                <span class="cate"><span>{{ food.group.name }}</span></span>
-                                                                <h2 itemprop="headline"><a href="#" title="" itemprop="url">{{ food.item }}</a></h2>
-                                                            </div>
-                                                            <div class="dnt-gl">&lt;!&ndash;Code: &ndash;&gt;<span class="price">{{ food.code }}</span></div>
-                                                        </div>
-                                                    </inertia-link>
-                                                </div>
-                                            </div>-->
-                                            <mdb-datatable :data="data" striped bordered />
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="fltrs style2 center-align ">
+                        <div class="table-view">
+                            <mdb-datatable :data="data" striped bordered />
                         </div>
                     </div>
                 </div>
