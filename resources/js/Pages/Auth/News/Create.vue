@@ -93,7 +93,7 @@ export default {
                 .transform(data => ({
                     ... data,
                     date:this.timestamp,
-                    posted_by:this.postedBy
+                    posted_by:this.form.postedBy
                 }))
                 .post(this.route('admin.news.store'))
         },
