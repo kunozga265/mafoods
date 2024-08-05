@@ -14,12 +14,12 @@
             <div class="card">
                 <form @submit.prevent="submit"  class="form">
                     <div class="row">
-                        <div v-if="form.photo !==''" class="col-md-12">
-                            <img class="w-full" :src="fileUrl(form.photo)" alt="News Photo">
+                        <div v-if="form.photo !==''" class="col-md-12 bg-gray-100">
+                            <img class="max-h-96 mx-auto" :src="fileUrl(form.photo)" alt="News Photo">
                         </div>
                         <div class="col-md-12">
                             <label >Upload Photo</label>
-                            <input type="file" id="photo" @input="photoUpload($event.target.files[0])"/>
+                            <input type="file" id="photo" class="" accept="image/*" @input="photoUpload($event.target.files[0])"/>
                         </div>
                         <div class="col-md-6">
                             <label for="title">Title</label>
@@ -28,6 +28,10 @@
                         <div class="col-md-6">
                             <label for="date">Date</label>
                             <input v-model="date" id="date" type="date" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="posted_by">Posted By</label>
+                            <input v-model="form.postedBy" id="posted_by" type="text">
                         </div>
                         <div class="col-md-12">
                             <label >Body</label>
@@ -65,6 +69,7 @@ export default {
         return{
             form: this.$inertia.form({
                 title:"",
+                postedBy:"",
                 body: "",
                 photo:""
             }),
@@ -87,7 +92,8 @@ export default {
             this.form
                 .transform(data => ({
                     ... data,
-                    date:this.timestamp
+                    date:this.timestamp,
+                    posted_by:this.postedBy
                 }))
                 .post(this.route('admin.news.store'))
         },

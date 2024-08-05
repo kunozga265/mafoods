@@ -31,6 +31,10 @@
                             <input v-model="date" id="date" type="date" required>
                         </div>
                         <div class="col-md-12">
+                            <label for="posted_by">Posted By</label>
+                            <input v-model="form.postedBy" id="posted_by" type="text">
+                        </div>
+                        <div class="col-md-12">
                             <label >Body</label>
                             <ckeditor :editor="editor" v-model="form.body" :config="editorConfig"></ckeditor>
                         </div>
@@ -67,6 +71,7 @@ export default {
         return{
             form: this.$inertia.form({
                 title:this.news.data.title,
+                postedBy:this.news.data.postedBy,
                 body: this.news.data.body,
                 photo:this.news.data.photo
             }),
@@ -89,7 +94,8 @@ export default {
             this.form
                 .transform(data => ({
                     ... data,
-                    date:this.timestamp
+                    date:this.timestamp,
+                    posted_by:this.postedBy
                 }))
                 .post(this.route('admin.news.update',this.news.data.slug))
         },

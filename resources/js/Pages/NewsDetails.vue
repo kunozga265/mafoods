@@ -6,36 +6,38 @@
             <div class="container">
                 <div class="page-title">
                     <div class="pg-tl">
-                        <h1 itemprop="headline" v-text="news.data.title"></h1>
+                        <h1 itemprop="headline">News & Updates</h1>
                     </div>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a :href="route('home')">Home</a></li>
                         <li class="breadcrumb-item"><a :href="route('news')">News</a></li>
-                        <li class="breadcrumb-item active">News Details</li>
+                        <li class="breadcrumb-item active" v-text="news.data.title"></li>
                     </ol>
                 </div>
             </div>
         </div><!-- Page Top -->
 
         <section>
-            <div class="block remove-bottom">
+            <div class="block">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="row">
-                                <div class="col-md-12 col-sm-12 col-lg-9">
-                                   <img class="" :src="fileUrl(news.data.photo)" :alt="news.data.title">
-                                    <div class="blg-dtl style2">
+                                <div class="col-md-12 col-sm-12 col-lg-9 news-article">
+                                    <div class="mb-8">
+                                        <img class="rounded-xl max-h-600" :src="fileUrl(news.data.photo)" :alt="news.data.title">
+                                    </div>
+                                    <div class="blg-dtl style2 mb-8">
                                         <div class="blg-mta">
-<!--                                            <h2> {{ // news.data.title }}</h2>-->
+                                            <h2> {{ news.data.title }}</h2>
                                             <h1 itemprop="headline"></h1>
                                             <ul class="pst-meta">
                                                 <li><i class="fa fa-calendar-check-o"></i> {{ getDate(news.data.date) }}</li>
-                                                <li><i class="fa fa-user"></i> Posted By: <a href="#" title="" itemprop="url">{{ news.data.user.name }}</a></li>
+                                                <li><i class="fa fa-user"></i> Posted By: <a href="#" title="" itemprop="url">{{ news.data.postedBy != null && news.data.postedBy !== "" ? news.data.postedBy : news.data.user.name }}</a></li>
                                             </ul>
-                                            <div class="body" v-html="news.data.body"></div>
+
                                         </div>
                                     </div>
+
+                                    <div class="body" v-html="news.data.body"></div>
 <!--                                    <div class="shar-tag2">
                                         <div class="tagclouds">
                                             <span>Tags:</span>
@@ -73,8 +75,7 @@
                                     </div><!-- Sidebar -->
                                 </div>
                             </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>

@@ -18,6 +18,7 @@ class CreateNewsTable extends Migration
             $table->string("photo");
             $table->string("title");
             $table->string("slug");
+            $table->string("posted_by")->nullable();
             $table->text("body");
             $table->double("date");
             $table->integer("user_id");

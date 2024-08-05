@@ -18,7 +18,7 @@
         <section>
             <div class="block pb-35">
                 <div class="container">
-                    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class=""
                              v-for="(news_item,index) in news.data"
                              :key="index"
@@ -30,7 +30,7 @@
                                     <div class="news-detail">
                                         <h2 itemprop="headline" v-text="news_item.title"></h2>
                                         <ul class="pst-meta">
-                                            <li><i class="fa fa-user"></i> Posted By: {{ news_item.user.name }}</li>
+                                            <li><i class="fa fa-user"></i> Posted By: {{ news_item.postedBy != null && news_item.postedBy !== "" ? news_item.postedBy : news_item.user.name }}</li>
                                             <li>
                                                 <span class="date"><i class="fa fa-calendar-check-o"></i> {{ getDate(news_item.date) }}</span>
                                             </li>
@@ -41,14 +41,14 @@
                                 </inertia-link>
                             </div><!-- News Box -->
                         </div>
-                        <div class="pagination">
-                            <ul>
-                                <li class="prev-pg"><a :href="news.links.prev" title="" itemprop="url"><i class="fa fa-angle-double-left"></i></a></li>
-
-                                <li class="next-pg"><a :href="news.links.next" title="" itemprop="url"><i class="fa fa-angle-double-right"></i></a></li>
-                            </ul>
-                        </div><!-- Pagination -->
                     </div>
+                    <div v-if="news.data.length > 0" class="pagination">
+                        <ul>
+                            <li class="prev-pg"><a :href="news.links.prev" title="" itemprop="url"><i class="fa fa-angle-double-left"></i></a></li>
+
+                            <li class="next-pg"><a :href="news.links.next" title="" itemprop="url"><i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </div><!-- Pagination -->
                 </div>
             </div>
         </section>

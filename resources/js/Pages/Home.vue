@@ -208,7 +208,7 @@
                                 <!--                                <p itemprop="description">Get every single update</p>-->
                             </div>
                             <div class="paddlr100">
-                                <div class="w-full grid grid-cols-1 md:grid-cols-2">
+                                <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div class=""
                                          v-for="(news_item,index) in news.data"
                                          :key="index"
@@ -222,7 +222,7 @@
                                                     <h2 itemprop="headline" v-text="news_item.title"></h2>
                                                     <ul class="pst-meta">
                                                         <li><i class="fa fa-user"></i> Posted By: {{
-                                                                news_item.user.name
+                                                                news_item.postedBy != null && news_item.postedBy !== "" ? news_item.postedBy : news_item.user.name
                                                             }}
                                                         </li>
                                                         <li>

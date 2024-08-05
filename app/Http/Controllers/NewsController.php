@@ -40,6 +40,7 @@ class NewsController extends Controller
         $news=News::create([
             "photo"       => $request->photo,
             "title"       => $request->title,
+            "posted_by"   => $request->posted_by,
             "slug"        => Str::slug($request->title).date("-Y-m-d"),
             "date"        => $request->date,
             "body"        => $request->body,
@@ -88,6 +89,7 @@ class NewsController extends Controller
             $news->update([
                 "photo"       => $request->photo,
                 "title"       => $request->title,
+                "posted_by"   => $request->posted_by,
                 "slug"        => Str::slug($request->title).date("-Y-m-d"),
                 "date"        => $request->date,
                 "body"        => $request->body,

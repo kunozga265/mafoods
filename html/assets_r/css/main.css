@@ -148,6 +148,10 @@
     margin-bottom: 40px;
 }
 
+.max-h-600{
+    max-height: 600px;
+}
+
 .cause-info{
     background: #fbfbfb;
     border: 1px solid #f3f3f3;
@@ -955,7 +959,8 @@ aside.sidebar{
     /*box-shadow: 0 20px 25px 5px rgb(0 0 0 / 0.1), 0 8px 10px 6px rgb(0 0 0 / 0.1);*/
     border-left: 2px solid #f2f2f4;
     z-index: 10;
-    background-color: #edf3e7;
+    /*background-color: #edf3e7;*/
+    background-color: white;
     border-radius: 0;
 }
 aside.sidebar.extend{
@@ -969,11 +974,13 @@ aside.sidebar ul{
 aside.sidebar ul li{
     /*padding: 20px 20px;*/
     transition: all 0.2s ease-in-out;
+    color: white;
 }
 
 aside.sidebar ul li:hover{
     background-color: #daf3c0;
     cursor: pointer;
+    color: red;
 }
 aside.sidebar ul li a i{
     font-size: 16px;
@@ -983,9 +990,9 @@ aside.sidebar ul li a i{
 aside.sidebar ul li a div{
     text-decoration: none;
     color: #272727;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     padding: 20px 20px;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 12px;
     border-bottom: 1px solid #f2f2f4;
 }
@@ -1016,9 +1023,19 @@ aside.sidebar ul li a div{
     display: block;
     position: fixed;
 }
-.admin-layout .nav_bar .logo{
-    margin-left: 20px;
-    margin-top: 10px;
+.admin-layout .nav_bar{
+    background-color: white;
+}
+.admin-layout .nav_bar .logo a{
+    text-transform: none;
+    color: #444;
+    font-size: 24px;
+    /*margin-left: 20px;*/
+    /*margin-top: 10px;*/
+}
+.admin-layout .nav_bar .logo h1{
+    margin:0;
+
 }
 .admin-layout .nav_bar>button{
     float: right;
@@ -1036,7 +1053,7 @@ aside.sidebar ul li a div{
 
 .admin-layout .page-top .pg-tl h1{
     color: #272727;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-size: 28px;
     font-weight: 300;
 }
@@ -1105,9 +1122,10 @@ aside.sidebar ul li a div{
 
 
 .admin-layout .form label{
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
     margin-top: 12px;
-    color: #a2a2a2;
+    color: black;
+    font-weight: 300;
 }
 .admin-layout .form input, .admin-layout .form select{
     width:100%;
@@ -1119,6 +1137,11 @@ aside.sidebar ul li a div{
     color: #555;
     margin-bottom: 10px;
     box-shadow: 0 0 0 0;
+    min-height: 59px;
+}
+
+.admin-layout .form input.p-0{
+    padding: 0;
 }
 
 .tb-br-cnt1>li.socials span{
@@ -1132,11 +1155,11 @@ aside.sidebar ul li a div{
 .style2 .blg-mta .pst-meta{
     margin-bottom: 20px;
 }
-.blg-mta .body img{
+.news-article .body img{
     float:left;
 }
 
-.blg-mta .body img{
+.news-article .body img{
     max-width: 400px;
     max-height:280px;
     margin: 0 20px 20px 0;
@@ -1169,7 +1192,7 @@ aside.sidebar ul li a div{
 .system-content{
     padding: 10px;
     transition: all 0.7s ease-in-out;
-    margin: 130px 0;
+    margin: 100px 0;
 }
 
 .system-content header{

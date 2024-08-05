@@ -51,27 +51,7 @@ class PageTableSeeder extends Seeder
             'name'          => 'project_overview',
             'contents'      => json_encode([
                 'project_overview_description'    => "Malawi Food Data System is an integrated data system that provides expanded nutrient profile data and a recipe calculator that generates useful nutrient information.",
-                'project_overview_main_text'       => "<p><strong>2019:</strong> Government of Malawi in collaboration with Lilongwe University of Agriculture and
-Natural Resource, the USAID funded Feed the Future Innovation Lab for Nutrition at the
-Friedman School of Nutrition Science and Policy, Tufts University and South African Food
-Data System (SAFOODS) of the South African Medical Research Council developed a
-Malawi specific food composition table and database.</p>
-<p>Government of Malawi through the Department of Nutrition and HIV/AIDS (DNHA) is the
-custodian of the Malawi Food Composition Database and Table.</p>
-<p>The Malawi Food Data System (MAFOODS) is the Malawi food composition program
-responsible for maintaing and updating of the food composition database and tables</p>
-<p><strong>2021 to present:</strong></p>
-<p>The Faculty of Food and Human Science at LUANAR received an award from USAID to
-implement a 5-year (May 2021 to May 2026) Nutritional for Health Project to support local
-capacity for strengthening health services delivery in Malawi. The goal of the project was to
-strengthen national capacity to accelerate effective response to nutrition that affect the
-health of Malawians. To achieve this goal, one of the activities was to develop second
-version of the Malawi Food Composition Database. The development of this second Malawi
-Food Composition Database was built on the great milestones of the first edition.</p>
-<p>In addition, MAFOODS also developed additional tools:</p>
-<ul><li>Malawi Food Quantities Manual available in both PDF and Book</li>
-<li>Food Composition Table for Extension Workers for Infant and Young Child Feed</li>
-<li>Recipe Calculation web-based and app version launched</li></ul>",
+                'project_overview_main_text'       => "<p><strong>Malawi Food Composition Table (MFCT) 2019</strong></p><p>The Malawi Food Composition Table (MFCT), launched in 2019, represents the first official edition of Malawi's food composition database. Developed through a collaborative effort funded by USAID Feed the Future, this project involved the Lilongwe University of Agriculture and Natural Resources (LUANAR), the Friedman School of Nutrition Science and Policy at Tufts University, the South African Food Data System (SAFOODS), and the Government of Malawi.</p><p>The MFCT provides comprehensive nutrient values for 316 commonly consumed Malawian food items and includes data on 42 essential nutrient components. This critical information supports professionals in health, agriculture, trade, and industry by providing easy access to detailed nutritional data.</p><p><strong>Current Initiative</strong></p><p>Our mission is to enhance national capacity to address nutritional challenges in Malawi. Supported by USAID, LUANAR is engaged in a five-year project titled “Leveraging Local Capacity to Strengthen Health Service Delivery,” under the Human Resource for Health #3 Nutrition 4 Health Activity. One of the main aims of this initiative is to update and expand the MFCT, ensuring that it reflects the most current and comprehensive food composition data. Our goal is to provide valuable insights that inform nutritional programming and policy, ultimately contributing to the health and development of the Malawian population.</p><p><strong>MAFOODS: Malawi Food Data System</strong></p><p>MAFOODS, housed under the Ministry of Health’s Department of Nutrition, HIV &amp; AIDS and operational at LUANAR, is tasked with maintaining and updating the Malawian food composition database and tables. Established to ensure the sustainability of the food composition data program, MAFOODS is dedicated to:</p><ul><li>Ensuring the availability of up-to-date and comprehensive food composition data in Malawi.</li><li>Promoting the science of food composition.</li><li>Encouraging the appropriate use of food composition data.</li><li>Collaborating with the international food composition community.</li></ul><p>Through these efforts, MAFOODS aims to support informed decision-making and foster improved nutritional outcomes for the people of Malawi.</p><p><strong>Recipe Calculator</strong></p><p>Our Recipe Calculator is a free web and mobile application designed to simplify the calculation of human energy and nutrient intake from various foods and recipes. Available on the MAFOODS website, Google Play Store, and Apple App Store, this tool helps you make informed dietary choices with ease.</p><p><strong>How to Use:</strong></p><p>Download the App: Visit the MAFOODS website, Google Play Store, or Apple App Store to download the Recipe Calculator.</p><p>Register an Account: Sign up using your email address.</p><p>Follow Instructions: Input your recipes and food items to get detailed estimated nutrient compositions.</p><p><strong>Malawian Food Quantities Manual</strong></p><p>We are developing a Malawian Food Quantities Manual to assist users in converting food intake reported in household measures to standard units. This manual will provide accurate quantification of Malawian food items and preparation methods, ensuring precise nutritional assessment.</p>",
             ])
         ]);
 

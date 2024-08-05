@@ -10,7 +10,7 @@
 
         <section>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card">
                         <form @submit.prevent="submit"  class="form">
                             <div class="row">
@@ -40,7 +40,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="card">
                         <form @submit.prevent="updatePassword"  class="form">
                             <div class="row">
@@ -130,8 +130,8 @@ export default {
     data(){
         return{
             form: this.$inertia.form({
-                name:this.$page.props.auth.name,
-                email: this.$page.props.auth.email,
+                name:this.$page.props.auth.data.name,
+                email: this.$page.props.auth.data.email,
                 current_password:"",
                 password_confirmation:"",
                 password:""

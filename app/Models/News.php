@@ -19,6 +19,7 @@ class News extends Model
         "title",
         "slug",
         "body",
+        "posted_by",
         "date",
         "user_id",
     ];
