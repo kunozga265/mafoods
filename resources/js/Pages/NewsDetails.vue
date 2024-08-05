@@ -25,7 +25,7 @@
                                     <div class="mb-8">
                                         <img class="rounded-xl max-h-600" :src="fileUrl(news.data.photo)" :alt="news.data.title">
                                     </div>
-                                    <div class="blg-dtl style2 mb-8">
+                                    <div class="blg-dtl style2 ">
                                         <div class="blg-mta">
                                             <h2> {{ news.data.title }}</h2>
                                             <h1 itemprop="headline"></h1>
