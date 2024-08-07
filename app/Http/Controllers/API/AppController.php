@@ -11,6 +11,7 @@ use App\Models\Descriptor;
 use App\Models\Food;
 use App\Models\FoodType;
 use App\Models\Group;
+use App\Models\Page;
 use App\Models\RetentionFactor;
 use App\Models\Source;
 use Illuminate\Http\Request;
@@ -33,6 +34,15 @@ class AppController extends Controller
             'groups' => $groups,
             'sources' => $sources,
             'descriptors' => DescriptorResource::collection($descriptors),
+        ]);
+    }
+
+    public function aboutUs()
+    {
+        $page = Page::where('name', 'project_overview')->first();
+        $contents = json_decode($page->contents);
+        return response()->json([
+            "content" => $contents->project_overview_main_text
         ]);
     }
 }

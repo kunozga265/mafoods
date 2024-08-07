@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PageTableSeeder::class);
         $this->call(SourceTableSeeder::class);
         $this->call(DownloadTableSeeder::class);
+        $this->call(NewsTableSeeder::class);
     }
 }
