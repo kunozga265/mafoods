@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::group(['prefix' => 'users'], function () {
+    Route::post("/login", [UserController::class, 'login']);
+
+    Route::post("/register", [UserController::class, 'register']);
+
+    Route::post('/update', [
+        "uses" => "App\Http\Controllers\API\V1_0\UserController@update",
+        'roles' => ['administrator']
+    ])->middleware('auth:sanctum');
+
+    Route::post("/update/password", [
+        UserController::class, 'updatePassword'
+    ])->middleware('auth:sanctum');
 });
 
 Route::post('foods/seeder',[\App\Http\Controllers\FoodController::class,'seeder']);
@@ -31,7 +47,7 @@ Route::get("/fetch-data", [\App\Http\Controllers\API\AppController::class,"index
 Route::get("/foods", [\App\Http\Controllers\FoodController::class,"index"]);
 Route::get("/food-types", [\App\Http\Controllers\FoodTypeController::class,"index"]);
 Route::get("/retention-factors", [\App\Http\Controllers\RetentionFactorController::class,"index"]);
-Route::post("/recipes", [\App\Http\Controllers\RecipeController::class,"store"]);
+Route::post("/recipes", [\App\Http\Controllers\RecipeController::class,"storeWeb"]);
 Route::get('/recipes/print/{id}', [RecipeController::class, 'printRecipe']);
 Route::get('/about-us', [App\Http\Controllers\API\AppController::class, 'aboutUs']);
 

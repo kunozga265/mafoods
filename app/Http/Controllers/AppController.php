@@ -8,6 +8,7 @@ use App\Http\Resources\GroupResource;
 use App\Models\Food;
 use App\Models\FoodType;
 use App\Models\Group;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +36,11 @@ class AppController extends Controller
             return User::find(Auth::id());
         }
 
+    }
+
+    public function getRole($id)
+    {
+        return Role::find($id);
     }
 
     public function uploadFile(Request $request)
