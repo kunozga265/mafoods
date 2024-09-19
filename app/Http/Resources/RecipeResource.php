@@ -19,7 +19,7 @@ class RecipeResource extends JsonResource
             "name"                      =>$this->name,
             "initial_weight"            =>floatval($this->initial_weight),
             "final_cooked_weight"       =>floatval($this->final_cooked_weight),
-            "ingredients"               =>json_decode($request->ingredients),
+            "ingredients"               =>json_decode($this->ingredients),
 
             //nutrients
             "sum_of_proximates"         =>floatval(($this->moisture + $this->protein + $this->fats + $this->cho_avail + $this->fibre + $this->ash)),
