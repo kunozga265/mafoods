@@ -21,6 +21,8 @@ class CreateRecipesTable extends Migration
             $table->string("user_name")->nullable();
             $table->double("final_cooked_weight");
             $table->double("initial_weight");
+            $table->json("ingredients");
+
             $table->double("moisture")->nullable();
             $table->double("energy_kcal")->nullable();
             $table->double("energy_kj")->nullable();
@@ -63,7 +65,7 @@ class CreateRecipesTable extends Migration
             $table->double("vitamin_d")->nullable();
             $table->double("vitamin_e")->nullable();
             $table->double("phytic_acid")->nullable();
-            $table->json("ingredients")->nullable();
+
             $table->timestamps();
         });
     }

@@ -513,6 +513,7 @@ class RecipeController extends Controller
             "name"                      =>$request->name,
             "initial_weight"            =>$initial_weight,
             "final_cooked_weight"       =>$final_cooked_weight,
+            "ingredients"               =>json_encode($request->ingredients),
 
             //nutrients
             "sum_of_proximates"         =>$results["moisture"] + $results["protein"] + $results["fats"] + $results["cho_avail"] + $results["fibre"] + $results["ash"],
