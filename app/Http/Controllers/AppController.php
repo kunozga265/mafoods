@@ -121,8 +121,8 @@ class AppController extends Controller
 
         $requestToken=substr($request->server('HTTP_AUTHORIZATION'),7);
 
-        dump($requestToken != null);
-        dump($CSRF_TOKEN);
-        return count($CSRF_TOKEN) == 0;
+        return $requestToken != null;
+//        dump($CSRF_TOKEN);
+//        return count($CSRF_TOKEN) == 0;
     }
 }

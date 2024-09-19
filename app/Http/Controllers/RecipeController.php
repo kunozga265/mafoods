@@ -566,9 +566,9 @@ class RecipeController extends Controller
 
         }
 
-        dump($user_name);
-        dump($user_email);
-        dd((new AppController())->isApi($request));
+//        dump($user_name);
+//        dump($user_email);
+//        dd((new AppController())->isApi($request));
 
         if((new AppController())->isApi($request)){
             return response()->json(new RecipeResource($recipe));
