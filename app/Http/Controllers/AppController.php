@@ -118,6 +118,10 @@ class AppController extends Controller
     {
         //get cookie object
         $CSRF_TOKEN=$request->cookie();
+
+        $requestToken=substr($request->server('HTTP_AUTHORIZATION'),7);
+
+        dump($requestToken != null);
         dump($CSRF_TOKEN);
         return count($CSRF_TOKEN) == 0;
     }
