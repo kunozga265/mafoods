@@ -118,6 +118,7 @@ class AppController extends Controller
     {
         //get cookie object
         $CSRF_TOKEN=$request->cookie();
+        dump($CSRF_TOKEN);
         return count($CSRF_TOKEN) == 0;
     }
 }
