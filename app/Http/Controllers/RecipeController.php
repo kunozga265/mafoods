@@ -8,6 +8,7 @@ use App\Mail\GeneratedRecipeMail;
 use App\Models\Food;
 use App\Models\Recipe;
 use App\Models\RetentionFactor;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
@@ -292,7 +293,8 @@ class RecipeController extends Controller
             'ingredients'           => 'required',
         ]);
 
-        $user = (new AppController())->getAuthUser($request);
+//        $user = (new AppController())->getAuthUser($request);
+        $user = User::find(Auth::id());
         if($user != null){
             $user_name = $user->name;
             $user_email = $user->email;
