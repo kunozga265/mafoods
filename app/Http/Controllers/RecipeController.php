@@ -295,8 +295,9 @@ class RecipeController extends Controller
 
 //        $user = (new AppController())->getAuthUser($request);
         $user = User::find(Auth::id());
+
         if($user != null){
-            $user_name = $user->name;
+            $user_name = $user->first_name. " ".$user->last_name;
             $user_email = $user->email;
         }else{
             $request->validate([
@@ -564,6 +565,11 @@ class RecipeController extends Controller
         }catch(GuzzleException $e){
 
         }
+
+        dump($user_name);
+        dump($user_email);
+        dd((new AppController())->isApi($request));
+
         if((new AppController())->isApi($request)){
             return response()->json(new RecipeResource($recipe));
         }else{
