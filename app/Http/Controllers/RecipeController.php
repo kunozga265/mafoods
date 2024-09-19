@@ -562,8 +562,11 @@ class RecipeController extends Controller
         }catch(GuzzleException $e){
 
         }
-        return Redirect::back()->with("success", "Recipe Generated! Please Check your email");
-
+        if((new AppController())->isApi($request)){
+            return response()->json(new RecipeResource($recipe));
+        }else{
+            return Redirect::back()->with("success", "Recipe Generated! Please Check your email");
+        }
     }
 
     public function printRecipe($id)
