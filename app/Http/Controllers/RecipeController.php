@@ -574,15 +574,17 @@ class RecipeController extends Controller
         if((new AppController())->isApi($request)){
             return response()->json(new RecipeResource($recipe));
         }else{
-            return Redirect::back()->with("success", "Recipe Generated! Please Check your email");
+            return Redirect::back()->with(["success" => "Recipe generated and downloaded! Please check your email as well.",
+                "id" => $recipe->id]);
         }
     }
 
     public function printRecipe($id)
     {
         $recipe = Recipe::findorFail($id);
-        $pdf = PDF::loadView('recipe', [
+        $pdf = PDF::loadView('recipe-1', [
             'recipe'         => $recipe->name,
+            'user_name'         => $recipe->user_name,
             'yieldFactor'    => ($recipe->final_cooked_weight/$recipe->initial_weight),
             'results'        => new RecipeResource($recipe),
         ]);
