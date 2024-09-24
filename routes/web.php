@@ -50,7 +50,7 @@ Route::get('/recipes', [
 
 Route::get('/recipes/print/{id}', [
     RecipeController::class, 'printRecipe'
-])->name('recipes.print')->middleware('auth');
+])->name('recipes.print');
 
 Route::get('/project-overview', [
     PageController::class,'projectOverview'

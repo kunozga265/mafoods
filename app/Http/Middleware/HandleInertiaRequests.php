@@ -54,6 +54,7 @@ class HandleInertiaRequests extends Middleware
                     'info'      =>$request->session()->get('info'),
                     'success'   =>$request->session()->get('success'),
                     'error'     =>$request->session()->get('error'),
+                    'id'        =>$request->session()->get('id'),
                 ];
             },
             'notificationsCount'=> function() use ($request){

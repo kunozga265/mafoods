@@ -1193,7 +1193,10 @@ export default {
                     .post(this.route('recipe.calculator.store'), {
                         preserveScroll: true,
                         // onSuccess: () => this.showResults = true,
-                        onSuccess: () => this.clearSession()
+                        onSuccess: () => {
+                            this.clearSession()
+                            window.location.href = this.fileUrl("recipes/print/" + this.$page.props.flash.id)
+                        }
                     })
             }
 
