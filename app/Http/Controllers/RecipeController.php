@@ -10,6 +10,7 @@ use App\Models\Recipe;
 use App\Models\RetentionFactor;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,11 +19,18 @@ use Illuminate\Support\Facades\Redirect;
 
 class RecipeController extends Controller
 {
-//    public function store(Request $request)
-//    {
-//
-//        Redirect::back();
-//    }
+    public function index(Request $request, $timestamp)
+    {
+        $user = User::find(Auth::id());
+        if (isset($timestamp) && $timestamp > 0){
+            $time = Carbon::createFromTimestamp($timestamp);
+            $recipes = $user->recipes()->where("created_at",">",$time)->get();
+        }else {
+            $recipes = $user->recipes;
+        }
+
+        return response()->json(["recipes" => RecipeResource::collection($recipes)]);
+    }
 
     public function store(Request  $request)
     {
