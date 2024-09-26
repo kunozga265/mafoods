@@ -17,7 +17,7 @@
                         <div class="container">
                             <div v-if="$page.props.auth">
                                 <ul class="tb-br-cnt1 mr-20">
-                                    <li><strong><i class="fa fa-user"></i> Logged in:</strong> <a href="#" title="" itemprop="url">{{$page.props.auth.data.name}}</a></li>
+                                    <li><strong><i class="fa fa-user"></i> Logged in:</strong> <a href="#" title="" itemprop="url">{{$page.props.auth.data.first_name}}</a></li>
                                 </ul>
 
 
